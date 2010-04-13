@@ -1,20 +1,119 @@
-<section id="articles">
-  <% for article in articles[0...3] %>
-    <article class="post">
-      <header>
-        <h1><a href="<%= article.path %>"><%= article.title %></a></h1>
-        <span class="date"><%= article.date %></span>
-      </header>
+<div id="sub_header_wrapper">
+	<div id="sub_header">
+		<img src="images/less_description.png" alt="LESS extends CSS with: variables, mixins, operations and nested rules. Best of all, LESS uses existing CSS syntax. This means you can rename your current .css files to .less and they'll just work." />
+	</div>
+</div>
 
-      <section class="content">
-        <%= article.summary %>
-      </section>
-      <div class="more"><a href="<%= article.path %>">read on &raquo;</a></div>
-    </article>
-  <% end %>
-</section>
+<div id="container">
+	
+	<div id="sidebar">
+		<div id="download">
+			<img src="images/ruby.png" alt="" />
+			<div id="download_intro">
+				<h2>Get LESS</h2>
+				<p>The LESS Ruby gem compiles LESS code to CSS. To install:</p>
+			</div>
+	    <code class="strip">$ sudo gem install less</code>
+			<p>Once installed, you can compile <code>.less</code> files to <code>.css</code> with the following command:</p>
+			<code class="strip">$ lessc style.less</code>
+			<p>Using Rails? Get the <a href="http://github.com/cloudhead/more">plugin</a>. For more info on installing and using LESS please see the <a href="docs.html">Docs</a>.</p>
+		</div>
+		<div id="latest">
+		    <h3>Latest Release — 1.2</h3>Dynamic mixins, and improved CSS 3 support.
+	    </div>
+		<div id="buzz">
+			<h2 style="float: left; line-height: 50px">Twitter Buzz
+	    </h2>
+	    <div style="float:right"><a href="http://twitter.com/cloudhead" target="_blank"><img src="images/twitter3.png" /></a></div>
+			<ul style="clear:both">
+				<li><a href="http://twitter.com/grobot/status/2411364715">grobot</a> "the concepts at www.lesscss.org *so* should be in CSS core! great stuff there from @cloudhead"</li>
+				<li><a href="http://twitter.com/kbucek/status/2888368747">kbucek</a> "after being amazed with .sass I switched to .less to have evolutionary instead of revolutionary stylesheets ..."</li>
+			  <li><a href="http://twitter.com/riceric/status/2691092494">riceric</a> "Wow LESS, where have u been all my web designing life? A must see 4 those who have always wanted to do more w/less"</li>
+				<li><a href="http://twitter.com/danhallock/status/3184647934">danhallock</a> "…and your frustrations with CSS will just melt away: http://lesscss.org/"</li>
+			  <li><a href="http://twitter.com/markuskoljonen/status/2409529414">markuskoljonen</a> "A gift from Gods to web developers"</li>
+				<li><a href="http://twitter.com/benlilley/status/2447284014">benlilley</a> "The 'Less' Ruby Gem for CSS is pretty awesome. Would love this support in standard CSS."</li>
+				<li><a href="http://twitter.com/elliottcable/statuses/5728188029">elliottcable</a> "seriously, people, LESS is the fucking shit. /cc @cloudhead re http://lesscss.org"</li>
+				<li><a href="http://twitter.com/markrbaird/status/2411388968">markrbaird</a> "What CSS should have been from the start: http://lesscss.org/ Simply amazing."</li>
+			</ul>
+		</div>
+		<a href="http://twitter.com/home?status={LESS} extends CSS with variables, mixins, operations and nested rules http://www.lesscss.org" target="_blank"><img src="images/tweet_about_less.png" alt="Tweet About LESS" /></a>
+	  <br /><br />
+	  <form action="https://www.paypal.com/cgi-bin/webscr" style="text-align: center" method="post">
+	    <input type="hidden" name="cmd" value="_s-xclick">
+	    <input type="hidden" name="hosted_button_id" value="YB67YPWBXP5A6">
+	    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+	  </form>
+	</div>
+	
+	<div id="content">
+		<h3>Variables</h3>
+		<p>Variables allow you to specify widely used values in a single place, and then re-use them throughout the style sheet, making global changes as easy as changing one line of code.</p>
+		<div class="code_example">
+			<pre class="less_example">
+<span>@brand_color</span>: #4D926F;
 
-<section id="archives">
-  <%= archives[3..-1] %>
-</section>
+#header {
+  color: <span>@brand_color</span>;
+}
 
+h2 {
+  color: <span>@brand_color</span>;
+}
+			</pre>
+		</div>
+		
+		<h3>Mixins</h3>
+		<p>Mixins allow you to embed all the properties of a class into another class by simply including the class name as one of its properties. It's just like variables, but for whole classes. Mixins can also behave like functions, and take arguments, as seen in the example bellow.</p>
+		<div class="code_example">
+			<pre class="less_example">
+<span>.rounded_corners (@radius: 5px)</span> {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+#header {
+  <span>.rounded_corners</span>;
+}
+
+#footer {
+  <span>.rounded_corners(10px)</span>;
+}
+			</pre>
+		</div>
+		
+		<h3>Nested Rules</h3>
+		<p>Rather than constructing long selector names to specify inheritance, in Less you can simply nest selectors inside other selectors. This makes inheritance clear and style sheets shorter.</p>
+		<div class="code_example">
+			<pre class="less_example">
+#header {
+  color: red;
+  <span>a {
+    font-weight: bold;
+    text-decoration: none;
+  }</span>
+}
+			</pre>
+		</div>
+		
+		<h3>Operations</h3>
+		<p>Are some elements in your style sheet proportional to other elements? Operations let you add, subtract, divide and multiply property values and colors, giving you the power to do create complex relationships between properties.</p>
+		<div class="code_example">
+			<pre class="less_example">
+@the-border: 1px;
+@base-color: #111;
+
+#header {
+  color: <span>@base-color * 3</span>;
+  border-left: @the-border;
+  border-right: <span>@the-border * 2</span>;
+}
+
+#footer { 
+  color: <span>(@base-color + #111) * 1.5</span>;
+}
+			</pre>
+		</div>
+		<p>Head over to the <a href="docs.html">Docs</a> for information on installing and using LESS.</p>
+	</div>
