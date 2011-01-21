@@ -37,7 +37,8 @@ for (var i = 0, children; i < nodes.length; i++) {
 
         if (code.length >= 0) { // It's a text node
             // Don't highlight command-line snippets
-            if (! /^\$/.test(code.nodeValue.trim())) {
+            if (! /^\$/.test(code.nodeValue.trim()) &&
+                ! /^var /.test(code.nodeValue.trim())) {
                 Object.keys(syntax).forEach(function (s) {
                     code.nodeValue = code.nodeValue.replace(syntax[s], function (_, m) {
                         return '\u00ab' + encode(s) + '\u00b7'
