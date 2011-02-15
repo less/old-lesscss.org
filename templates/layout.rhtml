@@ -9,6 +9,8 @@
     <title>LESS &laquo; The Dynamic Stylesheet language</title>
     <script type="text/javascript">
       (function () {
+        if (! document.querySelectorAll) { return }
+
         window.onload = function () {
           var headers = document.querySelectorAll('#docs h2, #guide h1');
           var menu = document.getElementById('menu');
