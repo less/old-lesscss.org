@@ -46,8 +46,8 @@ you can also manually invoke the parser and compiler:
 
     var parser = new(less.Parser);
 
-    parser.parse(function (err, tree) {
-        if (err) { return sys.error(err) }
+    parser.parse('.class { width: 1 + 1 }', function (err, tree) {
+        if (err) { return console.error(err) }
         console.log(tree.toCSS());
     });
 
