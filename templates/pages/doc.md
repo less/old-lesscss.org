@@ -14,7 +14,17 @@ Outputs:
 
     #header { color: #6c94be; }
 
-Note that variables are actually 'constants' in that they can only be defined once.
+It is also possible to define variables with a variable name:
+
+    @fnord: "I am fnord.";
+    @var: 'fnord';
+    content: @@var;
+
+Which compiles to:
+
+    content: "I am fnord.";
+
+Note that variables in LESS are actually 'constants' in that they can only be defined once.
 
 Mixins
 ------
@@ -109,6 +119,24 @@ Which would output:
       white-space: -moz-pre-wrap;
       word-wrap: break-word;
     }
+
+### The `@arguments` variable
+
+`@arguments` has a special meaning inside mixins, it contains all the arguments passed, when the mixin was called. This is useful
+if you don't want to deal with individual parameters:
+
+    .box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
+      box-shadow: @arguments;
+      -moz-box-shadow: @arguments;
+      -webkit-box-shadow: @arguments;
+    }
+    .box-shadow(2px, 5px);
+
+Which results in:
+
+      box-shadow: 2px 5px 1px #000;
+      -moz-box-shadow: 2px 5px 1px #000;
+      -webkit-box-shadow: 2px 5px 1px #000;
 
 Nested rules
 ------------
@@ -313,22 +341,55 @@ If you want to import a CSS file, and don't want LESS to process it, just use th
 
 The directive will just be left as is, and end up in the CSS output.
 
+String interpolation
+--------------------
+
+Variables can be embeded inside strings in a similar way to ruby or PHP, with the `@{name}` construct:
+
+    @base-url: "http://assets.fnord.com";
+    background-image: url("@{base-url}/images/bg.png");
+
 Escaping
 --------
 
 Sometimes you might need to output a CSS value which is either not valid CSS syntax,
 or uses propriatery syntax which LESS doesn't recognize.
 
-You can use the `e()` function for that, which takes a string as parameter. Here's an example:
+To output such value, we place it inside a string prefixed with `~`, for example:
 
     .class {
-      filter: e("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png')");
+      filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png')";
     }
 
-Which will result in:
+This is called an "escaped value", which will result in:
 
     .class {
       filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png');
     }
+
+JavaScript evaluation
+---------------------
+
+JavaScript expressions can be evaluated as values inside .less files. This is done by wrapping the expression
+with back-ticks:
+
+    @var: `"hello".toUpperCase() + '!'`;
+
+Becomes:
+
+    @var: "HELLO!";
+
+Note that you may also use interpolation and escaping as with strings:
+
+    @str: "hello";
+    @var: ~`"@{str}".toUpperCase() + '!'`;
+
+Becomes:
+
+    @var: HELLO!;
+
+It is also possible to access the JavaScript environment:
+
+    @height: `document.body.clientHeight`;
 
 
