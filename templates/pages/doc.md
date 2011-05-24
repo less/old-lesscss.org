@@ -199,7 +199,7 @@ Will output
     .bordered.float {
       float: left;  
     }
-    .bordered .top [
+    .bordered .top {
       margin: 5px;
     }
 
