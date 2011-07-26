@@ -1,0 +1,60 @@
+
+
+      erlapp.template
+
+           a basic erlang/OTP application skeleton
+
+This is a minimal erlang/OTP app, with everything you need to get up and
+running. It tries to follow best practices, while providing everything necessary
+to start development.
+Compared to rebar's "create-app", erlapp is much more complete. It includes
+the following files and folders:
+    
+      ebin/                % .app and .beam files
+      deps/                % dependencies
+      dev/
+      | start              % startup script
+      | start.args         % startup arguments
+      |
+      priv/                % application-specific files
+      src/
+      | erlapp.app.src     % erlapp.app template
+      | erlapp.erl         % entry-point
+      | erlapp_app.erl     % application
+      | erlapp_sup.erl     % supervisor
+      | erlapp_server.erl  % gen_server
+      |
+      Makefile
+      rebar.config
+      .gitignore
+
+erlapp also comes with the sync <https://github.com/rustyio/sync> utility,
+which recompiles and reloads changed code. 
+
+install
+-------
+
+Make sure you have the latest version of rebar installed.
+
+    $ mkdir -p ~/.rebar/templates
+    $ git clone https://github.com/cloudhead/erlapp.template ~/.rebar/templates
+
+setup
+-----
+
+Create the app skeleton, set `appid` to the app name
+
+    $ rebar create template=erlapp appid=myapp
+
+Build the application
+
+    $ make all
+
+Start the development console
+
+    $ dev/start
+
+Modules should get recompiled/reloaded when their source is changed. You can also
+compile the whole project with `make`. Check the Makefile for additional commands.
+
+
