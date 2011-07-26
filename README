@@ -34,10 +34,12 @@ which recompiles and reloads changed code.
 install
 -------
 
-Make sure you have the latest version of rebar installed.
+Make sure you have the latest version of rebar installed, then clone this
+repo into ~/rebar/templates.
 
     $ mkdir -p ~/.rebar/templates
-    $ git clone https://github.com/cloudhead/erlapp.template ~/.rebar/templates
+    $ cd ~/.rebar/templates
+    $ git clone git://github.com/cloudhead/erlapp.template.git
 
 setup
 -----
