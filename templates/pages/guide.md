@@ -78,3 +78,10 @@ This will output the compiled CSS to `stdout`, you may then redirect it to a fil
 
 To output minified CSS, simply pass the `-x` option.
 
+RubyGem
+=======
+
+Less.js is packaged into a ruby gem that includes an
+[embedded v8 engine](https://rubygems.org/gems/therubyracer). It's available on
+[rubygems](https://rubygems.org/gems/less) and provides ruby bindings to the
+compiler.
