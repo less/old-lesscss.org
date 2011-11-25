@@ -393,14 +393,14 @@ Color functions
 LESS provides a variety of functions which transform colors. Colors are first converted to
 the *HSL* color-space, and then manipulated at the channel level:
 
-    lighten(@color, 10%);     // return a color which is 10% *lighter* than @color
-    darken(@color, 10%);      // return a color which is 10% *darker* than @color
+    lighten(@color, 10%);     // return a color 10 percentage points *lighter* than @color
+    darken(@color, 10%);      // return a color 10 percentage points *darker* than @color
 
-    saturate(@color, 10%);    // return a color 10% *more* saturated than @color
-    desaturate(@color, 10%);  // return a color 10% *less* saturated than @color
+    saturate(@color, 10%);    // return a color 10 percentage points *more* saturated than @color
+    desaturate(@color, 10%);  // return a color 10 percentage points *less* saturated than @color
 
-    fadein(@color, 10%);      // return a color 10% *less* transparent than @color
-    fadeout(@color, 10%);     // return a color 10% *more* transparent than @color
+    fadein(@color, 10%);      // return a color 10 percentage points *less* transparent than @color
+    fadeout(@color, 10%);     // return a color 10 percentage points *more* transparent than @color
     fade(@color, 50%);        // return @color with 50% transparency
 
     spin(@color, 10);         // return a color with a 10 degree larger in hue than @color
