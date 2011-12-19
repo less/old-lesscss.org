@@ -180,8 +180,8 @@ Or this way:
 
 The resulting code is more concise, and mimics the structure of your `DOM tree`.
 
-Notice the `&` combinator--it's used when you want a nested selector to be concatinated to its parent selector, instead
-of acting as a descendent. This is especially important for pseudo-classes like `:hover` and `:focus`.
+Notice the `&` combinator--it's used when you want a nested selector to be concatenated to its parent selector, instead
+of acting as a descendant. This is especially important for pseudo-classes like `:hover` and `:focus`.
 
 For example:
 
@@ -353,7 +353,7 @@ Escaping
 --------
 
 Sometimes you might need to output a CSS value which is either not valid CSS syntax,
-or uses propriatery syntax which LESS doesn't recognize.
+or uses proprietary syntax which LESS doesn't recognize.
 
 To output such value, we place it inside a string prefixed with `~`, for example:
 
