@@ -16,6 +16,7 @@ if (!Object.keys || ![].forEach) { return }
 var syntax = {
   'string'   : /("(?:(?!")[^\\]|\\.)*"|'(?:(?!')[^\\]|\\.)*')/g,
   'comment'  : /(\/\*(?:[^*]|\*+[^\/*])*\*+\/|\/\/[^\n]*)/mg,
+  'keyword'  : /\b(when)\b/g,
   'color'    : /(#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3})\b(?=[^\{\}]*[\};])/mg,
   'nth'      : /(\([n0-9+-]+\))(?=[^\{\}]*\{)/g,
   'number'   : /\b((?:-?\d*\.?\d+)(?:px|%|em|pc|ex|in|deg|s|ms|pt|cm|mm)?)/g,
@@ -26,7 +27,7 @@ var syntax = {
   'id'       : /(#[\w-]+)(?=[^\{\}]*\{)/mg,
   'mixin'    : /([#\.][\w-]+)(?=[^;\{\}]*[;\}])/g,
   'element'  : /\b([a-z]+[0-9]?)\b(?=[^\{\}\);]*\{)/mg,
-  'special'  : /(! *important)\b/g
+  'special'  : /(! *important)\b/g,
 };
 var nodes = document.querySelectorAll(selector);
 var table = {};

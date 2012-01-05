@@ -90,7 +90,6 @@ ul, li {
 code { .code; }
 code {
   .string, .regexp { color: @dark }
-  .keyword { font-weight: bold }
   .comment { color: rgba(0, 0, 0, 0.5) }
   .number { color: @blue }
   .class, .special { color: rgba(0, 50, 100, 0.8) }
@@ -221,7 +220,7 @@ nav a, #dropdown li {
     margin-top: -8px;
     margin-right: 5px;
 
-    height: 380px;
+    height: 400px;
     position: relative;
     z-index: 2;
     font-family: 'Droid Serif', 'Georgia';
@@ -278,7 +277,7 @@ nav a, #dropdown li {
       .box-shadow(0, 0px, 15px, 0.5);
       .code;
       .border-radius(2px);
-      code .attribute { color: hsl(40, 50%, 70%) }
+      code .attribute, code .keyword { color: hsl(40, 50%, 70%) }
       code .variable  { color: hsl(120, 10%, 50%) }
       code .element   { color: hsl(170, 20%, 50%) }
 
@@ -293,7 +292,6 @@ nav a, #dropdown li {
     float: right;
     font-size: 12px;
     margin: 0;
-    margin-top: 15px;
     padding: 0;
     width: 500px;
   }
@@ -346,6 +344,7 @@ nav a, #dropdown li {
   background-color: @light-blue;
   .box-shadow(0, -2px, 5px, 0.2);
 
+  ul li { list-style-type: circle }
   h1 {
     font-family: 'Droid Serif', 'Georgia', serif;
     padding-top: 30px;
@@ -370,8 +369,7 @@ nav a, #dropdown li {
     border-width: 2px;
     code .attribute { color: hsl(40, 50%, 30%) }
     code .variable  { color: hsl(120, 10%, 30%) }
-    code .element   { color: hsl(170, 20%, 30%) }
-
+    code .element { color: hsl(170, 20%, 30%) }
     code .string, .regexp { color: hsl(75, 50%, 35%) }
     code .class { color: hsl(40, 40%, 30%); font-weight: normal }
     code .id { color: hsl(50, 40%, 30%); font-weight: normal }
@@ -389,7 +387,7 @@ td {
 #synopsis {
   .box-shadow(0, 5px, 5px, 0.2);
 }
-#synopsis, #about {
+#synopsis, #about, #translations {
   h2 {
     font-size: 30px;  
     padding: 10px 0;
@@ -431,7 +429,7 @@ td {
     font-size: 14px;
   }
 }
-#about, #synopsis, #guide {
+#about, #synopsis, #guide, #translations {
   a {
     text-decoration: none;
     color: @light-yellow;
@@ -470,7 +468,7 @@ td {
   code {
     color: darken(@dark-yellow, 5%);
     .string, .regexp { color: desaturate(@light-blue, 15%) }
-    .keyword { color: hsl(40, 40%, 60%); font-weight: normal }
+    .keyword { color: hsl(40, 50%, 30%); font-weight: normal }
     .comment { color: rgba(255, 255, 255, 0.2) }
     .number { color: lighten(@blue, 10%) }
     .class, .special { color: hsl(190, 20%, 50%) }
@@ -484,7 +482,7 @@ td {
 
 }
 
-#about {
+#about, #translations {
   background-color: @darkest !important;
   .content {
     background-color: desaturate(lighten(@darkest, 3%), 5%);
