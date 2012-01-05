@@ -1,16 +1,19 @@
 Write some LESS:
 
-    .box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
-      @val: @x @y @blur rgba(0, 0, 0, @alpha);
+    @base: #f938ab;
 
-      box-shadow:         @val;
-      -webkit-box-shadow: @val;
-      -moz-box-shadow:    @val;
+    .box-shadow(@style, @c) when (is-color(@c)) {
+      box-shadow:         @style @c;
+      -webkit-box-shadow: @style @c;
+      -moz-box-shadow:    @style @c;
     }
-    .box { @base: #f938ab;
-      color:        saturate(@base, 5%);
+    .box-shadow(@style, @alpha: 50%) when (is-number(@alpha)) {
+      .box-shadow(@style, rgba(0, 0, 0, @alpha));
+    }
+    .box { 
+      color: saturate(@base, 5%);
       border-color: lighten(@base, 30%);
-      div { .box-shadow(0, 0, 5px, 0.4) }
+      div { .box-shadow(0 0 5px, 30%) }
     }
 
 Include `less.js` with your styles:

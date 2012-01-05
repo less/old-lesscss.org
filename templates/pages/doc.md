@@ -61,7 +61,7 @@ The properties of the `.bordered` class will now appear in both `#menu a` and `.
       border-bottom: solid 2px black;
     }
 
-Any CSS *class*, *id* or *element* ruleset can be mixed-in that way.
+Any CSS *class* or *id* ruleset can be mixed-in that way.
 
 Parametric Mixins
 -----------------
@@ -80,7 +80,7 @@ And here's how we can mix it into various rulesets:
       .border-radius(4px);
     }
     .button {
-      .border-radius(6px);  
+      .border-radius(6px);
     }
 
 Parametric mixins can also have default values for their parameters:
@@ -94,7 +94,7 @@ Parametric mixins can also have default values for their parameters:
 We can invoke it like this now:
 
     #header {
-      .border-radius;  
+      .border-radius;
     }
 
 And it will include a 5px border-radius.
@@ -138,6 +138,163 @@ Which results in:
       -moz-box-shadow: 2px 5px 1px #000;
       -webkit-box-shadow: 2px 5px 1px #000;
 
+## Pattern-matching and Guard expressions
+
+Sometimes, you may want to change the behaviour of a mixin,
+based on the parameters you pass to it. Let's start with something
+basic:
+
+    .mixin (@s, @color) { ... }
+
+    .class {
+      .mixin(@switch, #888);
+    }
+
+Now let's say we want `.mixin` to behave differently, based on the value of `@switch`,
+we could define `.mixin` as such:
+
+    .mixin (dark, @color) {
+      color: darken(@color, 10%);
+    }
+    .mixin (light, @color) {
+      color: lighten(@color, 10%);
+    }
+    .mixin (@_, @color) {
+      display: block;
+    }
+
+Now, if we run:
+
+    @switch: light;
+
+    .class {
+      .mixin(@switch, #888);
+    }
+
+We will get the following CSS:
+
+    .class {
+      color: #a2a2a2;
+      display: block;
+    }
+
+Where the color passed to `.mixin` was lightened. If the value of `@switch` was `dark`,
+the result would be a darker color.
+
+Here's what happened:
+
+- The first mixin definition didn't match because it expected `black` as the first argument.
+- The second mixin definition matched, because it expected `light`.
+- The third mixin definition matched because it expected any value.
+
+Only mixin definitions which matched were used. Variables match and bind to any value.
+Anything other than a variable matches only with a value equal to itself.
+
+We can also match on arity, here's an example:
+
+    .mixin (@a) {
+      color: @a;
+    }
+    .mixin (@a, @b) {
+      color: fade(@a, @b);
+    }
+
+Now if we call `.mixin` with a single argument, we will get the output of the first definition,
+but if we call it with *two* arguments, we will get the second definition, namely `@a` faded to `@b`.
+
+### Guards
+
+Guards are useful when you want to match on *expressions*, as opposed to simple values or arity. If you are
+familiar with functional programming, you have probably encountered them already.
+
+> In trying to stay as close as possible to the *declarative* nature of CSS, LESS has opted to follow
+the *functional* programming model when it comes to conditionals, as such, you will not find *if/else* statements
+or *for* loops, but rather guarded mixins.
+
+Let's start with an example:
+
+    .mixin (@a) when (lightness(@a) >= 50%) {
+      background-color: black;
+    }
+    .mixin (@a) when (lightness(@a) < 50%) {
+      background-color: white;
+    }
+    .mixin (@a) {
+      color: @a;
+    }
+
+The key is the **`when`** keyword, which introduces a guard sequence (here with only one guard). Now if we run the following
+code:
+
+    .class1 { .mixin(#ddd) }
+    .class2 { .mixin(#555) }
+
+
+Here's what we'll get:
+
+    .class1 {
+      background-color: black;
+      color: #ddd;
+    }
+    .class2 {
+      background-color: white;
+      color: #555;
+    }
+
+The full list of comparison operators usable in guards are: **`> >= = =< < ^=`**. Additionally, the keyword `true`
+is the only truthy value, making these two mixins equivalent:
+
+    .truth (@a) when (@a) { ... }
+    .truth (@a) when (@a = true) { ... }
+
+Any value other than the keyword `true` is falsy:
+
+    .class {
+      .truth(40); // Will not match any of the above definitions.
+    }
+
+Guards can be separated with a comma '`,`'--if any of the guards evaluates to true, it's
+considered as a match:
+
+    .mixin (@a) when (@a > 10), (@a < -10) { ... }
+
+Note that you can also compare arguments with each other, or with non-arguments:
+
+    @media: mobile;
+
+    .mixin (@a) when (@media = mobile) { ... }
+    .mixin (@a) when (@media = desktop) { ... }
+
+    .max (@a, @b) when (@a > @b) { width: @a }
+    .max (@a, @b) when (@a < @b) { width: @b }
+
+Lastly, if you want to match mixins based on value type, you can use the *is-\** functions:
+
+    .mixin (@a, @b: 0) when (is-number(@b)) { ... }
+    .mixin (@a, @b: black) when (is-color(@b)) { ... }
+
+Here are the basic type checking functions:
+
+- `is-color`
+- `is-number`
+- `is-string`
+- `is-keyword`
+- `is-url`
+
+If you want to check if a value, in addition to being a number, is in a specific unit, you may use one of:
+
+- `is-pixel`
+- `is-percentage`
+- `is-em`
+
+Last but not least, you may use the **`and`** keyword to provide additional conditions inside a guard:
+
+    .mixin (@a) when (is-number(@a)) and (@a > 0) { ... }
+
+And the **`not`** keyword to negate conditions:
+
+    .mixin (@b) when not (@b > 0) { ... }
+
 Nested rules
 ------------
 
@@ -148,8 +305,8 @@ Lets say we have the following CSS:
     #header .navigation {
       font-size: 12px;
     }
-    #header .logo { 
-      width: 300px; 
+    #header .logo {
+      width: 300px;
     }
     #header .logo:hover {
       text-decoration: none;
@@ -187,17 +344,17 @@ For example:
 
     .bordered {
       &.float {
-        float: left; 
+        float: left;
       }
       .top {
-        margin: 5px; 
+        margin: 5px;
       }
     }
 
 Will output
 
     .bordered.float {
-      float: left;  
+      float: left;
     }
     .bordered .top {
       margin: 5px;
@@ -244,9 +401,12 @@ the *HSL* color-space, and then manipulated at the channel level:
 
     fadein(@color, 10%);      // return a color 10% *less* transparent than @color
     fadeout(@color, 10%);     // return a color 10% *more* transparent than @color
+    fade(@color, 50%);        // return @color with 50% transparency
 
     spin(@color, 10);         // return a color with a 10 degree larger in hue than @color
     spin(@color, -10);        // return a color with a 10 degree smaller hue than @color
+
+    mix(@color1, @color2);    // return a mix of @color1 and @color2
 
 Using them is pretty straightforward:
 
@@ -262,12 +422,26 @@ You can also extract color information:
     hue(@color);        // returns the `hue` channel of @color
     saturation(@color); // returns the `saturation` channel of @color
     lightness(@color);  // returns the 'lightness' channel of @color
+    alpha(@color);      // returns the 'alpha' channel of @color
 
 This is useful if you want to create a new color based on another color's channel, for example:
 
     @new: hsl(hue(@old), 45%, 90%);
 
 `@new` will have `@old`'s *hue*, and its own saturation and lightness.
+
+Math functions
+--------------
+
+LESS provides a couple of handy math functions you can use on number values:
+
+    round(1.67); // returns `2`
+    ceil(2.4);   // returns `3`
+    floor(2.6);  // returns `2`
+
+If you need to turn a value into a percentage, you can do so with the `percentage` function:
+
+    percentage(0.5); // returns `50%`
 
 Namespaces
 ----------
@@ -309,7 +483,7 @@ and if they aren't found, the compiler will look in the parent scope, and so on.
     }
 
     #footer {
-      color: @var; // red  
+      color: @var; // red
     }
 
 Comments
@@ -358,13 +532,13 @@ or uses propriatery syntax which LESS doesn't recognize.
 To output such value, we place it inside a string prefixed with `~`, for example:
 
     .class {
-      filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png')";
+      filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
     }
 
 This is called an "escaped value", which will result in:
 
     .class {
-      filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='image.png');
+      filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
     }
 
 JavaScript evaluation
@@ -391,5 +565,10 @@ Becomes:
 It is also possible to access the JavaScript environment:
 
     @height: `document.body.clientHeight`;
+
+If you want to parse a JavaScript string as a hex color, you may use the `color` function:
+
+    @color: color(`window.colors.baseColor`);
+    @darkcolor: darken(@color, 10%);
 
 

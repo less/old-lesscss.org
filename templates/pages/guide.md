@@ -11,6 +11,14 @@ Then download `less.js` from the top of the page, and include it in the `<head>`
 
 Make sure you include your stylesheets *before* the script.
 
+Watch mode
+----------
+
+*Watch mode* is a client-side feature which enables your styles to refresh automatically as they are changed.
+
+To enable it, append '`#!watch`' to the browser URL, then refresh the page. Alternatively, you can
+run `less.watch()` from the console.
+
 Server-side usage
 =================
 
@@ -20,10 +28,6 @@ Installation
 The easiest way to install LESS on the server, is via [npm](http://github.com/isaacs/npm), the node package manager, as so:
 
     $ npm install less
-
-This will get you the latest stable version. If you want the bleeding edge, try:
-
-    $ npm install less@latest
 
 Use
 ---
@@ -42,7 +46,7 @@ which will output
       width: 2;
     }
 
-you can also manually invoke the parser and compiler:
+you may also manually invoke the parser and compiler:
 
     var parser = new(less.Parser);
 
