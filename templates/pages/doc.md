@@ -241,7 +241,7 @@ Here's what we'll get:
       color: #555;
     }
 
-The full list of comparison operators usable in guards are: **`> >= = =< < ^=`**. Additionally, the keyword `true`
+The full list of comparison operators usable in guards are: **`> >= = =< <`**. Additionally, the keyword `true`
 is the only truthy value, making these two mixins equivalent:
 
     .truth (@a) when (@a) { ... }
@@ -268,28 +268,28 @@ Note that you can also compare arguments with each other, or with non-arguments:
     .max (@a, @b) when (@a > @b) { width: @a }
     .max (@a, @b) when (@a < @b) { width: @b }
 
-Lastly, if you want to match mixins based on value type, you can use the *is-\** functions:
+Lastly, if you want to match mixins based on value type, you can use the *is\** functions:
 
-    .mixin (@a, @b: 0) when (is-number(@b)) { ... }
-    .mixin (@a, @b: black) when (is-color(@b)) { ... }
+    .mixin (@a, @b: 0) when (isnumber(@b)) { ... }
+    .mixin (@a, @b: black) when (iscolor(@b)) { ... }
 
 Here are the basic type checking functions:
 
-- `is-color`
-- `is-number`
-- `is-string`
-- `is-keyword`
-- `is-url`
+- `iscolor`
+- `isnumber`
+- `isstring`
+- `iskeyword`
+- `isurl`
 
 If you want to check if a value, in addition to being a number, is in a specific unit, you may use one of:
 
-- `is-pixel`
-- `is-percentage`
-- `is-em`
+- `ispixel`
+- `ispercentage`
+- `isem`
 
 Last but not least, you may use the **`and`** keyword to provide additional conditions inside a guard:
 
-    .mixin (@a) when (is-number(@a)) and (@a > 0) { ... }
+    .mixin (@a) when (isnumber(@a)) and (@a > 0) { ... }
 
 And the **`not`** keyword to negate conditions:
 
