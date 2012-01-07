@@ -2,12 +2,12 @@ Write some LESS:
 
     @base: #f938ab;
 
-    .box-shadow(@style, @c) when (is-color(@c)) {
+    .box-shadow(@style, @c) when (iscolor(@c)) {
       box-shadow:         @style @c;
       -webkit-box-shadow: @style @c;
       -moz-box-shadow:    @style @c;
     }
-    .box-shadow(@style, @alpha: 50%) when (is-number(@alpha)) {
+    .box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
       .box-shadow(@style, rgba(0, 0, 0, @alpha));
     }
     .box { 
