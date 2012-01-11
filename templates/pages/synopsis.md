@@ -35,7 +35,7 @@ Mixins
 Mixins allow you to embed all the properties of a class into another class by
 simply including the class name as one of its properties. It's just like variables,
 but for whole classes. Mixins can also behave like functions, and take arguments,
-as seen in the example bellow.
+as seen in the example below.
 
 <table class="code-example" cellpadding="0">
   <tr><td>
