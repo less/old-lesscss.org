@@ -135,6 +135,11 @@ nav a, #dropdown li {
     text-decoration: none;
   }
 }
+.twitter-follow-button {
+  position: absolute;
+  right: 0;
+  top: 11px;
+}
 .dark-red {
     @red: @medium;
     border: 2px solid darken(@red, 25%);
@@ -162,6 +167,8 @@ nav a, #dropdown li {
   border-bottom: 2px solid darken(@alpha-blue, 25%);
   .box-shadow(0, 1px, 8px, 0.6);
   -moz-box-shadow: 0 0 0 #000; // Because firefox sucks.
+
+  .content { position: relative }
 
   &.docked {
     background-color: hsla(210, 60%, 40%, 0.4);
