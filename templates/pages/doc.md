@@ -207,9 +207,9 @@ but if we call it with *two* arguments, we will get the second definition, namel
 Guards are useful when you want to match on *expressions*, as opposed to simple values or arity. If you are
 familiar with functional programming, you have probably encountered them already.
 
-> In trying to stay as close as possible to the *declarative* nature of CSS, LESS has opted to follow
-the *functional* programming model when it comes to conditionals, as such, you will not find *if/else* statements
-or *for* loops, but rather guarded mixins.
+In trying to stay as close as possible to the declarative nature of CSS, LESS has opted to implement
+conditional execution via **guarded mixins** instead of if/else statements, in the vein of `@media`
+query feature specifications.
 
 Let's start with an example:
 
