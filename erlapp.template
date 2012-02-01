@@ -1,0 +1,23 @@
+{variables, [{appid, "myapp"}]}.
+
+{template, "erlapp.app.src",      "src/{{appid}}.app.src"}.
+{template, "erlapp_app.erl",      "src/{{appid}}_app.erl"}.
+{template, "erlapp_server.erl",   "src/{{appid}}_server.erl"}.
+{template, "erlapp_sup.erl",      "src/{{appid}}_sup.erl"}.
+{template, "erlapp.erl",          "src/{{appid}}.erl"}.
+{template, "erlapp.hrl",          "src/{{appid}}.hrl"}.
+{template, "erlapp.rebar.config", "rebar.config"}.
+{template, "erlapp.start.args",   "dev/start.args"}.
+{template, "erlapp.start.sh",     "dev/start"}.
+{template, "erlapp.Makefile",     "Makefile"}.
+{template, "erlapp.gitignore",    ".gitignore"}.
+{template, "README",              "README"}.
+
+{chmod, 8#0744, "dev/start"}.
+{copy, "erlapp.dev", "dev"}.
+
+{dir, "deps"}.
+{dir, "src"}.
+{dir, "priv"}.
+{dir, "ebin"}.
+
