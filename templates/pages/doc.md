@@ -183,7 +183,7 @@ the result would be a darker color.
 
 Here's what happened:
 
-- The first mixin definition didn't match because it expected `black` as the first argument.
+- The first mixin definition didn't match because it expected `dark` as the first argument.
 - The second mixin definition matched, because it expected `light`.
 - The third mixin definition matched because it expected any value.
 
