@@ -80,5 +80,7 @@ This will output the compiled CSS to `stdout`, you may then redirect it to a fil
 
     $ lessc styles.less > styles.css
 
-To output minified CSS, simply pass the `-x` option.
+To output minified CSS, simply pass the `-x` option. If you would like more involved minification,
+the [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) is also available with
+the `--yui-compress` option.
 
