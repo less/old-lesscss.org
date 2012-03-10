@@ -1,7 +1,0 @@
-*.beam
-.eunit
-deps/*
-apps/{{appid}}/ebin
-dev/*
-rel/{{nodeid}}
-

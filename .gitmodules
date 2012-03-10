@@ -1,3 +1,0 @@
-[submodule "sync"]
-  path = erlapp.dev/sync
-  url = https://github.com/rustyio/sync.git
