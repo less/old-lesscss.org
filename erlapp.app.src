@@ -1,0 +1,18 @@
+{application, {{appid}}, [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {modules, [
+    {{appid}}_app,
+    {{appid}}_sup,
+    {{appid}}_server
+  ]},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {mod, {
+    {{appid}}_app, []
+  }},
+  {env, []}
+]}.
