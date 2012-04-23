@@ -518,7 +518,7 @@ The directive will just be left as is, and end up in the CSS output.
 String interpolation
 --------------------
 
-Variables can be embeded inside strings in a similar way to ruby or PHP, with the `@{name}` construct:
+Variables can be embedded inside strings in a similar way to ruby or PHP, with the `@{name}` construct:
 
     @base-url: "http://assets.fnord.com";
     background-image: url("@{base-url}/images/bg.png");
