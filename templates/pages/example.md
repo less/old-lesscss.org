@@ -16,9 +16,5 @@ Write some LESS:
       div { .box-shadow(0 0 5px, 30%) }
     }
 
-Include `less.js` with your styles:
-
-    <link rel="stylesheet/less" type="text/css" href="styles.less">
-    <script src="less.js" type="text/javascript"></script>
 
 
