@@ -407,6 +407,7 @@ the *HSL* color-space, and then manipulated at the channel level:
     spin(@color, -10);               // return a color with a 10 degree smaller hue than @color
 
     mix(@color1, @color2, @weight);  // return a mix of @color1 and @color2, default weight 50%
+    contrast(@color1, @darkcolor, @lightcolor); // return @darkcolor if @color1 is >50% luma (i.e. is a light color), otherwise return @lightcolor
 
 Using them is pretty straightforward:
 
@@ -414,7 +415,7 @@ Using them is pretty straightforward:
 
     .class {
       color: saturate(@base, 5%);
-      background-color: lighten(spin(@base, 8), 25%);
+      background-color: spin(lighten(@base, 25%), 8);
     }
 
 You can also extract color information:
@@ -422,13 +423,17 @@ You can also extract color information:
     hue(@color);        // returns the `hue` channel of @color
     saturation(@color); // returns the `saturation` channel of @color
     lightness(@color);  // returns the 'lightness' channel of @color
+    red(@color);        // returns the 'red' channel of @color
+    green(@color);      // returns the 'green' channel of @color
+    blue(@color);       // returns the 'blue' channel of @color
     alpha(@color);      // returns the 'alpha' channel of @color
+    luma(@color);       // returns the 'luma' value (perceptual brightness) of @color
 
 This is useful if you want to create a new color based on another color's channel, for example:
 
     @new: hsl(hue(@old), 45%, 90%);
 
-`@new` will have `@old`'s *hue*, and its own saturation and lightness.
+`@new` will have `@old`'s *hue*, and its own saturation and lightness. Colors are always returned as RGB values, so applying `spin` to a grey value will do nothing.
 
 Math functions
 --------------
