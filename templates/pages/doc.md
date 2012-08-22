@@ -6,7 +6,7 @@ Variables
 These are pretty self-explanatory:
 
     @nice-blue: #5B83AD;
-    @light-blue: @nice-blue + #111;
+    @light-blue: (@nice-blue + #111);
 
     #header { color: @light-blue; }
 
@@ -363,29 +363,26 @@ Will output
 Operations
 ----------
 
-Any number, color or variable can be operated on. Here are a couple of examples:
+Any number, color or variable can be operated on. Operations should be performed
+within parentheses. Here are a couple of examples:
 
     @base: 5%;
-    @filler: @base * 2;
-    @other: @base + @filler;
+    @filler: (@base * 2);
+    @other: (@base + @filler);
 
-    color: #888 / 4;
-    background-color: @base-color + #111;
-    height: 100% / 2 + @filler;
+    color: (#888 / 4);
+    background-color: (@base-color + #111);
+    height: (100% / 2 + @filler);
 
 The output is pretty much what you expect—LESS understands the difference between colors and units. If a unit is used in an operation, like in:
 
-    @var: 1px + 5;
+    @var: (1px + 5);
 
 LESS will use that unit for the final output—`6px` in this case.
 
-Brackets are also authorized in operations:
+Extra parentheses are also authorized in operations:
 
-    width: (@var + 5) * 2;
-
-And are required in compound values:
-
-    border: (@width * 2) solid black;
+    width: ((@var + 5) * 2);
 
 Color functions
 ---------------
