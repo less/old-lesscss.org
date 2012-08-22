@@ -55,8 +55,8 @@ Usage in Code
 You can invoke the compiler from node, as such:
 
     var less = require('less');
-    
-    less.render('.class { width: 1 + 1 }', function (e, css) {
+
+    less.render('.class { width: (1 + 1) }', function (e, css) {
         console.log(css);
     });
 
@@ -70,7 +70,7 @@ you may also manually invoke the parser and compiler:
 
     var parser = new(less.Parser);
 
-    parser.parse('.class { width: 1 + 1 }', function (err, tree) {
+    parser.parse('.class { width: (1 + 1) }', function (err, tree) {
         if (err) { return console.error(err) }
         console.log(tree.toCSS());
     });
@@ -85,7 +85,7 @@ You may pass some options to the compiler:
         filename: 'style.less' // Specify a filename, for better error messages
     });
 
-    parser.parse('.class { width: 1 + 1 }', function (e, tree) {
+    parser.parse('.class { width: (1 + 1) }', function (e, tree) {
         tree.toCSS({ compress: true }); // Minify CSS output
     });
 

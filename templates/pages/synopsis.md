@@ -128,7 +128,8 @@ Functions & Operations
 
 Are some elements in your style sheet proportional to other elements?
 Operations let you add, subtract, divide and multiply property values and colors,
-giving you the power to create complex relationships between properties.
+giving you the power to create complex relationships between properties. Operations
+should only be performed within parentheses in order to ensure compatibility with CSS.
 Functions map one-to-one with JavaScript code, allowing you to manipulate values however
 you want.
 
@@ -142,12 +143,12 @@ you want.
 @red:        #842210;
 
 #header {
-  color: @base-color * 3;
+  color: (@base-color * 3);
   border-left: @the-border;
-  border-right: @the-border * 2;
+  border-right: (@the-border * 2);
 }
 #footer {
-  color: @base-color + #003300;
+  color: (@base-color + #003300);
   border-color: desaturate(@red, 10%);
 }
 
