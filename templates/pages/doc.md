@@ -578,6 +578,25 @@ This is called an "escaped value", which will result in:
     .class {
       filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
     }
+	
+Selector Interpolation
+----------------------
+
+If you want to use less variables inside selectors, you can do this by referencing the variable using `@{selector}` as 
+in string interpolation. For example:
+
+    @name: blocked;
+	.@{name} {
+	    color: black;
+	}
+	
+will output
+
+    .blocked {
+	    color: black;
+	}
+	
+Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in the near future.
 
 JavaScript evaluation
 ---------------------
