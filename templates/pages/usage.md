@@ -1,6 +1,9 @@
 Client-side usage
 =================
 
+Client-side is the easiest way to get started and good for developing your less. For production and espescially 
+if performance is important, we reccommend pre-compiling using node or one of the many third party tools.
+
 Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
 
     <link rel="stylesheet/less" type="text/css" href="styles.less">
@@ -28,11 +31,28 @@ Installation
 The easiest way to install LESS on the server, is via [npm](http://github.com/isaacs/npm), the node package manager, as so:
 
     $ npm install less
+	
+Command-line usage
+------------------
 
-Use
----
+Once installed, you can invoke the compiler from the command-line, as such:
 
-Once installed, you can invoke the compiler from node, as such:
+    $ lessc styles.less
+
+This will output the compiled CSS to `stdout`, you may then redirect it to a file of your choice:
+
+    $ lessc styles.less > styles.css
+
+To output minified CSS, simply pass the `-x` option. If you would like more involved minification,
+the [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) is also available with
+the `--yui-compress` option.
+
+To see all the command line options run lessc without parameters.
+
+Usage in Code
+-------------
+
+You can invoke the compiler from node, as such:
 
     var less = require('less');
     
@@ -69,18 +89,13 @@ You may pass some options to the compiler:
         tree.toCSS({ compress: true }); // Minify CSS output
     });
 
-Command-line usage
-------------------
 
-Less comes with a binary, which lets you invoke the compiler from the command-line, as such:
 
-    $ lessc styles.less
+Third Party Tools
+=================
 
-This will output the compiled CSS to `stdout`, you may then redirect it to a file of your choice:
+There are a selection of tools available and these are documented in the github wiki.
 
-    $ lessc styles.less > styles.css
+<a href="https://github.com/cloudhead/less.js/wiki/Command-Line-use-of-LESS">Command Line Tools</a>
 
-To output minified CSS, simply pass the `-x` option. If you would like more involved minification,
-the [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) is also available with
-the `--yui-compress` option.
-
+<a href="https://github.com/cloudhead/less.js/wiki/GUI-compilers-that-use-LESS.js">GUI Tools</a>
