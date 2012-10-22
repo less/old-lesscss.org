@@ -30,7 +30,7 @@ Installation
 
 The easiest way to install LESS on the server, is via [npm](http://github.com/isaacs/npm), the node package manager, as so:
 
-    $ npm install less
+    $ npm install -g less
 	
 Command-line usage
 ------------------
