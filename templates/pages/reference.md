@@ -122,6 +122,22 @@ Example:
 Output:
 
     rgba(90, 129, 32, 0.5)
+###argb
+Creates a hex representation of a color in `#AARRGGBB` format (**NOT** `#RRGGBBAA`!).
+
+Parameters:
+
+* `color`: A color object.
+
+Returns: `string`
+
+Example:
+
+    argb(rgba(90, 23, 148, 0.5));
+
+Output:
+
+    #805a1794
 ###hsl
 Creates an opaque color object from hue, saturation and lightness (HSL) values.
 
