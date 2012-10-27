@@ -550,12 +550,30 @@ Output:
     #ffffff (white)
 ##Color blending
 These operations are the same as the blend modes found in image editors like Photoshop, so you can use them to make your CSS colors match your images.
+
 ###multiply
+Multiply two colors. For each two colors their RGB channel are multiplied then divided by 255. The result is a darker color.
+
 ###screen
+Do the opposite effect from `multiply`. The result is a brighter color.
+
 ###overlay
+Combines the effect from both `multiply` and `screen`. Conditionally make light channels lighter and dark channels darker.
+
 ###softlight
+Similar to `overlay` but avoid pure black resulting in pure black, and pure white resulting in pure white.
+
 ###hardlight
+Similar to `overlay` but use the second color to detect light and dark channels.
+
 ###difference
+Substracts the second color from the first color. The operation is made per RGB channels. The result is a darker color.
+
 ###exclusion
+Similar effect to `difference` with lower contrast.
+
 ###average
+Calculate the average of two colors. The operation is made per RGB channels.
+
 ###negation
+Do the opposite effect from `difference`. The result is a brighter color.
