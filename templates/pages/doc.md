@@ -439,7 +439,7 @@ the *HSL* color-space, and then manipulated at the channel level:
     mix(@color1, @color2, @weight);  
 	    // return a mix of @color1 and @color2, default weight 50%
     contrast(@color1, @darkcolor, @lightcolor); 
-	    // return @darkcolor if @color1 is >50% luma (i.e. is a light color), 
+	    // return @darkcolor if @color1 is > 43% luma (i.e. is a light color), 
 		// otherwise return @lightcolor
 
 Using them is pretty straightforward:
