@@ -26,25 +26,25 @@ Which compiles to:
 
 When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
 
-	@var: 0;
-	.class1
+    @var: 0;
+    .class1
       @var: 1;
-	  .class {
-	    @var: 2;
-	    three: @var;
-		@var: 3;
-	  }
-	  one: @var;
-	}
+      .class {
+        @var: 2;
+        three: @var;
+        @var: 3;
+      }
+      one: @var;
+    }
 
 Compiles to:
 
     .class1 .class {
-	  three: 3;
-	}
-	.class {
-	  one: 1;
-	}
+      three: 3;
+    }
+    .class {
+      one: 1;
+    }
 
 This is similar to css itself where the last property inside a definition is used to determine the value.
 
@@ -270,7 +270,6 @@ code:
     .class1 { .mixin(#ddd) }
     .class2 { .mixin(#555) }
 
-
 Here's what we'll get:
 
     .class1 {
@@ -407,27 +406,27 @@ Nested Media Queries
 Media queries can be nested in the same way as selectors e.g.
 
     .one {
-	    @media (width: 400px) {
-			font-size: 1.2em;
-		    @media print and color {
-			    color: blue;
-            }			
-		}
-	}
+        @media (width: 400px) {
+            font-size: 1.2em;
+            @media print and color {
+                color: blue;
+            }
+        }
+    }
 
 Will output
 
-	@media (width: 400px) {
-	  .one {
-		font-size: 1.2em;
-	  }
-	}
-	@media (width: 400px) and print and color {
-	  .one {
-		color: blue;
-	  }
-	}
-	
+    @media (width: 400px) {
+      .one {
+        font-size: 1.2em;
+      }
+    }
+    @media (width: 400px) and print and color {
+      .one {
+        color: blue;
+      }
+    }
+
 Advanced Usage of &
 -------------------
 
@@ -436,27 +435,27 @@ The & symbol can be used in selectors in order to reverse the ordering of the ne
 For example:
 
     .child, .sibling {
-	    .parent & {
-		    color: black;
-		}
-		& + & {
-		    color: red;
-		}
-	}
-	
+        .parent & {
+            color: black;
+        }
+        & + & {
+            color: red;
+        }
+    }
+
 Will output
 
     .parent .child,
     .parent .sibling {
-	    color: black;
-	}
-	.child + .child,
+        color: black;
+    }
+    .child + .child,
     .child + .sibling,
-	.sibling + .child,
-	.sibling + .sibling {
-	    color: red;
-	}
-	
+    .sibling + .child,
+    .sibling + .sibling {
+        color: red;
+    }
+
 You can also use & in mixins in order to reference nesting that is outside of your mixin.
 
 Operations
@@ -486,7 +485,7 @@ Extra parentheses are also authorized in operations:
 Functions
 ---------
 
-LESS provides a variety of functions which transform colors, manipulate strings and do maths. 
+LESS provides a variety of functions which transform colors, manipulate strings and do maths.
 They are documented fully in the function reference.
 
 Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%, 
@@ -494,10 +493,10 @@ increases the saturation of a base color by 5% and then sets the background colo
 25% and spun by 8 degrees:
 
     @base: #f04615;
-	@width: 0.5;
+    @width: 0.5;
 
     .class {
-	  width: percentage(0.5); // returns `50%`
+      width: percentage(0.5); // returns `50%`
       color: saturate(@base, 5%);
       background-color: spin(lighten(@base, 25%), 8);
     }
@@ -578,8 +577,8 @@ The directive will just be left as is, and end up in the CSS output. This will o
 If you want to import a file only if it has not been imported already, use `@import-once`
 
     @import-once "lib.less";
-	@import-once "lib.less"; // will be ignored
-	
+    @import-once "lib.less"; // will be ignored
+
 `@import-once` will be the default behaviour of @import in 1.4.0
 
 String interpolation
@@ -607,7 +606,7 @@ This is called an "escaped value", which will result in:
     .class {
       filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
     }
-	
+
 Selector Interpolation
 ----------------------
 
@@ -615,16 +614,16 @@ If you want to use less variables inside selectors, you can do this by referenci
 in string interpolation. For example:
 
     @name: blocked;
-	.@{name} {
-	    color: black;
-	}
-	
+    .@{name} {
+        color: black;
+    }
+
 will output
 
     .blocked {
-	    color: black;
-	}
-	
+        color: black;
+    }
+
 Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in 1.4.0.
 
 JavaScript evaluation
@@ -659,5 +658,3 @@ If you want to parse a JavaScript string as a hex color, you may use the `color`
 
     @color: color(`window.colors.baseColor`);
     @darkcolor: darken(@color, 10%);
-
-
