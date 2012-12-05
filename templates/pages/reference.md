@@ -1,16 +1,16 @@
 #Index
 
-	escape(@string);               // URL encodes a string
-	e(@string);                    // escape string content
-	%(@string, values...);         // formats a string
-	
-	unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
-	color(@string);				   // parses a string to a color
-	
-	ceil(@number);                 // rounds up to an integer
-	floor(@number);                // rounds down to an integer
-	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
-	round(number, [places: 0]);	   // rounds a number to a number of places
+    escape(@string);               // URL encodes a string
+    e(@string);                    // escape string content
+    %(@string, values...);         // formats a string
+
+    unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
+    color(@string);                // parses a string to a color
+
+    ceil(@number);                 // rounds up to an integer
+    floor(@number);                // rounds down to an integer
+    percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
+    round(number, [places: 0]);    // rounds a number to a number of places
 	sqrt(number);                  // * calculates square root of a number
 	abs(number);                   // * absolute value of a number
 	sin(number);                   // * sine function
@@ -27,23 +27,26 @@
 	unit(number, units);       // *changes number units without converting it
 	color(string);             // converts string or escaped value into color
 
-	rgb(@r, @g, @b);                             // converts to a color
-	rgba(@r, @g, @b, @a);                        // converts to a color
-	argb(@color);                                // creates a #AARRGGBB
-	hsl(@hue, @saturation, @lightness);          // creates a color
-	hsla(@hue, @saturation, @lightness, @alpha); // creates a color
-	hsv(@hue, @saturation, @value);              // creates a color
-	hsva(@hue, @saturation, @value, @alpha);     // creates a color
-	
-    hue(@color);        // returns the `hue` channel of @color
-    saturation(@color); // returns the `saturation` channel of @color
-    lightness(@color);  // returns the 'lightness' channel of @color
-    red(@color);        // returns the 'red' channel of @color
-    green(@color);      // returns the 'green' channel of @color
-    blue(@color);       // returns the 'blue' channel of @color
-    alpha(@color);      // returns the 'alpha' channel of @color
-    luma(@color);       // returns the 'luma' value (perceptual brightness) of @color
-	
+    rgb(@r, @g, @b);                             // converts to a color
+    rgba(@r, @g, @b, @a);                        // converts to a color
+    argb(@color);                                // creates a #AARRGGBB
+    hsl(@hue, @saturation, @lightness);          // creates a color
+    hsla(@hue, @saturation, @lightness, @alpha); // creates a color
+    hsv(@hue, @saturation, @value);              // creates a color
+    hsva(@hue, @saturation, @value, @alpha);     // creates a color
+
+    hue(@color);           // returns the `hue` channel of @color in the HSL space
+    saturation(@color);    // returns the `saturation` channel of @color in the HSL space
+    lightness(@color);     // returns the 'lightness' channel of @color in the HSL space
+    hsvhue(@color);        // returns the `hue` channel of @color in the HSV space
+    hsvsaturation(@color); // returns the `saturation` channel of @color in the HSV space
+    hsvvalue(@color);      // returns the 'value' channel of @color in the HSV space
+    red(@color);           // returns the 'red' channel of @color
+    green(@color);         // returns the 'green' channel of @color
+    blue(@color);          // returns the 'blue' channel of @color
+    alpha(@color);         // returns the 'alpha' channel of @color
+    luma(@color);          // returns the 'luma' value (perceptual brightness) of @color
+
     saturate(@color, 10%);                  // return a color 10% points *more* saturated
     desaturate(@color, 10%);                // return a color 10% points *less* saturated
     lighten(@color, 10%);                   // return a color 10% points *lighter*
@@ -53,20 +56,20 @@
     fade(@color, 50%);                      // return @color with 50% transparency
     spin(@color, 10);                       // return a color with a 10 degree larger in hue
     mix(@color1, @color2, [@weight: 50%]);  // return a mix of @color1 and @color2
-	greyscale(@color);                      // returns a grey, 100% desaturated color
+    greyscale(@color);                      // returns a grey, 100% desaturated color
     contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]); 
-	                                        // return @darkcolor if @color1 is > 43% luma  
-		                                    // otherwise return @lightcolor
+                                            // return @darkcolor if @color1 is > 43% luma
+                                            // otherwise return @lightcolor, see notes
 
-	multiply(@color1, @color2);
-	screen(@color1, @color2);
-	overlay(@color1, @color2);
-	softlight(@color1, @color2);
-	hardlight(@color1, @color2);
-	difference(@color1, @color2);
-	exclusion(@color1, @color2);
-	average(@color1, @color2);
-	negation(@color1, @color2);
+    multiply(@color1, @color2);
+    screen(@color1, @color2);
+    overlay(@color1, @color2);
+    softlight(@color1, @color2);
+    hardlight(@color1, @color2);
+    difference(@color1, @color2);
+    exclusion(@color1, @color2);
+    average(@color1, @color2);
+    negation(@color1, @color2);
 
 	// * These functions are only available in the 1.4.0 beta
 	
@@ -95,7 +98,7 @@ Output:
 Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
 
 ###e
-CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesnï¿½t recognize.
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn’t recognize.
 
 Parameters:
 
@@ -137,7 +140,6 @@ Example:
     format-s: %("repetitions: %s file: %s", 1 + 2, "directory/file.less");
     format-s-upper: %('repetitions: %S file: %S', 1 + 2, "directory/file.less");
 
-
 Output:
 
     format-a-d: "repetitions: 3 file: "directory/file.less"";
@@ -176,7 +178,7 @@ Example:
 Output:
 
     5px
-	
+
 Example:
 
     unit(5em)
@@ -251,7 +253,7 @@ Example:
 Output:
 
     2
-	
+
 Example:
 
     round(1.67, 1)
@@ -610,7 +612,7 @@ Output:
 
     rgba(90, 129, 32, 0.5)
 ###argb
-Creates a hex representation of a color in `#AARRGGBB` format (**NOT** `#RRGGBBAA`!).
+Creates a hex representation of a color in `#AARRGGBB` format (**NOT** `#RRGGBBAA`!). This format is used in Internet Explorer, and .NET and Android development.
 
 Parameters:
 
@@ -643,13 +645,13 @@ Example:
 Output:
 
     #80ff00
-	
+
 This is useful if you want to create a new color based on another color's channel, for example:
 
     @new: hsl(hue(@old), 45%, 90%);
 
 `@new` will have `@old`'s *hue*, and its own saturation and lightness.
-	
+
 ###hsla
 Creates a transparent color object from hue, saturation, lightness and alpha (HSLA) values.
 
@@ -670,7 +672,7 @@ Output:
 
     rgba(128, 255, 0, 0.5)
 ###hsv
-Creates an opaque color object from hue, saturation and value (HSV) values. Note that this is not the same as `hsl`.
+Creates an opaque color object from hue, saturation and value (HSV) values. Note that this is not the same as `hsl`, and is a color space available in Photoshop.
 
 Parameters:
 
@@ -689,7 +691,7 @@ Output:
     #408000
 
 ###hsva
-Creates a transparent color object from hue, saturation, value and alpha (HSVA) values. Note that this is not the same as `hsla`.
+Creates a transparent color object from hue, saturation, value and alpha (HSVA) values. Note that this is not the same as `hsla`, and is a color space available in Photoshop.
 
 Parameters:
 
@@ -753,6 +755,54 @@ Returns: `percentage` 0-100
 Example:
 
     lightness(hsl(90, 100%, 50%))
+
+Output:
+
+    50%
+###hsvhue
+Extracts the hue channel of a color object in the HSV color space.
+
+Parameters:
+
+* `color`: A color object.
+
+Returns: `integer` 0-360
+
+Example:
+
+    hsvhue(hsv(90, 100%, 50%))
+
+Output:
+
+    90
+###hsvsaturation
+Extracts the saturation channel of a color object in the HSV color space.
+
+Parameters:
+
+* `color`: A color object.
+
+Returns: `percentage` 0-100
+
+Example:
+
+    hsvsaturation(hsv(90, 100%, 50%))
+
+Output:
+
+    100%
+###hsvvalue
+Extracts the value channel of a color object in the HSV color space.
+
+Parameters:
+
+* `color`: A color object.
+
+Returns: `percentage` 0-100
+
+Example:
+
+    hsvvalue(hsv(90, 100%, 50%))
 
 Output:
 
@@ -967,7 +1017,7 @@ Rotate the hue angle of a color in either direction. While the angle range is 0-
 Do this instead:
 
     @c: spin(saturate(#aaaaaa, 10%), 10);
-	
+
 Colors are always returned as RGB values, so applying `spin` to a grey value will do nothing.
 
 Parameters:
@@ -1024,6 +1074,8 @@ Output:
     #808080 // hsl(90, 0%, 50%)
 ###contrast
 Choose which of two colors provides the greatest contrast with another. This is useful for ensuring that a color is readable against a background, which is also useful for accessibility compliance. This function works the same way as the [contrast function in Compass for SASS](http://compass-style.org/reference/compass/utilities/color/contrast/). In accordance with [WCAG 2.0](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef), colors are compared using their luma value, not their lightness.
+
+The light and dark parameters can be supplied in either order - the function will calculate their luma values and assign light and dark appropriately.
 
 Parameters:
 
