@@ -138,6 +138,23 @@ Which results in:
       -moz-box-shadow: 2px 5px 1px #000;
       -webkit-box-shadow: 2px 5px 1px #000;
 
+### Advanced Arguments
+
+You can use ... if you want your mixin to take a variable number of arguments. Using this after a variable name will assign those arguments to the variable.
+
+    .mixin (...) {        // matches 0-N arguments
+    .mixin () {           // matches exactly 0 arguments
+    .mixin (@a: 1) {      // matches 0-1 arguments
+    .mixin (@a: 1, ...) { // matches 0-N arguments
+    .mixin (@a, ...) {    // matches 1-N arguments
+
+Furthermore:
+
+    .mixin (@a, @rest...) {
+       // @rest is bound to arguments after @a
+       // @arguments is bound to all arguments
+    }
+
 ## Pattern-matching and Guard expressions
 
 Sometimes, you may want to change the behaviour of a mixin,
@@ -596,7 +613,7 @@ will output
 	    color: black;
 	}
 	
-Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in the near future.
+Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in 1.4.0.
 
 JavaScript evaluation
 ---------------------
