@@ -138,9 +138,9 @@ Which results in:
       -moz-box-shadow: 2px 5px 1px #000;
       -webkit-box-shadow: 2px 5px 1px #000;
 
-### Advanced Arguments
+### Advanced arguments and the `@rest` variable
 
-You can use ... if you want your mixin to take a variable number of arguments. Using this after a variable name will assign those arguments to the variable.
+You can use `...` if you want your mixin to take a variable number of arguments. Using this after a variable name will assign those arguments to the variable.
 
     .mixin (...) {        // matches 0-N arguments
     .mixin () {           // matches exactly 0 arguments
