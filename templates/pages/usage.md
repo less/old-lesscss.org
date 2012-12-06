@@ -6,7 +6,7 @@ if performance is important, we recommend pre-compiling using node or one of the
 
 Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
 
-    <link rel="stylesheet/less" type="text/css" href="styles.less">
+    <link rel="stylesheet/less" type="text/css" href="styles.less" />
 
 Then download `less.js` from the top of the page, and include it in the `<head>` element of your page, like so:
 
