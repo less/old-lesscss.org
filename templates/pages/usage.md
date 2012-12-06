@@ -1,8 +1,8 @@
 Client-side usage
 =================
 
-Client-side is the easiest way to get started and good for developing your less. For production and espescially 
-if performance is important, we reccommend pre-compiling using node or one of the many third party tools.
+Client-side is the easiest way to get started and good for developing your less. For production and especially 
+if performance is important, we recommend pre-compiling using node or one of the many third party tools.
 
 Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
 
