@@ -566,57 +566,57 @@ Examples:
 
     multiply(#ff6600, #000000);
     
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/000000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/000000/ffffff&text=000000)
     
     multiply(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/331400/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/331400/ffffff&text=331400)
 
     multiply(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/662900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/662900/ffffff&text=662900)
 
     multiply(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/993d00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/993d00/ffffff&text=993d00)
 
     multiply(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/cc5200/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/cc5200/ffffff&text=cc5200)
 
     multiply(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
     multiply(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=ff0000)
 
     multiply(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/006600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/006600/ffffff&text=006600)
 
     multiply(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) x 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) x 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
 ###screen
 Do the opposite effect from `multiply`. The result is a brighter color.
