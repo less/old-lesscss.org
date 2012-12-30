@@ -632,57 +632,57 @@ Example:
 
     screen(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
     screen(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff8533/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/ff8533/ffffff&text=ff8533)
 
     screen(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffa366/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/ffa366/ffffff&text=ffa366)
 
     screen(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffc299/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/ffc299/000000&text=ffc299)
 
     screen(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffe0cc/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/ffe0cc/000000&text=ffe0cc)
 
     screen(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffffff/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/ffffff/000000&text=ffffff)
 
     screen(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
     screen(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffff00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/ffff00/ffffff&text=ffff00)
 
     screen(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) / 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff66ff/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) / 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/ff66ff/000000&text=ff66ff)
 
 ###overlay
 Combines the effect from both `multiply` and `screen`. Conditionally make light channels lighter and dark channels darker. **Note**: The results of the conditions are determined by the first color parameter.
@@ -698,57 +698,57 @@ Example:
 
     overlay(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=ff0000)
 
     overlay(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=ff2900)
 
     overlay(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff5200/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/ff5200/ffffff&text=ff5200)
 
     overlay(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff7a00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/ff7a00/ffffff&text=ff7a00)
 
     overlay(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffa300/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/ffa300/ffffff&text=ffa300)
 
     overlay(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffcc00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/ffcc00/ffffff&text=ffcc00)
 
     overlay(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=ff0000)
 
     overlay(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffcc00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/ffcc00/ffffff&text=ffcc00)
 
     overlay(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ^ 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ^ 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=ff0000)
 
 ###softlight
 Similar to `overlay` but avoid pure black resulting in pure black, and pure white resulting in pure white.
@@ -764,57 +764,57 @@ Example:
 
     softlight(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=ff2900)
 
     softlight(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff4100/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/ff4100/ffffff&text=ff4100)
 
     softlight(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff5a00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/ff5a00/ffffff&text=ff5a00)
 
     softlight(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff7200/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/ff7200/ffffff&text=ff7200)
 
     softlight(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff8b00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/ff8b00/ffffff&text=ff8b00)
 
     softlight(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffa300/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/ffa300/ffffff&text=ffa300)
 
     softlight(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=ff2900)
 
     softlight(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffa300/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/ffa300/ffffff&text=ffa300)
 
     softlight(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ~ 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ~ 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=ff2900)
 
 ###hardlight
 Similar to `overlay` but use the second color to detect light and dark channels instead of using the first color.
@@ -830,57 +830,57 @@ Example:
 
     hardlight(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/000000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/000000/ffffff&text=000000)
 
     hardlight(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/662900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/662900/ffffff&text=662900)
 
     hardlight(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/cc5200/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/cc5200/ffffff&text=cc5200)
 
     hardlight(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff8533/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/ff8533/ffffff&text=ff8533)
 
     hardlight(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/ff2900/ffffff&text=ff2900)
 
     hardlight(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffffff/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/ffffff/000000&text=ffffff)
 
     hardlight(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/ff0000/ffffff&text=ff0000)
 
     hardlight(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/00ff00/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/00ff00/ffffff&text=00ff00)
 
     hardlight(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) * 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/0000ff/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) * 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/0000ff/ffffff&text=0000ff)
 
 ###difference
 Substracts the second color from the first color. The operation is made per RGB channels. The result is a darker color.
@@ -896,57 +896,57 @@ Example:
 
     difference(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
     difference(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/cc3333/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/cc3333/ffffff&text=cc3333)
 
     difference(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/990066/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/990066/ffffff&text=990066)
 
     difference(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/663399/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/663399/ffffff&text=663399)
 
     difference(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/3366cc/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/3366cc/ffffff&text=3366cc)
 
     difference(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/0099ff/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/0099ff/ffffff&text=0099ff)
 
     difference(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/006600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/006600/ffffff&text=006600)
 
     difference(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff9900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/ff9900/ffffff&text=ff9900)
 
     difference(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) - 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff66ff/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) - 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/ff66ff/000000&text=ff66ff)
 
 ###exclusion
 Similar effect to `difference` with lower contrast.
@@ -962,57 +962,57 @@ Example:
 
     exclusion(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
     exclusion(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/cc7033/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/cc7033/ffffff&text=cc7033)
 
     exclusion(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/997a66/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/997a66/ffffff&text=997a66)
 
     exclusion(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/668599/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/668599/ffffff&text=668599)
 
     exclusion(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/338fcc/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/338fcc/ffffff&text=338fcc)
 
     exclusion(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/0099ff/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/0099ff/ffffff&text=0099ff)
 
     exclusion(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/006600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/006600/ffffff&text=006600)
 
     exclusion(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff9900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/ff9900/ffffff&text=ff9900)
 
     exclusion(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ! 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff66ff/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ! 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/ff66ff/000000&text=ff66ff)
 
 ###average
 Compute the average of two colors. The operation is made per RGB channels.
@@ -1028,57 +1028,57 @@ Example:
 
     average(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/803300/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/803300/ffffff&text=803300)
 
     average(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/994d1a/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/994d1a/ffffff&text=994d1a)
 
     average(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/b36633/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/b36633/ffffff&text=b36633)
 
     average(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/cc804d/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/cc804d/ffffff&text=cc804d)
 
     average(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/e69966/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/e69966/ffffff&text=e69966)
 
     average(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ffb380/000000&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/ffb380/000000&text=ffb380)
 
     average(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff3300/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/ff3300/ffffff&text=ff3300)
 
     average(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/80b300/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/80b300/ffffff&text=80b300)
 
     average(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) % 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/803380/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) % 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/803380/ffffff&text=803380)
 
 ###negation
 Do the opposite effect from `difference`. The result is a brighter color. **Note**: The _opposite_ effect doesn't mean the _inverted_ effect as resulting to an _addition_ operation.
@@ -1094,54 +1094,54 @@ Example:
 
     negation(#ff6600, #000000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/000000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000) = 
+![Color 3](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 
     negation(#ff6600, #333333);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/333333/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/cc9933/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/333333/ffffff&text=333333) = 
+![Color 3](http://placehold.it/100x40/cc9933/ffffff&text=cc9933)
 
     negation(#ff6600, #666666);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/666666/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/99cc66/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/666666/ffffff&text=666666) = 
+![Color 3](http://placehold.it/100x40/99cc66/ffffff&text=99cc66)
 
     negation(#ff6600, #999999);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/66ff99/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999) = 
+![Color 3](http://placehold.it/100x40/66ff99/ffffff&text=66ff99)
 
     negation(#ff6600, #cccccc);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/cccccc/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/33cccc/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/cccccc/000000&text=cccccc) = 
+![Color 3](http://placehold.it/100x40/33cccc/ffffff&text=33cccc)
 
     negation(#ff6600, #ffffff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/ffffff/000000&text=color+2) = 
-![Color 3](http://placehold.it/100x40/0099ff/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/ffffff/000000&text=ffffff) = 
+![Color 3](http://placehold.it/100x40/0099ff/ffffff&text=0099ff)
 
     negation(#ff6600, #ff0000);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/006600/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/ff0000/ffffff&text=ff0000) = 
+![Color 3](http://placehold.it/100x40/006600/ffffff&text=006600)
 
     negation(#ff6600, #00ff00);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff9900/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/00ff00/ffffff&text=00ff00) = 
+![Color 3](http://placehold.it/100x40/ff9900/ffffff&text=ff9900)
 
     negation(#ff6600, #0000ff);
 
-![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=color+1) ? 
-![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=color+2) = 
-![Color 3](http://placehold.it/100x40/ff66ff/ffffff&text=result)
+![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600) ? 
+![Color 2](http://placehold.it/100x40/0000ff/ffffff&text=0000ff) = 
+![Color 3](http://placehold.it/100x40/ff66ff/ffffff&text=ff66ff)
