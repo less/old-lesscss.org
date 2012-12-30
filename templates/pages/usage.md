@@ -89,12 +89,10 @@ You may pass some options to the compiler:
         tree.toCSS({ compress: true }); // Minify CSS output
     });
 
-
-
 Third Party Tools
-=================
+-----------------
 
-There are a selection of tools available and these are documented in the github wiki.
+There are a selection of tools available to run in your particular environment and these are documented in the github wiki.
 
 <a href="https://github.com/cloudhead/less.js/wiki/Command-Line-use-of-LESS">Command Line Tools</a>
 
