@@ -541,11 +541,19 @@ The `.less` extension is optional, so both of these are valid:
     @import "lib.less";
     @import "lib";
 
-If you want to import a CSS file, and don't want LESS to process it, just use the `.css` extension:
+If a file already has an extension or parameters, it will not get ".less" added on the end. If you want to import a CSS file,
+and don't want LESS to process it, just use the `.css` extension:
 
     @import "lib.css";
 
-The directive will just be left as is, and end up in the CSS output.
+The directive will just be left as is, and end up in the CSS output. This will occur for any import that ends in css, before url parameters.
+
+If you want to import a file only if it has not been imported already, use `@import-once`
+
+    @import-once "lib.less";
+	@import-once "lib.less"; // will be ignored
+	
+`@import-once` will be the default behaviour of @import in 1.4.0
 
 String interpolation
 --------------------
