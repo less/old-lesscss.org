@@ -14,6 +14,26 @@ Then download `less.js` from the top of the page, and include it in the `<head>`
 
 Make sure you include your stylesheets *before* the script.
 
+You can set options by setting things on a global less object before the script. E.g.
+
+    <script type="text/javascript">
+	    less = {
+			env: "development", // or "production"
+			async: false,		// load imports async
+			fileAsync: false,   // load imports async when in a page under 
+								// a file protocol
+			poll: 1000,			// when in watch mode, time in ms between polls
+			functions: {},		// user functions, keyed by name
+			dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+			relativeUrls: false,// whether to adjust url's to be relative
+								// if false, url's are already relative to the
+								// entry less file
+			rootpath: ":/a.com/"// a path to add on to the start of every url 
+								//resource
+		};
+	</script>
+    <script src="less.js" type="text/javascript"></script>
+
 Watch mode
 ----------
 
@@ -21,6 +41,16 @@ Watch mode
 
 To enable it, append '`#!watch`' to the browser URL, then refresh the page. Alternatively, you can
 run `less.watch()` from the console.
+
+Debugging
+---------
+
+It is possible to output rules in your css which allow tools to locate the source of the rule.
+
+Either specify the option `dumpLineNumbers` as above or add `!dumpLineNumbers:mediaQuery` to the url.
+
+You can use the "comments" option with [FireLESS](https://addons.mozilla.org/en-us/firefox/addon/fireless/) and 
+the "mediaQuery" option with FireBug/Chrome dev tools (it is identical to the SCSS media query debugging format).
 
 Server-side usage
 =================
