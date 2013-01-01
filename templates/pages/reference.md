@@ -3,6 +3,7 @@
 	escape(@string);             // URL encodes a string
 	
 	unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
+	color(@string);				   // parses a string to a color
 	
 	ceil(@number);               // rounds up to an integer
 	floor(@number);              // rounds down to an integer
@@ -69,6 +70,21 @@ Output:
 
     a%3D1
 #Misc functions
+###color
+Parses a color, so a string representing a color becomes a color.
+
+Parameters:
+
+* `string`: A string of the color
+
+Example:
+
+    color("#aaa");
+
+Output:
+
+    #aaa
+
 ###unit
 Remove or change the unit of a dimension
 
