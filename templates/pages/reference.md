@@ -1,8 +1,56 @@
-LESS Function Reference
-=======================
+#Index
 
+	escape(@string);             // URL encodes a string
+	
+	ceil(@number);               // rounds up to an integer
+	floor(@number);              // rounds down to an integer
+	percentage(@number);         // converts to a %, e.g. 0.5 -> 50%
+	round(number, [places: 0]);	 // rounds a number to a number of places
+
+	rgb(@r, @g, @b);                             // converts to a color
+	rgba(@r, @g, @b, @a);                        // converts to a color
+	argb(@color);                                // creates a #AARRGGBB
+	hsl(@hue, @saturation, @lightness);          // creates a color
+	hsla(@hue, @saturation, @lightness, @alpha); // creates a color
+	hsv(@hue, @saturation, @value);              // creates a color
+	hsva(@hue, @saturation, @value, @alpha);     // creates a color
+	
+    hue(@color);        // returns the `hue` channel of @color
+    saturation(@color); // returns the `saturation` channel of @color
+    lightness(@color);  // returns the 'lightness' channel of @color
+    red(@color);        // returns the 'red' channel of @color
+    green(@color);      // returns the 'green' channel of @color
+    blue(@color);       // returns the 'blue' channel of @color
+    alpha(@color);      // returns the 'alpha' channel of @color
+    luma(@color);       // returns the 'luma' value (perceptual brightness) of @color
+	
+    saturate(@color, 10%);   // return a color 10% points *more* saturated
+    desaturate(@color, 10%); // return a color 10% points *less* saturated
+    lighten(@color, 10%);    // return a color 10% points *lighter*
+    darken(@color, 10%);     // return a color 10% points *darker*
+    fadein(@color, 10%);     // return a color 10% points *less* transparent
+    fadeout(@color, 10%);    // return a color 10% points *more* transparent
+    fade(@color, 50%);       // return @color with 50% transparency
+    spin(@color, 10);        // return a color with a 10 degree larger in hue
+    mix(@color1, @color2, [@weight: 50%]);  // return a mix of @color1 and @color2
+	greyscale(@color);       // returns a grey, 100% desaturated color
+    contrast(@color1, @darkcolor, @lightcolor); 
+	    // return @darkcolor if @color1 is > 43% luma  
+		// otherwise return @lightcolor
+
+	multiply(@color1, @color2);
+	screen(@color1, @color2);
+	overlay(@color1, @color2);
+	softlight(@color1, @color2);
+	hardlight(@color1, @color2);
+	difference(@color1, @color2);
+	exclusion(@color1, @color2);
+	average(@color1, @color2);
+	negation(@color1, @color2);
+	
 #String functions
 ###escape
+
 Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to `=`, `:`, `#`, `;`, `(` and `)` characters.
 
 Parameters:
@@ -19,22 +67,6 @@ Output:
 
     a%3D1
 #Math functions
-###round
-Applies rounding.
-
-Parameters:
-
-* `number`: A floating point number.
-
-Returns: `integer`
-
-Example:
-
-    round(1.67)
-
-Output:
-
-    2
 ###ceil
 Rounds up to the next highest integer.
 
@@ -83,6 +115,31 @@ Example:
 Output:
 
     50%
+###round
+Applies rounding.
+
+Parameters:
+
+* `number`: A floating point number.
+* `decimalPlaces`: Optional: The number of decimal places to round to. Defaults to 0.
+
+Returns: `number`
+
+Example:
+
+    round(1.67)
+
+Output:
+
+    2
+	
+Example:
+
+    round(1.67, 1)
+
+Output:
+
+    1.7
 #Color functions
 ##Color definition
 ###rgb
@@ -156,6 +213,13 @@ Example:
 Output:
 
     #80ff00
+	
+This is useful if you want to create a new color based on another color's channel, for example:
+
+    @new: hsl(hue(@old), 45%, 90%);
+
+`@new` will have `@old`'s *hue*, and its own saturation and lightness.
+	
 ###hsla
 Creates a transparent color object from hue, saturation, lightness and alpha (HSLA) values.
 
@@ -468,6 +532,8 @@ Rotate the hue angle of a color in either direction. While the angle range is 0-
 Do this instead:
 
     @c: spin(saturate('#aaaaaa', 10%), 10);
+	
+Colors are always returned as RGB values, so applying `spin` to a grey value will do nothing.
 
 Parameters:
 

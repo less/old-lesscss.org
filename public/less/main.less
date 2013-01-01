@@ -342,8 +342,7 @@ nav a, #dropdown li {
   }
 }
 
-
-#docs {
+.page-light {
   @bg: lighten(@light-blue, 5%);
   border-top: 2px solid lighten(@bg, 5%);
   color: @blue;
@@ -385,6 +384,27 @@ nav a, #dropdown li {
   }
   pre code                    { font-size: 15px  }
   p + h2, pre + h2, code + h2 { border-top-color: rgba(0, 0, 0, 0.1) }
+}
+
+#reference .content {
+  h1 {
+	padding: 0;
+	font-size: 1.6em;
+  }
+  h2 {
+	
+  }
+  h3 {
+	font-weight: bold;
+  }
+  p + h1, pre + h1, code + h1 {
+    border-top: 6px solid rgba(0, 0, 0, 0.1);
+    padding-top: 30px;
+  }
+  p + h3, pre + h3, code + h3 {
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+  }
 }
 
 td {
@@ -435,7 +455,7 @@ td {
     font-size: 14px;
   }
 }
-#about, #synopsis, #usage, #translations {
+.page-dark {
   a {
     text-decoration: none;
     color: @light-yellow;

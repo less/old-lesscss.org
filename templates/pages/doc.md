@@ -432,71 +432,24 @@ Extra parentheses are also authorized in operations:
 
     width: ((@var + 5) * 2);
 
-Color functions
----------------
+Functions
+---------
 
-LESS provides a variety of functions which transform colors. Colors are first converted to
-the *HSL* color-space, and then manipulated at the channel level:
+LESS provides a variety of functions which transform colors, manipulate strings and do maths. 
+They are documented fully in the function reference.
 
-    lighten(@color, 10%);    // return a color 10 percentage points *lighter* than @color
-    darken(@color, 10%);     // return a color 10 percentage points *darker* than @color
-
-    saturate(@color, 10%);   // return a color 10 percentage points *more* saturated than @color
-    desaturate(@color, 10%); // return a color 10 percentage points *less* saturated than @color
-
-    fadein(@color, 10%);     
-	    // return a color 10 percentage points *less* transparent than @color
-    fadeout(@color, 10%);    
-	    // return a color 10 percentage points *more* transparent than @color
-    fade(@color, 50%);       // return @color with 50% transparency
-
-    spin(@color, 10);        // return a color with a 10 degree larger in hue than @color
-    spin(@color, -10);       // return a color with a 10 degree smaller hue than @color
-
-    mix(@color1, @color2, @weight);  
-	    // return a mix of @color1 and @color2, default weight 50%
-    contrast(@color1, @darkcolor, @lightcolor); 
-	    // return @darkcolor if @color1 is > 43% luma (i.e. is a light color), 
-		// otherwise return @lightcolor
-
-Using them is pretty straightforward:
+Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%, 
+increases the saturation of a base color by 5% and then sets the background color to one that is lightened by
+25% and spun by 8 degrees:
 
     @base: #f04615;
+	@width: 0.5;
 
     .class {
+	  width: percentage(0.5); // returns `50%`
       color: saturate(@base, 5%);
       background-color: spin(lighten(@base, 25%), 8);
     }
-
-You can also extract color information:
-
-    hue(@color);        // returns the `hue` channel of @color
-    saturation(@color); // returns the `saturation` channel of @color
-    lightness(@color);  // returns the 'lightness' channel of @color
-    red(@color);        // returns the 'red' channel of @color
-    green(@color);      // returns the 'green' channel of @color
-    blue(@color);       // returns the 'blue' channel of @color
-    alpha(@color);      // returns the 'alpha' channel of @color
-    luma(@color);       // returns the 'luma' value (perceptual brightness) of @color
-
-This is useful if you want to create a new color based on another color's channel, for example:
-
-    @new: hsl(hue(@old), 45%, 90%);
-
-`@new` will have `@old`'s *hue*, and its own saturation and lightness. Colors are always returned as RGB values, so applying `spin` to a grey value will do nothing.
-
-Math functions
---------------
-
-LESS provides a couple of handy math functions you can use on number values:
-
-    round(1.67); // returns `2`
-    ceil(2.4);   // returns `3`
-    floor(2.6);  // returns `2`
-
-If you need to turn a value into a percentage, you can do so with the `percentage` function:
-
-    percentage(0.5); // returns `50%`
 
 Namespaces
 ----------

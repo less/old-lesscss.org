@@ -29,7 +29,8 @@
       <a href="#synopsis">overview</a>
       <a href="#usage">usage</a>
       <a href="#docs" id="guide-link">language</a>
-      <a href="http://github.com/cloudhead/less.js">source</a>
+	  <a href="#reference" id="guide-link">function reference</a>
+      <a href="https://github.com/cloudhead/less.js">source</a>
       <a href="#about">about</a>
     </nav>
     <a href="https://twitter.com/cloudhead" class="twitter-follow-button" data-show-screen-name="false" data-width="80px" data-show-count="false" data-lang="en">Follow on twitter</a>
@@ -41,7 +42,7 @@
         <li><a href="#-pattern-matching-and-guard-expressions">Pattern-matching</a></li>
         <li><a href="#-nested-rules">Nested Rules</a></li>
         <li><a href="#-operations">Operations</a></li>
-        <li><a href="#-color-functions">Color functions</a></li>
+        <li><a href="#-functions">Functions</a></li>
         <li><a href="#-namespaces">Namespaces</a></li>
         <li><a href="#-scope">Scope</a></li>
         <li><a href="#-comments">Comments</a></li>
@@ -51,26 +52,33 @@
   </div>
 </section>
 
-<section id="synopsis" class="page">
+<section id="synopsis" class="page page-dark">
   <div class="content">
     <%= markdown File.read(Toto::Paths[:pages] + '/synopsis.md') %>
   </div>
 </section>
 
-<section id="usage" class="page">
+<section id="usage" class="page page-dark">
   <div class="content">
     <%= markdown File.read(Toto::Paths[:pages] + '/usage.md') %>
   </div>
 </section>
 
-<section id="docs" class="page">
+<section id="docs" class="page page-light">
   <h1>The Language</h1>
   <div class="content">
       <%= markdown File.read(Toto::Paths[:pages] + '/doc.md') %>
   </div>
 </section>
 
-<section id="translations" class="page">
+<section id="reference" class="page page-light">
+  <h1>Function Reference</h1>
+  <div class="content">
+      <%= markdown File.read(Toto::Paths[:pages] + '/reference.md') %>
+  </div>
+</section>
+
+<section id="translations" class="page page-dark">
   <div class="content">
     <h1>In Other Languages</h1>
     <ul>
@@ -85,12 +93,12 @@
   </div>
 </section>
 
-<section id="about" class="page">
+<section id="about" class="page page-dark">
   <div class="content">
     <%= markdown File.read(Toto::Paths[:pages] + '/about.md') %>
     <footer>
         <p>powered by <a href="http://github.com/cloudhead/less.js">LESS</a></p>
-        <p id="copy">Copyright &copy; Alexis Sellier 2010-2012</p>
+        <p id="copy">Copyright &copy; Alexis Sellier 2010-2013</p>
     </footer>
   </div>
 </section>
