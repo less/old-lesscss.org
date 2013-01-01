@@ -24,7 +24,29 @@ Which compiles to:
 
     content: "I am fnord.";
 
-Note that variables in LESS are actually 'constants' in that they can only be defined once.
+When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
+
+	@var: 0;
+	.class1
+      @var: 1;
+	  .class {
+	    @var: 2;
+	    three: @var;
+		@var: 3;
+	  }
+	  one: @var;
+	}
+
+Compiles to:
+
+    .class1 .class {
+	  three: 3;
+	}
+	.class {
+	  one: 1;
+	}
+
+This is similar to css itself where the last property inside a definition is used to determine the value.
 
 Mixins
 ------
@@ -62,6 +84,8 @@ The properties of the `.bordered` class will now appear in both `#menu a` and `.
     }
 
 Any CSS *class* or *id* ruleset can be mixed-in that way.
+
+Note: Variables are also mixed in, so variables from a mixin will be placed into the current scope. This is contentious and may change in the future.
 
 Parametric Mixins
 -----------------
