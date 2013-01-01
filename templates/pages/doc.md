@@ -400,6 +400,33 @@ Will output
     .bordered .top {
       margin: 5px;
     }
+
+Nested Media Queries
+--------------------
+
+Media queries can be nested in the same way as selectors e.g.
+
+    .one {
+	    @media (width: 400px) {
+			font-size: 1.2em;
+		    @media print and color {
+			    color: blue;
+            }			
+		}
+	}
+
+Will output
+
+	@media (width: 400px) {
+	  .one {
+		font-size: 1.2em;
+	  }
+	}
+	@media (width: 400px) and print and color {
+	  .one {
+		color: blue;
+	  }
+	}
 	
 Advanced Usage of &
 -------------------
