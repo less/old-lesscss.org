@@ -36,7 +36,7 @@
     spin(@color, 10);        // return a color with a 10 degree larger in hue
     mix(@color1, @color2, [@weight: 50%]);  // return a mix of @color1 and @color2
 	greyscale(@color);       // returns a grey, 100% desaturated color
-    contrast(@color1, @darkcolor, @lightcolor); 
+    contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]); 
 	    // return @darkcolor if @color1 is > 43% luma  
 		// otherwise return @lightcolor
 
@@ -174,9 +174,9 @@ Creates an opaque color object from decimal red, green and blue (RGB) values. Li
 
 Parameters:
 
-* `red`: An integer 0-255.
-* `green`: An integer 0-255.
-* `blue`: An integer 0-255.
+* `red`: An integer 0-255 or percentage 0-100%.
+* `green`: An integer 0-255 or percentage 0-100%.
+* `blue`: An integer 0-255 or percentage 0-100%.
 
 Returns: `color`
 
@@ -192,10 +192,10 @@ Creates a transparent color object from decimal red, green, blue and alpha (RGBA
 
 Parameters:
 
-* `red`: An integer 0-255.
-* `green`: An integer 0-255.
-* `blue`: An integer 0-255.
-* `alpha`: An integer 0-255.
+* `red`: An integer 0-255 or percentage 0-100%.
+* `green`: An integer 0-255 or percentage 0-100%.
+* `blue`: An integer 0-255 or percentage 0-100%.
+* `alpha`: An number 0-1 or percentage 0-100%.
 
 Returns: `color`
 
@@ -228,8 +228,8 @@ Creates an opaque color object from hue, saturation and lightness (HSL) values.
 Parameters:
 
 * `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100%.
-* `lightness`: A percentage 0-100%.
+* `saturation`: A percentage 0-100% or number 0-1.
+* `lightness`: A percentage 0-100% or number 0-1.
 
 Returns: `color`
 
@@ -253,9 +253,9 @@ Creates a transparent color object from hue, saturation, lightness and alpha (HS
 Parameters:
 
 * `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100%.
-* `lightness`: A percentage 0-100%.
-* `alpha`: A floating point number 0-1.
+* `saturation`: A percentage 0-100% or number 0-1.
+* `lightness`: A percentage 0-100% or number 0-1.
+* `alpha`: A percentage 0-100% or number 0-1.
 
 Returns: `color`
 
@@ -272,8 +272,8 @@ Creates an opaque color object from hue, saturation and value (HSV) values. Note
 Parameters:
 
 * `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100%.
-* `value`: A percentage 0-100%.
+* `saturation`: A percentage 0-100% or number 0-1.
+* `value`: A percentage 0-100% or number 0-1.
 
 Returns: `color`
 
@@ -291,9 +291,9 @@ Creates a transparent color object from hue, saturation, value and alpha (HSVA) 
 Parameters:
 
 * `hue`: An integer 0-360 representing degrees.
-* `saturation`: A percentage 0-100%.
-* `value`: A percentage 0-100%.
-* `alpha`: A floating point number 0-1.
+* `saturation`: A percentage 0-100% or number 0-1.
+* `value`: A percentage 0-100% or number 0-1.
+* `alpha`: A percentage 0-100% or number 0-1.
 
 Returns: `color`
 
@@ -452,7 +452,8 @@ Example:
 
 Output:
 
-    #80ff00 (hsl(90, 100%, 50%))
+    #80ff00 // hsl(90, 100%, 50%)
+
 ###desaturate
 Decrease the saturation of a color by an absolute amount.
 
@@ -469,7 +470,7 @@ Example:
 
 Output:
 
-    #80e51a (hsl(90, 80%, 50%))
+    #80e51a // hsl(90, 80%, 50%)
 ###lighten
 Increase the lightness of a color by an absolute amount.
 
@@ -486,7 +487,7 @@ Example:
 
 Output:
 
-    #99f53d (hsl(90, 90%, 60%))
+    #99f53d // hsl(90, 90%, 60%)
 ###darken
 Decrease the lightness of a color by an absolute amount.
 
@@ -503,7 +504,7 @@ Example:
 
 Output:
 
-    #66c20a (hsl(90, 90%, 40%))
+    #66c20a // hsl(90, 90%, 40%)
 ###fadein
 Decrease the transparency (or increase the opacity) of a color, making it more opaque. Has no effect on opaque colours. To fade in the other direction use `fadeout`.
 
@@ -520,7 +521,7 @@ Example:
 
 Output:
 
-    rgba(128, 242, 13, 0.6) (hsla(90, 90%, 50%, 0.6))
+    rgba(128, 242, 13, 0.6) // hsla(90, 90%, 50%, 0.6)
 ###fadeout
 Increase the transparency (or decrease the opacity) of a color, making it less opaque. To fade in the other direction use `fadein`.
 
@@ -537,7 +538,7 @@ Example:
 
 Output:
 
-    rgba(128, 242, 13, 0.4) (hsla(90, 90%, 50%, 0.6))
+    rgba(128, 242, 13, 0.4) // hsla(90, 90%, 50%, 0.6)
 ###fade
 Set the absolute transparency of a color. Can be applied to colors whether they already have an opacity value or not.
 
@@ -554,15 +555,15 @@ Example:
 
 Output:
 
-    rgba(128, 242, 13, 0.1) (hsla(90, 90%, 50%, 0.1))
+    rgba(128, 242, 13, 0.1) //hsla(90, 90%, 50%, 0.1)
 ###spin
 Rotate the hue angle of a color in either direction. While the angle range is 0-360, it applies a mod 360 operation, so you can pass in much larger (or negative) values and they will wrap around e.g. angles of 360 and 720 will produce the same result. Note that colours are passed through an RGB conversion, which doesn't retain hue value for greys (because hue has no meaning when there is no saturation), so make sure you apply functions in a way that preserves hue, for example don't do this:
 
-    @c: saturate(spin('#aaaaaa', 10), 10%);
+    @c: saturate(spin(#aaaaaa, 10), 10%);
 
 Do this instead:
 
-    @c: spin(saturate('#aaaaaa', 10%), 10);
+    @c: spin(saturate(#aaaaaa, 10%), 10);
 	
 Colors are always returned as RGB values, so applying `spin` to a grey value will do nothing.
 
@@ -580,8 +581,8 @@ Example:
 
 Output:
 
-    #f27f0d (hsl(30, 90%, 50%))
-    #f20d33 (hsl(350, 90%, 50%))
+    #f27f0d // hsl(30, 90%, 50%)
+    #f20d33 // hsl(350, 90%, 50%)
 ###mix
 Mix two colors together in variable proportion. Opacity is included in the calculations.
 
@@ -589,19 +590,19 @@ Parameters:
 
 * `color1`: A color object.
 * `color1`: A color object.
-* `weight`: Optional, a percentage balance point between the two colors, defaults to 50.
+* `weight`: Optional, a percentage balance point between the two colors, defaults to 50%.
 
 Returns: `color`
 
 Example:
 
-    mix(#ff0000, #0000ff, 50)
-    mix(rgba(100,0,0,1.0), rgba(0,100,0,0.5), 50)
+    mix(#ff0000, #0000ff, 50%)
+    mix(rgba(100,0,0,1.0), rgba(0,100,0,0.5), 50%)
 
 Output:
 
     #800080
-    rgba(75, 25, 0, 0.75);
+    rgba(75, 25, 0, 0.75)
 ###greyscale
 Remove all saturation from a color; the same as calling `desaturate(@color, 100%)`. Because the saturation is not affected by hue, the resulting color mapping may be somewhat dull or muddy; `luma` may provide a better result as it extracts perceptual rather than linear brightness, for example `greyscale('#0000ff')` will return the same value as `greyscale('#00ff00')`, though they appear quite different in brightness to the human eye.
 
@@ -617,16 +618,16 @@ Example:
 
 Output:
 
-    #808080 (hsl(90, 0%, 50%))
+    #808080 // hsl(90, 0%, 50%)
 ###contrast
 Choose which of two colors provides the greatest contrast with another. This is useful for ensuring that a color is readable against a background, which is also useful for accessibility compliance. This function works the same way as the [contrast function in Compass for SASS](http://compass-style.org/reference/compass/utilities/color/contrast/). In accordance with [WCAG 2.0](http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef), colors are compared using their luma value, not their lightness.
 
 Parameters:
 
 * `color`: A color object to compare against.
-* `dark`: A designated dark color (defaults to black).
-* `light`: A designated light color (defaults to white).
-* `threshold`: A percentage 0-100% specifying where the transition from "dark" to "light" is (defaults to 43%). This is used to bias the contrast one way or another, for example to allow you to decide whether a 50% grey background should result in black or white text. You would generally set this lower for 'lighter' palettes, higher for 'darker' ones.
+* `dark`: optional - A designated dark color (defaults to black).
+* `light`: optional - A designated light color (defaults to white).
+* `threshold`: optional - A percentage 0-100% specifying where the transition from "dark" to "light" is (defaults to 43%). This is used to bias the contrast one way or another, for example to allow you to decide whether a 50% grey background should result in black or white text. You would generally set this lower for 'lighter' palettes, higher for 'darker' ones. Defaults to 43%.
 
 Returns: `color`
 
@@ -640,11 +641,11 @@ Example:
 
 Output:
 
-    #000000 (black)
-    #ffffff (white)
+    #000000 // black
+    #ffffff // white
     #dddddd
-    #000000 (black)
-    #ffffff (white)
+    #000000 // black
+    #ffffff // white
 
 ##Color blending
 These operations are _similar_ as the blend modes found in image editors like Photoshop, Firework or GIMP, so you can use them to make your CSS colors match your images.
