@@ -242,7 +242,10 @@ nav a, #dropdown li {
       code {
         font-size: 13px;  
       }
-      color: @blue + #333; display: inline; float: left; margin: 36px 0 0 15px }
+	  @color: @blue + #333;
+      color: @color; display: inline; float: left; margin: 21px 0 0 15px; line-height: 22px;
+	  .link(@color);
+	}
   }
   h2 {
     span {
@@ -455,16 +458,19 @@ td {
     font-size: 14px;
   }
 }
-.page-dark {
+.link(@link-color: @light-yellow, @link-underline: rgba(255, 255, 255, 0.2)) {
   a {
     text-decoration: none;
-    color: @light-yellow;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    color: @link-color;
+    border-bottom: 1px dashed @link-underline;
     &:hover {
       text-decoration: none;
-      border-bottom: 1px dashed @light-yellow;
+      border-bottom: 1px dashed @link-color;
     }
   }
+}
+.page-dark {
+  .link;
   @bg: desaturate(darken(@darkest, 5%), 20%);
   text-shadow: 0 -1px 1px lighten(@bg, 5%);
   color: @highlight;
