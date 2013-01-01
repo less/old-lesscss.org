@@ -2,6 +2,8 @@
 
 	escape(@string);             // URL encodes a string
 	
+	unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
+	
 	ceil(@number);               // rounds up to an integer
 	floor(@number);              // rounds down to an integer
 	percentage(@number);         // converts to a %, e.g. 0.5 -> 50%
@@ -66,6 +68,31 @@ Example:
 Output:
 
     a%3D1
+#Misc functions
+###unit
+Remove or change the unit of a dimension
+
+Parameters:
+
+* `dimension`: A number, with or without a dimension
+* `unit`: Optional: the unit to change to, or if omitted it will remove the unit
+
+Example:
+
+    unit(5, px)
+
+Output:
+
+    5px
+	
+Example:
+
+    unit(5em)
+
+Output:
+
+    5
+
 #Math functions
 ###ceil
 Rounds up to the next highest integer.
@@ -256,6 +283,8 @@ Example:
 
 Output:
 
+    #408000
+
 ###hsva
 Creates a transparent color object from hue, saturation, value and alpha (HSVA) values. Note that this is not the same as `hsla`.
 
@@ -273,6 +302,8 @@ Example:
     hsva(90, 100%, 50%, 0.5)
 
 Output:
+
+    rgba(64, 128, 0, 0.5)
 
 ##Color channel information
 ###hue
