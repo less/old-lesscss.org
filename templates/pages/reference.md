@@ -54,13 +54,16 @@
 #String functions
 ###escape
 
-Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to `=`, `:`, `#`, `;`, `(` and `)` characters.
+Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to special characters found in the input string. 
+
+* Following characters are exceptions and not encoded: `,`, `/`, `?`, `@`, `&`, `+`, `'`, `~`, `!` and `$`. 
+* Most common encoded characters are: `<space>`, `#`, `^`, `(`, `)`, `{`, `}`, `|`, `:`, `>`, `<`, `;`, `]`, `[` and `=`.
 
 Parameters:
 
 * `string`: A string to escape
 
-Returns: `string`
+Returns: escaped `string` content without quotes.
 
 Example:
 
@@ -69,6 +72,9 @@ Example:
 Output:
 
     a%3D1
+    
+Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
+
 #Misc functions
 ###color
 Parses a color, so a string representing a color becomes a color.
