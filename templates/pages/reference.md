@@ -1,6 +1,8 @@
 #Index
 
 	escape(@string);             // URL encodes a string
+	e(@string);             // escape string content
+	%(@string, values...);             // formats a string
 	
 	unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
 	color(@string);				   // parses a string to a color
