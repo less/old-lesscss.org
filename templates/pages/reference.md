@@ -75,6 +75,25 @@ Output:
     
 Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
 
+###e
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn’t recognize.
+
+Parameters:
+
+* `string`: A string to escape
+
+Returns: `string` content without quotes.
+
+Example:
+
+    filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+
+Output:
+
+    filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
+    
+Note: The function accepts also `~""` escaped values and numbers as parameters. Anything else returns an error.
+
 #Misc functions
 ###color
 Parses a color, so a string representing a color becomes a color.
