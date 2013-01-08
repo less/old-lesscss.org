@@ -107,7 +107,7 @@ Placeholders:
 Parameters:
 
 * `string`: format string with placeholders,
-* anything* : values to replace placeholders.
+* `anything`* : values to replace placeholders.
 
 Returns: formatted `string`.
 
