@@ -1,16 +1,16 @@
 #Index
 
-	escape(@string);             // URL encodes a string
-	e(@string);             // escape string content
-	%(@string, values...);             // formats a string
+	escape(@string);               // URL encodes a string
+	e(@string);                    // escape string content
+	%(@string, values...);         // formats a string
 	
 	unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
 	color(@string);				   // parses a string to a color
 	
-	ceil(@number);               // rounds up to an integer
-	floor(@number);              // rounds down to an integer
-	percentage(@number);         // converts to a %, e.g. 0.5 -> 50%
-	round(number, [places: 0]);	 // rounds a number to a number of places
+	ceil(@number);                 // rounds up to an integer
+	floor(@number);                // rounds down to an integer
+	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
+	round(number, [places: 0]);	   // rounds a number to a number of places
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -29,19 +29,19 @@
     alpha(@color);      // returns the 'alpha' channel of @color
     luma(@color);       // returns the 'luma' value (perceptual brightness) of @color
 	
-    saturate(@color, 10%);   // return a color 10% points *more* saturated
-    desaturate(@color, 10%); // return a color 10% points *less* saturated
-    lighten(@color, 10%);    // return a color 10% points *lighter*
-    darken(@color, 10%);     // return a color 10% points *darker*
-    fadein(@color, 10%);     // return a color 10% points *less* transparent
-    fadeout(@color, 10%);    // return a color 10% points *more* transparent
-    fade(@color, 50%);       // return @color with 50% transparency
-    spin(@color, 10);        // return a color with a 10 degree larger in hue
+    saturate(@color, 10%);                  // return a color 10% points *more* saturated
+    desaturate(@color, 10%);                // return a color 10% points *less* saturated
+    lighten(@color, 10%);                   // return a color 10% points *lighter*
+    darken(@color, 10%);                    // return a color 10% points *darker*
+    fadein(@color, 10%);                    // return a color 10% points *less* transparent
+    fadeout(@color, 10%);                   // return a color 10% points *more* transparent
+    fade(@color, 50%);                      // return @color with 50% transparency
+    spin(@color, 10);                       // return a color with a 10 degree larger in hue
     mix(@color1, @color2, [@weight: 50%]);  // return a mix of @color1 and @color2
-	greyscale(@color);       // returns a grey, 100% desaturated color
+	greyscale(@color);                      // returns a grey, 100% desaturated color
     contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]); 
-	    // return @darkcolor if @color1 is > 43% luma  
-		// otherwise return @lightcolor
+	                                        // return @darkcolor if @color1 is > 43% luma  
+		                                    // otherwise return @lightcolor
 
 	multiply(@color1, @color2);
 	screen(@color1, @color2);
