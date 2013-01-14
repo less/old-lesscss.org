@@ -42,6 +42,17 @@ Watch mode
 To enable it, append '`#!watch`' to the browser URL, then refresh the page. Alternatively, you can
 run `less.watch()` from the console.
 
+Modify variables
+----------------
+
+*modifyVars* enables modification of less variables in run-time. When called with new values, the less file 
+is recompiled without reloading. Simple basic usage:
+
+    less.modifyVars({
+        '@buttonFace': '#5B83AD',
+        '@buttonText': '#D9EEF2'
+    });
+
 Debugging
 ---------
 
