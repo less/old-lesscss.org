@@ -1,7 +1,7 @@
 Client-side usage
 =================
 
-Client-side is the easiest way to get started and good for developing your less. For production and especially 
+Client-side is the easiest way to get started and good for developing your less. For production and especially
 if performance is important, we recommend pre-compiling using node or one of the many third party tools.
 
 Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
@@ -20,15 +20,15 @@ You can set options by setting things on a global less object before the script.
 	    less = {
 			env: "development", // or "production"
 			async: false,		// load imports async
-			fileAsync: false,   // load imports async when in a page under 
+			fileAsync: false,   // load imports async when in a page under
 								// a file protocol
 			poll: 1000,			// when in watch mode, time in ms between polls
 			functions: {},		// user functions, keyed by name
-			dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+			dumpLineNumbers: "comments", // or "mediaquery" or "all"
 			relativeUrls: false,// whether to adjust url's to be relative
 								// if false, url's are already relative to the
 								// entry less file
-			rootpath: ":/a.com/"// a path to add on to the start of every url 
+			rootpath: ":/a.com/"// a path to add on to the start of every url
 								//resource
 		};
 	</script>
@@ -60,7 +60,7 @@ It is possible to output rules in your css which allow tools to locate the sourc
 
 Either specify the option `dumpLineNumbers` as above or add `!dumpLineNumbers:mediaQuery` to the url.
 
-You can use the "comments" option with [FireLESS](https://addons.mozilla.org/en-us/firefox/addon/fireless/) and 
+You can use the "comments" option with [FireLESS](https://addons.mozilla.org/en-us/firefox/addon/fireless/) and
 the "mediaQuery" option with FireBug/Chrome dev tools (it is identical to the SCSS media query debugging format).
 
 Server-side usage
@@ -72,7 +72,7 @@ Installation
 The easiest way to install LESS on the server, is via [npm](http://github.com/isaacs/npm), the node package manager, as so:
 
     $ npm install -g less
-	
+
 Command-line usage
 ------------------
 
