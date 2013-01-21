@@ -1,14 +1,16 @@
 #Index
 
-	escape(@string);             // URL encodes a string
+	escape(@string);               // URL encodes a string
+	e(@string);                    // escape string content
+	%(@string, values...);         // formats a string
 	
 	unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
 	color(@string);				   // parses a string to a color
 	
-	ceil(@number);               // rounds up to an integer
-	floor(@number);              // rounds down to an integer
-	percentage(@number);         // converts to a %, e.g. 0.5 -> 50%
-	round(number, [places: 0]);	 // rounds a number to a number of places
+	ceil(@number);                 // rounds up to an integer
+	floor(@number);                // rounds down to an integer
+	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
+	round(number, [places: 0]);	   // rounds a number to a number of places
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -27,19 +29,19 @@
     alpha(@color);      // returns the 'alpha' channel of @color
     luma(@color);       // returns the 'luma' value (perceptual brightness) of @color
 	
-    saturate(@color, 10%);   // return a color 10% points *more* saturated
-    desaturate(@color, 10%); // return a color 10% points *less* saturated
-    lighten(@color, 10%);    // return a color 10% points *lighter*
-    darken(@color, 10%);     // return a color 10% points *darker*
-    fadein(@color, 10%);     // return a color 10% points *less* transparent
-    fadeout(@color, 10%);    // return a color 10% points *more* transparent
-    fade(@color, 50%);       // return @color with 50% transparency
-    spin(@color, 10);        // return a color with a 10 degree larger in hue
+    saturate(@color, 10%);                  // return a color 10% points *more* saturated
+    desaturate(@color, 10%);                // return a color 10% points *less* saturated
+    lighten(@color, 10%);                   // return a color 10% points *lighter*
+    darken(@color, 10%);                    // return a color 10% points *darker*
+    fadein(@color, 10%);                    // return a color 10% points *less* transparent
+    fadeout(@color, 10%);                   // return a color 10% points *more* transparent
+    fade(@color, 50%);                      // return @color with 50% transparency
+    spin(@color, 10);                       // return a color with a 10 degree larger in hue
     mix(@color1, @color2, [@weight: 50%]);  // return a mix of @color1 and @color2
-	greyscale(@color);       // returns a grey, 100% desaturated color
+	greyscale(@color);                      // returns a grey, 100% desaturated color
     contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]); 
-	    // return @darkcolor if @color1 is > 43% luma  
-		// otherwise return @lightcolor
+	                                        // return @darkcolor if @color1 is > 43% luma  
+		                                    // otherwise return @lightcolor
 
 	multiply(@color1, @color2);
 	screen(@color1, @color2);
@@ -54,13 +56,16 @@
 #String functions
 ###escape
 
-Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to `=`, `:`, `#`, `;`, `(` and `)` characters.
+Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to special characters found in the input string. 
+
+* Following characters are exceptions and not encoded: `,`, `/`, `?`, `@`, `&`, `+`, `'`, `~`, `!` and `$`. 
+* Most common encoded characters are: `<space>`, `#`, `^`, `(`, `)`, `{`, `}`, `|`, `:`, `>`, `<`, `;`, `]`, `[` and `=`.
 
 Parameters:
 
 * `string`: A string to escape
 
-Returns: `string`
+Returns: escaped `string` content without quotes.
 
 Example:
 
@@ -69,6 +74,60 @@ Example:
 Output:
 
     a%3D1
+    
+Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
+
+###e
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn’t recognize.
+
+Parameters:
+
+* `string`: A string to escape
+
+Returns: `string` content without quotes.
+
+Example:
+
+    filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+
+Output:
+
+    filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
+    
+Note: The function accepts also `~""` escaped values and numbers as parameters. Anything else returns an error.
+
+###% format
+The function `%("format", arguments ...)` formats a string. The first argument is string with placeholders. All placeholders start with percentage symbol `%` followed by letter `s`,`S`,`d`,`D`,`a`, or `A`. Remaining arguments contain expressions to replace placeholders. If you need to print the percentage symbol, escape it by another percentage `%%`.
+
+Use uppercase placeholders if you need to escape special characters into their utf-8 escape codes. 
+The function escapes all special characters except `()'~!`. Space is encoded as `%20`. Lowercase placeholders leave special characters as they are. 
+
+Placeholders:
+* d, D, a, A - can be replaced by any kind of argument (color, number, escaped value, expression, ...). If you use them in combination with string, the whole string will be used - including its quotes. However, the quotes are placed into the string as they are, they are not escaped by "/" nor anything similar.
+* s, S - can be replaced by any kind of argument except color. If you use them in combination with string, only the string value will be used - string quotes are omitted.
+
+Parameters:
+
+* `string`: format string with placeholders,
+* `anything`* : values to replace placeholders.
+
+Returns: formatted `string`.
+
+Example:
+
+    format-a-d: %("repetitions: %a file: %d", 1 + 2, "directory/file.less");
+    format-a-d-upper: %('repetitions: %A file: %D', 1 + 2, "directory/file.less");
+    format-s: %("repetitions: %s file: %s", 1 + 2, "directory/file.less");
+    format-s-upper: %('repetitions: %S file: %S', 1 + 2, "directory/file.less");
+
+
+Output:
+
+    format-a-d: "repetitions: 3 file: "directory/file.less"";
+    format-a-d-upper: "repetitions: 3 file: %22directory%2Ffile.less%22";
+    format-s: "repetitions: 3 file: directory/file.less";
+    format-s-upper: "repetitions: 3 file: directory%2Ffile.less";
+    
 #Misc functions
 ###color
 Parses a color, so a string representing a color becomes a color.
