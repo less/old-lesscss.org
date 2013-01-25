@@ -568,15 +568,15 @@ You can import both css and less files. Only less files import statements are pr
 
 Compilation makes only one change to css file imports: top level css file imports are moved on top of the sheet, right after @charset declarations. 
 
-<table class="code-example" cellpadding="0">
-<tr><td><pre class="less-example"><code>// LESS input
-h1 { color: green; }
-@import-once "import/official-branding.css?urlParameter=23";
-</code></pre></td><td><pre class="css-output"><code>// CSS output
-@import "import/official-branding.css?urlParameter=23";
-h1 { color: green; }
-</code></pre></td></tr>
-</table>
+Input file with import statement:
+
+    h1 { color: green; }
+    @import-once "import/official-branding.css?urlParameter=23";
+
+import statement has been moved on top:
+
+    @import "import/official-branding.css?urlParameter=23";
+    h1 { color: green; }
 
 Any file that does not end with `.css` is considered less file and processed. In addition, if the file name has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
 
