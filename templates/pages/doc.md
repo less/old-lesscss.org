@@ -562,25 +562,72 @@ they don't show up in the compiled CSS output:
 Importing
 ---------
 
-You can import `.less` files, and all the variables and mixins in them will be made available to the main file.
-The `.less` extension is optional, so both of these are valid:
+You can import both css and less files. Only less files import statements are processed, css file import statements are kept as they are. If you want to import a CSS file, and don't want LESS to process it, just use the `.css` extension:
+
+    @import "lib.css";
+
+Compilation makes only one change to css file imports: top level css file imports are moved on top of the sheet, right after @charset declarations. 
+
+<table class="code-example" cellpadding="0">
+<tr><td><pre class="less-example"><code>// LESS input
+h1 { color: green; }
+@import-once "import/official-branding.css?urlParameter=23";
+</code></pre></td><td><pre class="css-output"><code>// CSS output
+@import "import/official-branding.css?urlParameter=23";
+h1 { color: green; }
+</code></pre></td></tr>
+</table>
+
+Any file that does not end with `.css` is considered less file and processed. In addition, if the file already has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
 
     @import "lib.less";
     @import "lib";
 
-If a file already has an extension or parameters, it will not get ".less" added on the end. If you want to import a CSS file,
-and don't want LESS to process it, just use the `.css` extension:
+Content of imported less file is copied into importing style sheet and compiled together with it. Importing and imported files share all mixins, namespaces, variables and other structures. In addition, if the import statement had media queries, imported content is enclosed in @Media declaration.
 
-    @import "lib.css";
+Imported "library.less":
 
-The directive will just be left as is, and end up in the CSS output. This will occur for any import that ends in css, before url parameters.
+    @importedColor: red; //define variable
+    h1 {color: green; } //ruleset
 
-If you want to import a file only if it has not been imported already, use `@import-once`
+Main file imports the above library.less file:
 
-    @import-once "lib.less";
-	@import-once "lib.less"; // will be ignored
-	
-`@import-once` will be the default behaviour of @import in 1.4.0
+    @import-multiple "library.less" screen and (max-width: 400px); // import with media queries
+    @import-multiple "library.less"; // import without media queries
+    .class {
+      color: @importedColor; // use imported variable
+    }
+
+Compiled file:
+
+    //corresponds to import with media queries
+    @media screen and (max-width: 400px) {
+      h1 { color: green; }
+    }
+    //corresponds to import without media queries
+    h1 { color: green; }
+    .class {
+      //use imported variable
+      color: #ff0000;
+    }
+
+Less file import statement does not have to be located on top of the style sheet. It can be placed also inside rulesets, mixins or other less structures.
+
+Import into ruleset:
+
+    pre {
+      @import "library.less";
+      color: @importedColor;
+    }
+
+both variable and ruleset defined in "library.less" have been copied into the `pre` ruleset:
+
+    pre {
+      color: #ff0000;
+    }
+    pre h1 {
+      color: green;
+    }
 
 String interpolation
 --------------------
