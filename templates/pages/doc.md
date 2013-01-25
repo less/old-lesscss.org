@@ -629,6 +629,30 @@ both variable and ruleset defined in "library.less" have been copied into the `p
       color: green;
     }
 
+Less supports three different @import statements:
+* `@import-once`,
+* `@import-multiple` - available only for 1.4.0 or higher versions,
+* `@import`.
+
+If you want to import a file only if it has not been imported already, use `@import-once`:
+
+    @import-once "lib.less";
+    @import-once "lib.less"; // will be ignored
+    @import-once "lib.less" handheld; // will be ignored
+    pre {
+      @import-once "lib.less"; // will be ignored
+    }
+
+If you want to import a file whether it was already imported or not, use `@import-multiple`
+
+    @import-once "lib.less";
+    @import-multiple "lib.less"; // will be imported
+    @import-multiple "lib.less" handheld; // will be imported
+    pre {
+      @import-multiple "lib.less"; // will be imported
+    }
+
+The statement `@import` acts differently before and after 1.4.0. It acts as `@import-multiple` in all older versions and as `@import-once` in all less.js versions after 1.4.0. 
 
 String interpolation
 --------------------
