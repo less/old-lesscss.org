@@ -578,7 +578,7 @@ h1 { color: green; }
 </code></pre></td></tr>
 </table>
 
-Any file that does not end with `.css` is considered less file and processed. In addition, if the file already has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
+Any file that does not end with `.css` is considered less file and processed. In addition, if the file name has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
 
     @import "lib.less";
     @import "lib";
@@ -623,9 +623,9 @@ Import into ruleset:
 both variable and ruleset defined in "library.less" have been copied into the `pre` ruleset:
 
     pre {
-      color: #ff0000;
+      color: #ff0000; // variable defined in library.less was available
     }
-    pre h1 {
+    pre h1 { //ruleset defined in library.less was placed into pre
       color: green;
     }
 
