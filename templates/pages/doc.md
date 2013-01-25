@@ -625,9 +625,10 @@ both variable and ruleset defined in "library.less" have been copied into the `p
     pre {
       color: #ff0000; // variable defined in library.less was available
     }
-    pre h1 { //ruleset defined in library.less was placed into pre
+    pre h1 { //ruleset defined in library.less was nested into 'pre' ruleset
       color: green;
     }
+
 
 String interpolation
 --------------------
