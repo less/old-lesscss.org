@@ -16,6 +16,7 @@
 	sin(number);	   // sine function
 	asin(number);	   // arcsine - inverse of sine function
 	cos(number);	   // cosine function
+	acos(number);	   // arccosine - inverse of cosine function
 	tan(number);	   // tangent function
 
 	rgb(@r, @g, @b);                             // converts to a color
@@ -322,7 +323,7 @@ Output:
     0.015707317311820675; // sine of 1 gradian
 
 ###asin
-Calculates arcsine (inverse of sine) function. Returns number in radians e.g. a number between -&Pi; and &Pi;.
+Calculates arcsine (inverse of sine) function. Returns number in radians e.g. a number between -&Pi;/2 and &Pi;/2.
 
 Parameters:
 
@@ -362,6 +363,27 @@ Output:
     0.5403023058681398 // cosine of 1 radian
     0.9998476951563913 // cosine of 1 degree
     0.9998766324816606 // cosine of 1 gradian
+
+###acos
+Calculates arccosine (inverse of cosine) function. Returns number in radians e.g. a number between 0 and &Pi;.
+
+Parameters:
+
+* `number`: A floating point number from [-1, 1] interval.
+
+Returns: `number`
+
+Example:
+
+    acos(0.5403023058681398)
+    acos(1) 
+    acos(2)
+
+Output:
+
+    1rad
+    0rad
+    NaNrad
 
 ###tan
 Calculates tangent function. Assumes radians on numbers without units.
