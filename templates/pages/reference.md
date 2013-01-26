@@ -446,6 +446,32 @@ Output:
 
     3.141592653589793
 
+###pow
+Returns the value of the first argument raised to the power of the second argument. Returned value has the same dimention as the first parameter. The dimension of the second parameter is ignored.
+
+Parameters:
+
+* `number`: base -a floating point number.
+* `number`: exponent - a floating point number.
+
+Returns: `number`
+
+Example:
+
+    pow(0cm, 0px)
+    pow(25, -2)
+    pow(25, 0.5)
+    pow(-25, 0.5)
+    pow(-25%, -0.5)
+
+Output:
+
+    1cm
+    0.0016
+    5
+    NaN
+    NaN%
+
 #Color functions
 ##Color definition
 ###rgb
