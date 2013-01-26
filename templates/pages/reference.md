@@ -15,6 +15,7 @@
 	abs(number);	   // absolute value of a number
 	sin(number);	   // sine function
 	cos(number);	   // cosine function
+	tan(number);	   // tangent function
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -339,6 +340,27 @@ Output:
     0.5403023058681398 // cosine of 1 radian
     0.9998476951563913 // cosine of 1 degree
     0.9998766324816606 // cosine of 1 gradian
+
+###tan
+Calculates tangent function. Assumes radians on numbers without units.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    tan(1) // tangent of 1 radian
+    tan(1deg) // tangent of 1 degree
+    tan(1grad) // tangent of 1 gradian
+
+Output:
+
+    1.5574077246549023 // tangent of 1 radian
+    0.017455064928217585 // tangent of 1 degree
+    0.015709255323664916 // tangent of 1 gradian
 
 #Color functions
 ##Color definition
