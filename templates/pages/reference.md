@@ -11,6 +11,9 @@
 	floor(@number);                // rounds down to an integer
 	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
 	round(number, [places: 0]);	   // rounds a number to a number of places
+	sqrt(number);	   // calculates square root of a number
+	sin(number);	   // sine function
+	cos(number);	   // cosine function
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -242,6 +245,100 @@ Example:
 Output:
 
     1.7
+
+###sqrt
+Calculates square root of a number. Keeps units as they are.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    sqrt(25cm)
+
+Output:
+
+    5cm
+	
+Example:
+
+    sqrt(18.6%)
+
+Output:
+
+    4.312771730569565%;
+
+###abs
+Calculates absolute value of a number. Keeps units as they are.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    abs(25cm)
+
+Output:
+
+    25cm
+	
+Example:
+
+    abs(-18.6%)
+
+Output:
+
+    18.6%;
+
+
+###sin
+Calculates sine function. Assumes radians on numbers without units.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    sin(1); // sine of 1 radian
+    sin(1deg); // sine of 1 degree
+    sin(1grad); // sine of 1 gradian
+
+Output:
+
+    0.8414709848078965; // sine of 1 radian
+    0.01745240643728351; // sine of 1 degree
+    0.015707317311820675; // sine of 1 gradian
+
+###cos
+Calculates cosine function. Assumes radians on numbers without units.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    cos(1) // cosine of 1 radian
+    cos(1deg) // cosine of 1 degree
+    cos(1grad) // cosine of 1 gradian
+
+Output:
+
+    0.5403023058681398 // cosine of 1 radian
+    0.9998476951563913 // cosine of 1 degree
+    0.9998766324816606 // cosine of 1 gradian
+
 #Color functions
 ##Color definition
 ###rgb
