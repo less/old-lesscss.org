@@ -19,6 +19,7 @@
 	acos(number);	   // arccosine - inverse of cosine function
 	tan(number);	   // tangent function
 	atan(number);	   // arctangent - inverse of tangent function
+	pi();	   // returns pi
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -427,6 +428,23 @@ Output:
     -1rad
     0rad
     1.525373rad;
+
+###pi
+Returns &pi; (pi);
+
+Parameters:
+
+* none
+
+Returns: `number`
+
+Example:
+
+    pi()
+
+Output:
+
+    3.141592653589793
 
 #Color functions
 ##Color definition
