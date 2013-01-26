@@ -18,7 +18,7 @@
 	cos(number);	   // cosine function
 	acos(number);	   // arccosine - inverse of cosine function
 	tan(number);	   // tangent function
-        atan(number);	   // arctangent - inverse of tangent function
+	atan(number);	   // arctangent - inverse of tangent function
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
