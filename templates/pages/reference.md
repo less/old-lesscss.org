@@ -324,7 +324,7 @@ Output:
     0.015707317311820675; // sine of 1 gradian
 
 ###asin
-Calculates arcsine (inverse of sine) function. Returns number in radians e.g. a number between -&Pi;/2 and &Pi;/2.
+Calculates arcsine (inverse of sine) function. Returns number in radians e.g. a number between -&pi;/2 and &pi;/2.
 
 Parameters:
 
@@ -366,7 +366,7 @@ Output:
     0.9998766324816606 // cosine of 1 gradian
 
 ###acos
-Calculates arccosine (inverse of cosine) function. Returns number in radians e.g. a number between 0 and &Pi;.
+Calculates arccosine (inverse of cosine) function. Returns number in radians e.g. a number between 0 and &pi;.
 
 Parameters:
 
