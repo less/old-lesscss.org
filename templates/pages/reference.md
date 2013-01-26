@@ -21,7 +21,7 @@
 	atan(number);	   // arctangent - inverse of tangent function
 	pi();	   // returns pi
 	pow(@base, @exponent);	   // first argument raised to the power of the second argument
-	mod(number, number);	   // first modulus second argument
+	mod(number, number);	   // first argument modulus second argument
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -449,7 +449,7 @@ Output:
     3.141592653589793
 
 ###pow
-Returns the value of the first argument raised to the power of the second argument. Returned value has the same dimention as the first parameter. The dimension of the second parameter is ignored.
+Returns the value of the first argument raised to the power of the second argument. Returned value has the same dimention as the first parameter and the dimension of the second parameter is ignored.
 
 Parameters:
 
@@ -475,7 +475,7 @@ Output:
     NaN%
 
 ###mod
-Returns the value of the first argument modulus second argument. Returned value has the same dimention as the first parameter. The dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
+Returns the value of the first argument modulus second argument. Returned value has the same dimention as the first parameter, the dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
 
 Parameters:
 
