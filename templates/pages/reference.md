@@ -20,6 +20,7 @@
 	tan(number);	   // tangent function
 	atan(number);	   // arctangent - inverse of tangent function
 	pi();	   // returns pi
+	pow(@base, @exponent);	   // first argument raised to the power of the second argument
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
