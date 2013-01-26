@@ -12,6 +12,7 @@
 	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
 	round(number, [places: 0]);	   // rounds a number to a number of places
 	sqrt(number);	   // calculates square root of a number
+	abs(number);	   // absolute value of a number
 	sin(number);	   // sine function
 	cos(number);	   // cosine function
 
