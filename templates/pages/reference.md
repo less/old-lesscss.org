@@ -21,6 +21,7 @@
 	atan(number);	   // arctangent - inverse of tangent function
 	pi();	   // returns pi
 	pow(@base, @exponent);	   // first argument raised to the power of the second argument
+	mod(number, number);	   // first modulus second argument
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -472,6 +473,28 @@ Output:
     5
     NaN
     NaN%
+
+###mod
+Returns the value of the first argument modulus second argument. Returned value has the same dimention as the first parameter. The dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
+
+Parameters:
+
+* `number`: a floating point number.
+* `number`: a floating point number.
+
+Returns: `number`
+
+Example:
+
+    mod(0cm, 0px)
+    mod(11cm, 6px);
+    mod(-26%, -5);
+
+Output:
+
+    NaNcm;
+    5cm
+    -1%;
 
 #Color functions
 ##Color definition
