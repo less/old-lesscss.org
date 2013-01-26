@@ -14,6 +14,7 @@
 	sqrt(number);	   // calculates square root of a number
 	abs(number);	   // absolute value of a number
 	sin(number);	   // sine function
+	asin(number);	   // arcsine - inverse of sine function
 	cos(number);	   // cosine function
 	tan(number);	   // tangent function
 
@@ -319,6 +320,27 @@ Output:
     0.8414709848078965; // sine of 1 radian
     0.01745240643728351; // sine of 1 degree
     0.015707317311820675; // sine of 1 gradian
+
+###asin
+Calculates arcsine (inverse of sine) function. Returns number in radians e.g. a number between -&Pi; and &Pi;.
+
+Parameters:
+
+* `number`: A floating point number from [-1, 1] interval.
+
+Returns: `number`
+
+Example:
+
+    asin(-0.8414709848078965)
+    asin(0) 
+    asin(2)
+
+Output:
+
+    -1rad
+    0rad
+    NaNrad
 
 ###cos
 Calculates cosine function. Assumes radians on numbers without units.
