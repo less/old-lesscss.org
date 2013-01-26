@@ -18,6 +18,7 @@
 	cos(number);	   // cosine function
 	acos(number);	   // arccosine - inverse of cosine function
 	tan(number);	   // tangent function
+        atan(number);	   // arctangent - inverse of tangent function
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -405,6 +406,27 @@ Output:
     1.5574077246549023 // tangent of 1 radian
     0.017455064928217585 // tangent of 1 degree
     0.015709255323664916 // tangent of 1 gradian
+
+###atan
+Calculates arctangent (inverse of tangent) function. Returns number in radians e.g. a number between -&pi;/2 and &pi;/2.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    atan(-1.5574077246549023)
+    atan(0)
+    round(atan(22), 6) // arctangent of 22 rounded to 6 decimal places
+
+Output:
+
+    -1rad
+    0rad
+    1.525373rad;
 
 #Color functions
 ##Color definition
