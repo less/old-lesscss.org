@@ -27,8 +27,8 @@ Which compiles to:
 When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
 
 	@var: 0;
-	.class1
-      @var: 1;
+	.class1 {
+    @var: 1;
 	  .class {
 	    @var: 2;
 	    three: @var;
@@ -411,7 +411,7 @@ Media queries can be nested in the same way as selectors e.g.
 			font-size: 1.2em;
 		    @media print and color {
 			    color: blue;
-            }			
+            }
 		}
 	}
 
@@ -427,7 +427,7 @@ Will output
 		color: blue;
 	  }
 	}
-	
+
 Advanced Usage of &
 -------------------
 
@@ -443,7 +443,7 @@ For example:
 		    color: red;
 		}
 	}
-	
+
 Will output
 
     .parent .child,
@@ -456,7 +456,7 @@ Will output
 	.sibling + .sibling {
 	    color: red;
 	}
-	
+
 You can also use & in mixins in order to reference nesting that is outside of your mixin.
 
 Operations
@@ -486,10 +486,10 @@ Extra parentheses are also authorized in operations:
 Functions
 ---------
 
-LESS provides a variety of functions which transform colors, manipulate strings and do maths. 
+LESS provides a variety of functions which transform colors, manipulate strings and do maths.
 They are documented fully in the function reference.
 
-Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%, 
+Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%,
 increases the saturation of a base color by 5% and then sets the background color to one that is lightened by
 25% and spun by 8 degrees:
 
@@ -566,7 +566,7 @@ You can import both css and less files. Only less files import statements are pr
 
     @import "lib.css";
 
-Compilation makes only one change to css file imports: top level css file imports are moved on top of the sheet, right after @charset declarations. 
+Compilation makes only one change to css file imports: top level css file imports are moved on top of the sheet, right after @charset declarations.
 
 Input file with import statement:
 
@@ -652,7 +652,7 @@ If you want to import a file whether it was already imported or not, use `@impor
       @import-multiple "lib.less"; // will be imported
     }
 
-The statement `@import` acts differently before and after 1.4.0. It acts as `@import-multiple` in all older versions and as `@import-once` in all less.js versions after 1.4.0. 
+The statement `@import` acts differently before and after 1.4.0. It acts as `@import-multiple` in all older versions and as `@import-once` in all less.js versions after 1.4.0.
 
 String interpolation
 --------------------
@@ -679,24 +679,24 @@ This is called an "escaped value", which will result in:
     .class {
       filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
     }
-	
+
 Selector Interpolation
 ----------------------
 
-If you want to use less variables inside selectors, you can do this by referencing the variable using `@{selector}` as 
+If you want to use less variables inside selectors, you can do this by referencing the variable using `@{selector}` as
 in string interpolation. For example:
 
     @name: blocked;
 	.@{name} {
 	    color: black;
 	}
-	
+
 will output
 
     .blocked {
 	    color: black;
 	}
-	
+
 Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in 1.4.0.
 
 JavaScript evaluation
