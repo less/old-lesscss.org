@@ -23,6 +23,10 @@
 	pow(@base, @exponent);	   // first argument raised to the power of the second argument
 	mod(number, number);	   // first argument modulus second argument
 
+	convert(number, units); // converts between number types
+	unit(number, units);  // changes number units without converting it
+	color(string); // converts string or escaped value into color
+
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
 	argb(@color);                                // creates a #AARRGGBB
@@ -449,7 +453,7 @@ Output:
     3.141592653589793
 
 ###pow
-Returns the value of the first argument raised to the power of the second argument. Returned value has the same dimention as the first parameter and the dimension of the second parameter is ignored.
+Returns the value of the first argument raised to the power of the second argument. Returned value has the same dimension as the first parameter and the dimension of the second parameter is ignored.
 
 Parameters:
 
@@ -475,7 +479,7 @@ Output:
     NaN%
 
 ###mod
-Returns the value of the first argument modulus second argument. Returned value has the same dimention as the first parameter, the dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
+Returns the value of the first argument modulus second argument. Returned value has the same dimension as the first parameter, the dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
 
 Parameters:
 
@@ -495,6 +499,74 @@ Output:
     NaNcm;
     5cm
     -1%;
+
+###convert
+Converts numbers from one type into another. First argument contains number with units and second argument contains units. If both units are compatible, the number is converted. If they are not compatible, function returns first argument without modifying it.
+
+Compatible unit groups:
+* lengths: `m`, `cm`, `mm`, `in`, `pt` and `pc`,
+* time: `s` and `ms`, 
+* angle: `rad`, `deg`, `grad` and `turn`.
+
+
+Parameters:
+
+* `number`: a floating point number with units.
+* `identifier`, `string` or `escaped value`: units
+
+Returns: `number`
+
+Example:
+
+    convert(9s, "ms")
+    convert(14cm, mm)
+    convert(8, mm) // incompatible unit types
+
+Output:
+
+    9000ms
+    140mm
+    8
+
+### Unit 
+Returns number with different units. Only units are changed, number itself is not converted. The function assumes that second parameter contains valid unit type.
+
+Parameters:
+
+* `number`: a floating point number with units.
+* `identifier` or `escaped value`: units.
+
+Returns: `number`
+
+Example:
+
+    unit(9s, ~"ms")
+    unit(-9, m)
+
+Output:
+
+    9ms
+    -9m
+
+### Color
+Converts a string or escaped value into a color. The input must contain color in hexadecimal or shorthand representation. 
+
+Parameters:
+
+* `identifier` or `escaped value` with valid color in hexadecimal or shorthand representation.
+
+Returns: `color`
+
+Example:
+
+    color("#445566")
+    color(~"#123")
+
+Output:
+
+    #445566
+    #112233
+
 
 #Color functions
 ##Color definition
