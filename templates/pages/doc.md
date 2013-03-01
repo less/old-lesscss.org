@@ -703,7 +703,7 @@ Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Suppo
 JavaScript evaluation
 ---------------------
 
-JavaScript expressions can be evaluated as values inside .less files. We reccomend using caution with this feature
+JavaScript expressions can be evaluated as values inside .less files. We recommend using caution with this feature
 as the less will not be compilable by ports and it makes the less harder to mantain. If possible, try to think of a
 function that can be added to achieve the same purpose and ask for it on github. We have plans to allow expanding the
 default functions available. However, if you still want to use JavaScript in .less, this is done by wrapping the expression
