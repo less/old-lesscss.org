@@ -27,7 +27,7 @@ Which compiles to:
 When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
 
 	@var: 0;
-	.class1
+	.class1 {
       @var: 1;
 	  .class {
 	    @var: 2;
@@ -587,27 +587,29 @@ Content of imported less file is copied into importing style sheet and compiled 
 
 Imported "library.less":
 
-    @importedColor: red; //define variable
-    h1 {color: green; } //ruleset
+    @imported-color: red;
+    h1 { color: green; }
 
 Main file imports the above library.less file:
 
     @import-multiple "library.less" screen and (max-width: 400px); // import with media queries
     @import-multiple "library.less"; // import without media queries
+
     .class {
       color: @importedColor; // use imported variable
     }
 
-Compiled file:
+Compiled output:
 
-    //corresponds to import with media queries
+    // Corresponds to import with media queries
     @media screen and (max-width: 400px) {
       h1 { color: green; }
     }
-    //corresponds to import without media queries
+
+    // Corresponds to import without media queries
     h1 { color: green; }
     .class {
-      //use imported variable
+      // Use imported variable
       color: #ff0000;
     }
 
@@ -625,7 +627,7 @@ both variable and ruleset defined in "library.less" have been copied into the `p
     pre {
       color: #ff0000; // variable defined in library.less was available
     }
-    pre h1 { //ruleset defined in library.less was nested into 'pre' ruleset
+    pre h1 { // ruleset defined in library.less was nested into 'pre' ruleset
       color: green;
     }
 
