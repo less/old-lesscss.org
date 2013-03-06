@@ -778,8 +778,6 @@ Media Queries as Variables
 
 If you want to use less variables inside media, you can do this using the usual variable variable referencing syntax `@variable`. For example:
 
-Sample input:
-
     @singleQuery: ~"(max-width: 500px)";
     @media screen, @singleQuery {
       set {
