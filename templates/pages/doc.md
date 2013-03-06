@@ -24,7 +24,9 @@ Which compiles to:
 
     content: "I am fnord.";
 
-When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
+When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. This is similar to css itself where the last property inside a definition is used to determine the value.
+
+For instance:
 
     @var: 0;
     .class1 {
@@ -45,8 +47,6 @@ Compiles to:
     .class {
       one: 1;
     }
-
-This is similar to css itself where the last property inside a definition is used to determine the value.
 
 Variables are lazy loaded and do not have to be declared before being used.
 
