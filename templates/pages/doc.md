@@ -773,6 +773,30 @@ will output
 
 Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in 1.4.0.
 
+Media Queries as Variables
+----------------------
+
+If you want to use less variables inside media, you can do this using the usual variable variable referencing syntax `@variable`. For example:
+
+Sample input:
+
+    @singleQuery: ~"(max-width: 500px)";
+    @media screen, @singleQuery {
+      set {
+        padding: 3 3 3 3;
+      }
+    }
+
+compiles into:
+
+    @media screen, (max-width: 500px) {
+      set {
+        padding: 3 3 3 3;
+      }
+    }
+
+The variable must contain whole media query. This would cause an error: `@media screen and @partial {`.
+
 JavaScript evaluation
 ---------------------
 
