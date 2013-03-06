@@ -444,7 +444,7 @@ Or this way:
 The resulting code is more concise, and mimics the structure of your `DOM tree`.
 
 Notice the `&` combinator--it's used when you want a nested selector to be concatenated to its parent selector, instead
-of acting as a descendant. This is especially important for pseudo-classes like `:hover` and `:focus`.
+of acting as a descendant. This is especially important for pseudo-classes like `:hover` and `:focus`. The `&` combinator can be placed anywhere in the nested selector. Standard css combinators such as descendants ` ` or siblings `+`around it are respected.
 
 For example:
 
@@ -452,8 +452,14 @@ For example:
       &.float {
         float: left;
       }
-      .top {
+      & + .child {
+        float: right;
+      }
+      .top & {
         margin: 5px;
+      }
+      .beginning &.end {
+        padding: 2px;
       }
     }
 
@@ -462,8 +468,14 @@ Will output
     .bordered.float {
       float: left;
     }
-    .bordered .top {
+    .bordered + .child {
+      float: right;
+    }
+    .top .bordered {
       margin: 5px;
+    }
+    .beginning .bordered.end {
+      padding: 2px;
     }
 
 Nested Media Queries
