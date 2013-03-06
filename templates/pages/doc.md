@@ -172,6 +172,41 @@ Which would output:
       word-wrap: break-word;
     }
 
+### Mixins With Multiple Parameters
+Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or css list separator. 
+
+Using comma as mixin separator makes it impossible to create comma separated lists as an argument. On the other hand, if the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons and all commas belong to css lists:
+
+ - two arguments and each contains comma separated list: `.name(1, 2, 3; something, else)`,
+ - three arguments and each contains one number: `.name(1, 2, 3)`,
+ - use dummy semicolon to create mixin call with one argument containing comma separated css list: `.name(1, 2, 3;)`,
+ - comma separated default value: `.name(@param1: red, blue;)`.
+
+It is legal to define multiple mixins with the same name and number of parameters. Less will use properties of all that can apply. If you used the mixin with one parameter e.g. `.mixin(green);`, then properties of all mixins with exactly one mandatory parameter will be used:
+
+    .mixin(@color) {
+      color-1: @color;
+    }
+    .mixin(@color; @padding:2) {
+      color-2: @color;
+      padding-2: @padding;
+    }
+    .mixin(@color; @padding; @margin: 2) {
+      color-3: @color;
+      padding-3: @padding;
+      margin: @margin @margin @margin @margin;
+    }
+    .some .selector div {
+      .mixin(#008000);
+    }
+
+compiles into:
+
+    .some .selector div {
+      color-1: #008000;
+      color-2: #008000;
+      padding-2: 2;
+    }
 
 
 ### The `@arguments` variable
