@@ -48,6 +48,34 @@ Compiles to:
 
 This is similar to css itself where the last property inside a definition is used to determine the value.
 
+Less language requires variables to be declared, but it does not require them to  be declared before being used. 
+
+valid less snippet:
+
+    lazy-eval {
+      width: @var;
+    }
+
+    @var: @a;
+    @a: 9%;
+
+this is valid less too:
+
+    .lazy-eval-scope {
+      width: @var;
+      @a: 9%;
+    }
+
+    @var: @a;
+    @a: 100%;
+
+both compile into:
+
+    .lazy-eval-scope {
+      width: 9%;
+    }
+
+
 Mixins
 ------
 
@@ -143,6 +171,8 @@ Which would output:
       white-space: -moz-pre-wrap;
       word-wrap: break-word;
     }
+
+
 
 ### The `@arguments` variable
 
