@@ -747,6 +747,14 @@ This is called an "escaped value", which will result in:
       filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
     }
 	
+Escaped values can use the interpolation exactly the same way as strings:
+
+    .class {
+      @what: "Stuff";
+      filter: ~"ms:alwaysHasItsOwnSyntax.For.@{what}()";
+    }
+
+
 Selector Interpolation
 ----------------------
 
