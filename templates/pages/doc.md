@@ -214,12 +214,12 @@ compiles into:
 `@arguments` has a special meaning inside mixins, it contains all the arguments passed, when the mixin was called. This is useful
 if you don't want to deal with individual parameters:
 
-    .box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
+    .box-shadow (@x: 0; @y: 0; @blur: 1px; @color: #000) {
       box-shadow: @arguments;
       -moz-box-shadow: @arguments;
       -webkit-box-shadow: @arguments;
     }
-    .box-shadow(2px, 5px);
+    .box-shadow(2px; 5px);
 
 Which results in:
 
@@ -234,12 +234,12 @@ You can use `...` if you want your mixin to take a variable number of arguments.
     .mixin (...) {        // matches 0-N arguments
     .mixin () {           // matches exactly 0 arguments
     .mixin (@a: 1) {      // matches 0-1 arguments
-    .mixin (@a: 1, ...) { // matches 0-N arguments
-    .mixin (@a, ...) {    // matches 1-N arguments
+    .mixin (@a: 1; ...) { // matches 0-N arguments
+    .mixin (@a; ...) {    // matches 1-N arguments
 
 Furthermore:
 
-    .mixin (@a, @rest...) {
+    .mixin (@a; @rest...) {
        // @rest is bound to arguments after @a
        // @arguments is bound to all arguments
     }
@@ -250,22 +250,22 @@ Sometimes, you may want to change the behaviour of a mixin,
 based on the parameters you pass to it. Let's start with something
 basic:
 
-    .mixin (@s, @color) { ... }
+    .mixin (@s; @color) { ... }
 
     .class {
-      .mixin(@switch, #888);
+      .mixin(@switch; #888);
     }
 
 Now let's say we want `.mixin` to behave differently, based on the value of `@switch`,
 we could define `.mixin` as such:
 
-    .mixin (dark, @color) {
+    .mixin (dark; @color) {
       color: darken(@color, 10%);
     }
-    .mixin (light, @color) {
+    .mixin (light; @color) {
       color: lighten(@color, 10%);
     }
-    .mixin (@_, @color) {
+    .mixin (@_; @color) {
       display: block;
     }
 
@@ -274,7 +274,7 @@ Now, if we run:
     @switch: light;
 
     .class {
-      .mixin(@switch, #888);
+      .mixin(@switch; #888);
     }
 
 We will get the following CSS:
@@ -301,8 +301,8 @@ We can also match on arity, here's an example:
     .mixin (@a) {
       color: @a;
     }
-    .mixin (@a, @b) {
-      color: fade(@a, @b);
+    .mixin (@a; @b) {
+      color: fade(@a; @b);
     }
 
 Now if we call `.mixin` with a single argument, we will get the output of the first definition,
@@ -370,13 +370,13 @@ Note that you can also compare arguments with each other, or with non-arguments:
     .mixin (@a) when (@media = mobile) { ... }
     .mixin (@a) when (@media = desktop) { ... }
 
-    .max (@a, @b) when (@a > @b) { width: @a }
-    .max (@a, @b) when (@a < @b) { width: @b }
+    .max (@a; @b) when (@a > @b) { width: @a }
+    .max (@a; @b) when (@a < @b) { width: @b }
 
 Lastly, if you want to match mixins based on value type, you can use the *is\** functions:
 
-    .mixin (@a, @b: 0) when (isnumber(@b)) { ... }
-    .mixin (@a, @b: black) when (iscolor(@b)) { ... }
+    .mixin (@a; @b: 0) when (isnumber(@b)) { ... }
+    .mixin (@a; @b: black) when (iscolor(@b)) { ... }
 
 Here are the basic type checking functions:
 
