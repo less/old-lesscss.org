@@ -48,9 +48,9 @@ Compiles to:
 
 This is similar to css itself where the last property inside a definition is used to determine the value.
 
-Less language requires variables to be declared, but it does not require them to  be declared before being used. 
+Variables are lazy loaded and do not have to be declared before being used.
 
-valid less snippet:
+Valid less snippet:
 
     lazy-eval {
       width: @var;
