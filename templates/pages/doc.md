@@ -244,6 +244,33 @@ Furthermore:
        // @arguments is bound to all arguments
     }
 
+## The Keyword !important
+Use the !important keyword after mixin call to mark all properties brought by it as !important:
+
+Sample input:
+
+    .mixin (@a: 0) {
+      border: @a;
+      boxer: @a;
+    }
+    .unimportant {
+      .mixin(1); 
+    }
+    .important {
+      .mixin(2) !important; 
+    }
+
+compiled into:
+
+    .unimportant {
+      border: 1;
+      boxer: 1;
+    }
+    .important {
+      border: 2 !important;
+      boxer: 2 !important;
+    }
+
 ## Pattern-matching and Guard expressions
 
 Sometimes, you may want to change the behaviour of a mixin,
