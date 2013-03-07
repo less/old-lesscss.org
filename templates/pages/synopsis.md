@@ -1,3 +1,30 @@
+1.4.0 Beta
+----------
+
+We have released a beta of 1.4.0. This includes new features such as extends, the data-uri function and more maths functions. See the [changelog](https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md) for a full list of changes.
+
+There are two known <span class="warning">breaking changes</span>. Maths is required to be in parenthesis, e.g.
+
+    (1 + 1)  // 2
+    1 + 1    // 1+1
+
+and units must be consistent e.g.
+
+    1px + 1em  // error
+    1px + unit(1em,px) // 2px
+
+These changes can be made to your less now and will compile fine with less 1.3.3. If you need to use 1.4.0 with older less, the old behaviour can be achieved using --strict-units-off and --strict-maths-off.
+
+in JavaScript,
+
+    less = {strictUnits: false, strictMaths: false};
+
+You can install the beta with npm
+
+    npm install -g less@beta
+
+and for development, the [browser version is at github](https://github.com/cloudhead/less.js/blob/master/dist/less-1.4.0-beta.js).
+
 Variables
 ---------
 
