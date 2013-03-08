@@ -11,21 +11,21 @@
 	floor(@number);                // rounds down to an integer
 	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
 	round(number, [places: 0]);	   // rounds a number to a number of places
-	sqrt(number);	   // calculates square root of a number
-	abs(number);	   // absolute value of a number
-	sin(number);	   // sine function
-	asin(number);	   // arcsine - inverse of sine function
-	cos(number);	   // cosine function
-	acos(number);	   // arccosine - inverse of cosine function
-	tan(number);	   // tangent function
-	atan(number);	   // arctangent - inverse of tangent function
-	pi();	   // returns pi
-	pow(@base, @exponent);	   // first argument raised to the power of the second argument
-	mod(number, number);	   // first argument modulus second argument
+	sqrt(number);                  // * calculates square root of a number
+	abs(number);                   // * absolute value of a number
+	sin(number);                   // * sine function
+	asin(number);                  // * arcsine - inverse of sine function
+	cos(number);                   // * cosine function
+	acos(number);                  // * arccosine - inverse of cosine function
+	tan(number);                   // * tangent function
+	atan(number);                  // * arctangent - inverse of tangent function
+	pi();                          // * returns pi
+	pow(@base, @exponent);	   // * first argument raised to the power of the second argument
+	mod(number, number);	   // * first argument modulus second argument
 
-	convert(number, units); // converts between number types
-	unit(number, units);  // changes number units without converting it
-	color(string); // converts string or escaped value into color
+	convert(number, units);    // * converts between number types
+	unit(number, units);       // *changes number units without converting it
+	color(string);             // converts string or escaped value into color
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -67,6 +67,8 @@
 	exclusion(@color1, @color2);
 	average(@color1, @color2);
 	negation(@color1, @color2);
+
+	// * These functions are only available in the 1.4.0 beta
 	
 #String functions
 ###escape
@@ -93,7 +95,7 @@ Output:
 Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
 
 ###e
-CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn’t recognize.
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesnï¿½t recognize.
 
 Parameters:
 
