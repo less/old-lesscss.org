@@ -1,7 +1,7 @@
 Client-side usage
 =================
 
-Client-side is the easiest way to get started and good for developing your less. For production and especially
+Client-side is the easiest way to get started and good for developing your LESS. For production and especially
 if performance is important, we recommend pre-compiling using node or one of the many third party tools.
 
 Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
@@ -14,7 +14,7 @@ Then download `less.js` from the top of the page, and include it in the `<head>`
 
 Make sure you include your stylesheets *before* the script.
 
-You can set options by setting things on a global less object before the script. E.g.
+You can set options by setting things on a global LESS object before the script. E.g.
 
     <script type="text/javascript">
         less = {
@@ -45,7 +45,7 @@ run `less.watch()` from the console.
 Modify variables
 ----------------
 
-*modifyVars* enables modification of less variables in run-time. When called with new values, the less file 
+*modifyVars* enables modification of LESS variables in run-time. When called with new values, the LESS file 
 is recompiled without reloading. Simple basic usage:
 
     less.modifyVars({
@@ -56,7 +56,7 @@ is recompiled without reloading. Simple basic usage:
 Debugging
 ---------
 
-It is possible to output rules in your css which allow tools to locate the source of the rule.
+It is possible to output rules in your CSS which allow tools to locate the source of the rule.
 
 Either specify the option `dumpLineNumbers` as above or add `!dumpLineNumbers:mediaQuery` to the url.
 
