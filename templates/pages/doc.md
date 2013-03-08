@@ -662,19 +662,16 @@ Compilation makes only one change to css file imports: top level css file import
 Input file with import statement:
 
     h1 { color: green; }
-    @import-once "import/official-branding.css?urlParameter=23";
+    @import "import/official-branding.css?urlParameter=23";
 
 import statement has been moved on top:
 
     @import "import/official-branding.css?urlParameter=23";
     h1 { color: green; }
 
-Any file that does not end with `.css` is considered less file and processed. In addition, if the file name has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
+Content of imported less file is copied into importing style sheet and compiled together with it. Importing and imported files share all mixins, namespaces, variables and other structures.
 
-    @import "lib.less";
-    @import "lib";
-
-Content of imported less file is copied into importing style sheet and compiled together with it. Importing and imported files share all mixins, namespaces, variables and other structures. In addition, if the import statement had media queries, imported content is enclosed in @Media declaration.
+In addition, if the import statement has media queries specified in it, imported content is enclosed in the `@Media` declaration.
 
 Imported "library.less":
 
@@ -683,8 +680,8 @@ Imported "library.less":
 
 Main file imports the above library.less file:
 
-    @import-multiple "library.less" screen and (max-width: 400px); // import with media queries
-    @import-multiple "library.less"; // import without media queries
+    @import "library.less" screen and (max-width: 400px); // import with media queries
+    @import "library.less"; // import without media queries
 
     .class {
       color: @importedColor; // use imported variable
@@ -722,30 +719,34 @@ both variable and ruleset defined in "library.less" have been copied into the `p
       color: green;
     }
 
-Less supports three different @import statements:
-* `@import-once`,
-* `@import-multiple` - available only for 1.4.0 or higher versions,
-* `@import`.
+In v1.3.0 - v1.3.3 `@import` imports a file multiple times and you can override this behaviour with `@import-once`.
 
-If you want to import a file only if it has not been imported already, use `@import-once`:
+In v1.4.0 `@import-once` has been removed and `@import` imports once by default. This means that with the following
 
-    @import-once "lib.less";
-    @import-once "lib.less"; // will be ignored
-    @import-once "lib.less" handheld; // will be ignored
-    pre {
-      @import-once "lib.less"; // will be ignored
-    }
+   @import "file.less";
+   @import "file.less";
 
-If you want to import a file whether it was already imported or not, use `@import-multiple`
+The second file is ignored.
 
-    @import-once "lib.less";
-    @import-multiple "lib.less"; // will be imported
-    @import-multiple "lib.less" handheld; // will be imported
-    pre {
-      @import-multiple "lib.less"; // will be imported
-    }
+Any file that does not end with `.css` is considered less file and processed. In addition, if the file name has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
 
-The statement `@import` acts differently before and after 1.4.0. It acts as `@import-multiple` in all older versions and as `@import-once` in all less.js versions after 1.4.0. 
+    @import "lib.less";
+    @import "lib";
+
+In v1.4.0 you can force a file to be interpreted as a particular type by specifying an option, e.g.
+
+    @import (css) "lib";
+
+Will output..
+
+    @import "lib";
+
+and
+
+    @import (less) "lib.css";
+
+Will import the lib.css file and treat it as less. If you specify a file is less and do not include an extension, none will be added.
+
 
 String interpolation
 --------------------
