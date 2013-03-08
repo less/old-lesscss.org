@@ -46,7 +46,7 @@ Compiles to:
 	  one: 1;
 	}
 
-This is similar to css itself where the last property inside a definition is used to determine the value.
+This is similar to CSS itself where the last property inside a definition is used to determine the value.
 
 Mixins
 ------
@@ -562,11 +562,11 @@ they don't show up in the compiled CSS output:
 Importing
 ---------
 
-You can import both css and less files. Only less files import statements are processed, css file import statements are kept as they are. If you want to import a CSS file, and don't want LESS to process it, just use the `.css` extension:
+You can import both CSS and LESS files. Only LESS files import statements are processed, CSS file import statements are kept as they are. If you want to import a CSS file, and don't want LESS to process it, just use the `.css` extension:
 
     @import "lib.css";
 
-Compilation makes only one change to css file imports: top level css file imports are moved on top of the sheet, right after @charset declarations. 
+Compilation makes only one change to CSS file imports: top level CSS file imports are moved on top of the sheet, right after @charset declarations. 
 
 Input file with import statement:
 
@@ -578,12 +578,12 @@ import statement has been moved on top:
     @import "import/official-branding.css?urlParameter=23";
     h1 { color: green; }
 
-Any file that does not end with `.css` is considered less file and processed. In addition, if the file name has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
+Any file that does not end with `.css` is considered LESS file and processed. In addition, if the file name has no extension or parameters, the ".less" suffix is added on the end. Both of these are equivalent:
 
     @import "lib.less";
     @import "lib";
 
-Content of imported less file is copied into importing style sheet and compiled together with it. Importing and imported files share all mixins, namespaces, variables and other structures. In addition, if the import statement had media queries, imported content is enclosed in @Media declaration.
+Content of imported LESS file is copied into importing style sheet and compiled together with it. Importing and imported files share all mixins, namespaces, variables and other structures. In addition, if the import statement had media queries, imported content is enclosed in @Media declaration.
 
 Imported "library.less":
 
@@ -613,7 +613,7 @@ Compiled output:
       color: #ff0000;
     }
 
-Less file import statement does not have to be located on top of the style sheet. It can be placed also inside rulesets, mixins or other less structures.
+LESS file import statement does not have to be located on top of the style sheet. It can be placed also inside rulesets, mixins or other LESS structures.
 
 Import into ruleset:
 
@@ -659,7 +659,7 @@ The statement `@import` acts differently before and after 1.4.0. It acts as `@im
 String interpolation
 --------------------
 
-Variables can be embeded inside strings in a similar way to ruby or PHP, with the `@{name}` construct:
+Variables can be embeded inside strings in a similar way to Ruby or PHP, with the `@{name}` construct:
 
     @base-url: "http://assets.fnord.com";
     background-image: url("@{base-url}/images/bg.png");
@@ -685,7 +685,7 @@ This is called an "escaped value", which will result in:
 Selector Interpolation
 ----------------------
 
-If you want to use less variables inside selectors, you can do this by referencing the variable using `@{selector}` as 
+If you want to use LESS variables inside selectors, you can do this by referencing the variable using `@{selector}` as 
 in string interpolation. For example:
 
     @name: blocked;
@@ -699,13 +699,13 @@ will output
 	    color: black;
 	}
 	
-Note: prior to less 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in 1.4.0.
+Note: prior to LESS 1.3.1 a `(~"@{name}")` type of selector was supported. Support for this will be removed in 1.4.0.
 
 JavaScript evaluation
 ---------------------
 
 JavaScript expressions can be evaluated as values inside .less files. We reccomend using caution with this feature
-as the less will not be compilable by ports and it makes the less harder to mantain. If possible, try to think of a
+as the LESS will not be compilable by ports and it makes the LESS harder to mantain. If possible, try to think of a
 function that can be added to achieve the same purpose and ask for it on github. We have plans to allow expanding the
 default functions available. However, if you still want to use JavaScript in .less, this is done by wrapping the expression
 with back-ticks:
