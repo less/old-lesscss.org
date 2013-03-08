@@ -11,6 +11,21 @@
 	floor(@number);                // rounds down to an integer
 	percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
 	round(number, [places: 0]);	   // rounds a number to a number of places
+	sqrt(number);	   // calculates square root of a number
+	abs(number);	   // absolute value of a number
+	sin(number);	   // sine function
+	asin(number);	   // arcsine - inverse of sine function
+	cos(number);	   // cosine function
+	acos(number);	   // arccosine - inverse of cosine function
+	tan(number);	   // tangent function
+	atan(number);	   // arctangent - inverse of tangent function
+	pi();	   // returns pi
+	pow(@base, @exponent);	   // first argument raised to the power of the second argument
+	mod(number, number);	   // first argument modulus second argument
+
+	convert(number, units); // converts between number types
+	unit(number, units);  // changes number units without converting it
+	color(string); // converts string or escaped value into color
 
 	rgb(@r, @g, @b);                             // converts to a color
 	rgba(@r, @g, @b, @a);                        // converts to a color
@@ -242,6 +257,317 @@ Example:
 Output:
 
     1.7
+
+###sqrt
+Calculates square root of a number. Keeps units as they are.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    sqrt(25cm)
+
+Output:
+
+    5cm
+	
+Example:
+
+    sqrt(18.6%)
+
+Output:
+
+    4.312771730569565%;
+
+###abs
+Calculates absolute value of a number. Keeps units as they are.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    abs(25cm)
+
+Output:
+
+    25cm
+	
+Example:
+
+    abs(-18.6%)
+
+Output:
+
+    18.6%;
+
+
+###sin
+Calculates sine function. Assumes radians on numbers without units.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    sin(1); // sine of 1 radian
+    sin(1deg); // sine of 1 degree
+    sin(1grad); // sine of 1 gradian
+
+Output:
+
+    0.8414709848078965; // sine of 1 radian
+    0.01745240643728351; // sine of 1 degree
+    0.015707317311820675; // sine of 1 gradian
+
+###asin
+Calculates arcsine (inverse of sine) function. Returns number in radians e.g. a number between -&pi;/2 and &pi;/2.
+
+Parameters:
+
+* `number`: A floating point number from [-1, 1] interval.
+
+Returns: `number`
+
+Example:
+
+    asin(-0.8414709848078965)
+    asin(0) 
+    asin(2)
+
+Output:
+
+    -1rad
+    0rad
+    NaNrad
+
+###cos
+Calculates cosine function. Assumes radians on numbers without units.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    cos(1) // cosine of 1 radian
+    cos(1deg) // cosine of 1 degree
+    cos(1grad) // cosine of 1 gradian
+
+Output:
+
+    0.5403023058681398 // cosine of 1 radian
+    0.9998476951563913 // cosine of 1 degree
+    0.9998766324816606 // cosine of 1 gradian
+
+###acos
+Calculates arccosine (inverse of cosine) function. Returns number in radians e.g. a number between 0 and &pi;.
+
+Parameters:
+
+* `number`: A floating point number from [-1, 1] interval.
+
+Returns: `number`
+
+Example:
+
+    acos(0.5403023058681398)
+    acos(1) 
+    acos(2)
+
+Output:
+
+    1rad
+    0rad
+    NaNrad
+
+###tan
+Calculates tangent function. Assumes radians on numbers without units.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    tan(1) // tangent of 1 radian
+    tan(1deg) // tangent of 1 degree
+    tan(1grad) // tangent of 1 gradian
+
+Output:
+
+    1.5574077246549023 // tangent of 1 radian
+    0.017455064928217585 // tangent of 1 degree
+    0.015709255323664916 // tangent of 1 gradian
+
+###atan
+Calculates arctangent (inverse of tangent) function. Returns number in radians e.g. a number between -&pi;/2 and &pi;/2.
+
+Parameters:
+
+* `number`: A floating point number.
+
+Returns: `number`
+
+Example:
+
+    atan(-1.5574077246549023)
+    atan(0)
+    round(atan(22), 6) // arctangent of 22 rounded to 6 decimal places
+
+Output:
+
+    -1rad
+    0rad
+    1.525373rad;
+
+###pi
+Returns &pi; (pi);
+
+Parameters:
+
+* none
+
+Returns: `number`
+
+Example:
+
+    pi()
+
+Output:
+
+    3.141592653589793
+
+###pow
+Returns the value of the first argument raised to the power of the second argument. Returned value has the same dimension as the first parameter and the dimension of the second parameter is ignored.
+
+Parameters:
+
+* `number`: base -a floating point number.
+* `number`: exponent - a floating point number.
+
+Returns: `number`
+
+Example:
+
+    pow(0cm, 0px)
+    pow(25, -2)
+    pow(25, 0.5)
+    pow(-25, 0.5)
+    pow(-25%, -0.5)
+
+Output:
+
+    1cm
+    0.0016
+    5
+    NaN
+    NaN%
+
+###mod
+Returns the value of the first argument modulus second argument. Returned value has the same dimension as the first parameter, the dimension of the second parameter is ignored. The function is able to handle also negative and floating point numbers.
+
+Parameters:
+
+* `number`: a floating point number.
+* `number`: a floating point number.
+
+Returns: `number`
+
+Example:
+
+    mod(0cm, 0px)
+    mod(11cm, 6px);
+    mod(-26%, -5);
+
+Output:
+
+    NaNcm;
+    5cm
+    -1%;
+
+###convert
+Converts numbers from one type into another. First argument contains number with units and second argument contains units. If both units are compatible, the number is converted. If they are not compatible, function returns first argument without modifying it.
+
+Compatible unit groups:
+* lengths: `m`, `cm`, `mm`, `in`, `pt` and `pc`,
+* time: `s` and `ms`, 
+* angle: `rad`, `deg`, `grad` and `turn`.
+
+
+Parameters:
+
+* `number`: a floating point number with units.
+* `identifier`, `string` or `escaped value`: units
+
+Returns: `number`
+
+Example:
+
+    convert(9s, "ms")
+    convert(14cm, mm)
+    convert(8, mm) // incompatible unit types
+
+Output:
+
+    9000ms
+    140mm
+    8
+
+### Unit 
+Returns number with different units. Only units are changed, number itself is not converted. The function assumes that second parameter contains valid unit type.
+
+Parameters:
+
+* `number`: a floating point number with units.
+* `identifier` or `escaped value`: units.
+
+Returns: `number`
+
+Example:
+
+    unit(9s, ~"ms")
+    unit(-9, m)
+
+Output:
+
+    9ms
+    -9m
+
+### Color
+Converts a string or escaped value into a color. The input must contain color in hexadecimal or shorthand representation. 
+
+Parameters:
+
+* `identifier` or `escaped value` with valid color in hexadecimal or shorthand representation.
+
+Returns: `color`
+
+Example:
+
+    color("#445566")
+    color(~"#123")
+
+Output:
+
+    #445566
+    #112233
+
+
 #Color functions
 ##Color definition
 ###rgb
