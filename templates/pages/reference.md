@@ -38,9 +38,9 @@
     hue(@color);           // returns the `hue` channel of @color in the HSL space
     saturation(@color);    // returns the `saturation` channel of @color in the HSL space
     lightness(@color);     // returns the 'lightness' channel of @color in the HSL space
-    hsvhue(@color);        // returns the `hue` channel of @color in the HSV space
-    hsvsaturation(@color); // returns the `saturation` channel of @color in the HSV space
-    hsvvalue(@color);      // returns the 'value' channel of @color in the HSV space
+    hsvhue(@color);        // * returns the `hue` channel of @color in the HSV space
+    hsvsaturation(@color); // * returns the `saturation` channel of @color in the HSV space
+    hsvvalue(@color);      // * returns the 'value' channel of @color in the HSV space
     red(@color);           // returns the 'red' channel of @color
     green(@color);         // returns the 'green' channel of @color
     blue(@color);          // returns the 'blue' channel of @color
@@ -98,7 +98,7 @@ Output:
 Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
 
 ###e
-CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn’t recognize.
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesnï¿½t recognize.
 
 Parameters:
 
