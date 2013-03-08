@@ -822,6 +822,8 @@ compiles into:
 
 The variable must contain whole media query. This would cause an error: `@media screen and @partial {`.
 
+In 1.4.0, without strict maths off, you can also include variables in media values, e.g. `@media screen, (max-width: @width) {`.
+
 JavaScript evaluation
 ---------------------
 

@@ -6,6 +6,7 @@
 
     unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
     color(@string);                // parses a string to a color
+    data-uri([mimetype,] url);       // * inlines a resource and falls back to url()
 
     ceil(@number);                 // rounds up to an integer
     floor(@number);                // rounds down to an integer
@@ -186,6 +187,35 @@ Example:
 Output:
 
     5
+
+###data-uri
+
+Inlines a resource and falls back to `url()` if the ieCompat option is on and the resource is too large, or if you use the function in the browser. If the mime is not given then node uses the mime package to determine the correct mime type.
+
+Parameters:
+
+* `mimetype`: A mime type string. Optional.
+* `url`: The URL of the file to inline.
+
+Example:
+
+    data-uri('../data/image.jpg');
+
+Output:
+
+    url('data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==');
+
+Output in the browser:
+
+    url('../data/image.jpg');
+
+Example:
+
+    data-uri('image/jpeg;base64', '../data/image.jpg');
+
+Output:
+
+    url('data:image/jpeg;base64,bm90IGFjdHVhbGx5IGEganBlZyBmaWxlCg==');
 
 #Math functions
 ###ceil
