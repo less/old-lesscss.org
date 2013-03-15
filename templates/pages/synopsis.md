@@ -3,7 +3,13 @@
 
 We have released a beta of 1.4.0. This includes new features such as extends, the data-uri function and more maths functions. See the [changelog](https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md) for a full list of changes.
 
-There are three known <span class="warning">breaking changes</span>. `@import-once` is removed and is now default behaviour. Maths is required to be in parenthesis, e.g.
+There are four known <span class="warning">breaking changes</span>. 
+
+`@import-once` is removed and is now default behaviour for `@import`. 
+
+`(~".myclass_@{index}") { ...` selector interpolation is deprecated, do this instead `.myclass_@{index} { ...`. This works in 1.3.1 onwards.
+
+Maths is required to be in parenthesis, e.g.
 
     (1 + 1)  // 2
     1 + 1    // 1+1
@@ -13,7 +19,7 @@ units must be consistent e.g.
     1px + 1em  // error
     1px + unit(1em,px) // 2px
 
-These changes can be made to your less now and will compile fine with less 1.3.3. If you need to use 1.4.0 with older less, the old behaviour can be achieved using --strict-units-off and --strict-maths-off.
+The selector interpolation, maths and units changes can be made to your less now and will compile fine with less 1.3.3. If you need to use 1.4.0 with older less, the old behaviour of maths and units can be achieved using --strict-units-off and --strict-maths-off.
 
 in JavaScript,
 
