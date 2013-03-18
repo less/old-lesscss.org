@@ -469,7 +469,7 @@ Or this way:
 
 The resulting code is more concise, and mimics the structure of your `DOM tree`.
 
-Notice the `&` combinator--it's used when you want a nested selector to be concatenated to its parent selector, instead
+Notice the `&` combinator - it's used when you want a nested selector to be concatenated to its parent selector, instead
 of acting as a descendant. This is especially important for pseudo-classes like `:hover` and `:focus`.
 
 For example:
@@ -751,7 +751,7 @@ Will import the lib.css file and treat it as less. If you specify a file is less
 String interpolation
 --------------------
 
-Variables can be embeded inside strings in a similar way to Ruby or PHP, with the `@{name}` construct:
+Variables can be embedded inside strings in a similar way to Ruby or PHP, with the `@{name}` construct:
 
     @base-url: "http://assets.fnord.com";
     background-image: url("@{base-url}/images/bg.png");
@@ -829,7 +829,7 @@ JavaScript evaluation
 ---------------------
 
 JavaScript expressions can be evaluated as values inside .less files. We recommend using caution with this feature
-as the LESS will not be compilable by ports and it makes the LESS harder to mantain. If possible, try to think of a
+as the LESS will not be compilable by ports and it makes the LESS harder to maintain. If possible, try to think of a
 function that can be added to achieve the same purpose and ask for it on github. We have plans to allow expanding the
 default functions available. However, if you still want to use JavaScript in .less, this is done by wrapping the expression
 with back-ticks:
