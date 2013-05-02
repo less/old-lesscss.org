@@ -72,6 +72,16 @@
     average(@color1, @color2);
     negation(@color1, @color2);
 
+    iscolor(@colorOrAnything);              // returns true if passed a color, including keyword colors
+    isnumber(@numberOrAnything);            // returns true if a number of any unit
+    isstring(@stringOrAnything);            // returns true if it is passed a string
+    iskeyword(@keywordOrAnything);          // returns true if it is passed keyword
+    isurl(@urlOrAnything);                  // returns true if it is a string and a url
+    ispixel(@pixelOrAnything);              // returns true if it is a number and a px
+    ispercentage(@percentageOrAnything);    // returns true if it is a number and a %
+    isem(@emOrAnything);                    // returns true if it is a number and an em
+    isunit(@numberOrAnything, "rem");       // * returns if a parameter is a number and is in a particular unit
+
 	// * These functions are only available in the 1.4.0 beta
 	
 #String functions

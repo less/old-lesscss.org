@@ -418,6 +418,7 @@ If you want to check if a value, in addition to being a number, is in a specific
 - `ispixel`
 - `ispercentage`
 - `isem`
+- `isunit`
 
 Last but not least, you may use the **`and`** keyword to provide additional conditions inside a guard:
 
