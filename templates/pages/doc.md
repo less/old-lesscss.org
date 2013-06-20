@@ -173,9 +173,9 @@ Which would output:
     }
 
 ### Mixins With Multiple Parameters
-Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or css list separator. Using comma as mixin separator makes it impossible to use comma separated list as an argument.
+Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or as css list separator. Using comma as mixin separator makes it impossible to use comma separated list as an argument.
 
-Semicolon does not have such limitation. If the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons. All commas then belong to css lists:
+Semicolon does not have such limitation. If the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons. All commas then belong to css lists. For example:
 
  - two arguments and each contains comma separated list: `.name(1, 2, 3; something, else)`,
  - three arguments and each contains one number: `.name(1, 2, 3)`,
@@ -245,11 +245,11 @@ Furthermore:
     }
 
 ## Return Values
-Variables defined inside mixins act as return values and are usable in caller. Returned variables never rewrite callers local variables. Only variables not present in callers local scope are going to be copied.
+Variables defined inside mixins act as return values and are usable in caller. Returned variables never rewrite callers local variables. Only variables not present in callers local scope are copied.
 
 Variable defined in mixin acts as return value:
 
-    .mixin() {
+    .mixin() { 
       @global: in-mixin;
       @local: in-mixin; 
       @definedOnlyInMixin: in-mixin; 
