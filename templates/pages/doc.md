@@ -678,7 +678,6 @@ You can "unlock" nested mixins into namespace by calling their owner mixin. Sinc
     
     #namespace() {
       .unlock(5); // unlock doSomething mixin
-      .doSomething(); //nested mixin was copied here and is usable 
     }
     
     #use-namespace { 
