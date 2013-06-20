@@ -289,7 +289,7 @@ Compiles into:
       declaration: 5;
     }
 
-Unlocked mixins are available only after they have been unlocked. They can not be used before being unlocked. Following would throw syntax error:
+Unlocked mixins are available only after they have been unlocked. Following would throw syntax error:
 
     .doSomething(); // syntax error: nested mixin is not available yet
     .unlock(5); // too late
@@ -667,6 +667,30 @@ Now if we want to mixin the `.button` class in our `#header a`, we can do:
       color: orange;
       #bundle > .button;
     }
+
+You can "unlock" nested mixins into namespace by calling their owner mixin. Since nested mixins act as return values, all nested mixins are copied into namespace and available from there:
+
+    .unlock(@value) { // outer mixin
+      .doSomething() { // nested mixin
+        declaration: @value;
+      }
+    }
+    
+    #namespace() {
+      .unlock(5); // unlock doSomething mixin
+      .doSomething(); //nested mixin was copied here and is usable 
+    }
+    
+    #use-namespace { 
+      #namespace > .doSomething(); // it works also with namespaces
+    }
+
+Compiles into:
+
+    #use-namespace {
+      declaration: 5;
+    }
+
 
 Scope
 -----
