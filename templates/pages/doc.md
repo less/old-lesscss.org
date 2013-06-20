@@ -245,7 +245,7 @@ Furthermore:
     }
 
 ## Return Values
-Variables defined inside mixins act as return values and are usable in caller. Returned variables never rewrite callers local variables. Only variables not present in callers local scope are going to be copied there.
+Variables defined inside mixins act as return values and are usable in caller. Returned variables never rewrite callers local variables. Only variables not present in callers local scope are going to be copied.
 
 Variable defined in mixin acts as return value:
 
@@ -270,7 +270,7 @@ Compiles into:
     }
 
 ## Unlocking Mixins
-Mixin defined in mixin acts as return value and is usable in caller too. There is no scope protection, mixins are unlocked even if the local scope contains a mixin with the same name. 
+Mixins defined in mixin are also usable in caller. There is no scope protection, mixins are unlocked even if the local scope contains mixin with the same name. 
 
     .unlock(@value) { // outer mixin
       .doSomething() { // nested mixin
@@ -283,9 +283,13 @@ Mixin defined in mixin acts as return value and is usable in caller too. There i
       .doSomething(); //nested mixin was copied here and is usable 
     }
 
+Compiles into:
 
+    .selector {
+      declaration: 5;
+    }
 
-Unlocked mixins act only after they have been unlocked. They can not be used before being unlocked. Following would throw syntax error:
+Unlocked mixins are available only after they have been unlocked. They can not be used before being unlocked. Following would throw syntax error:
 
     .doSomething(); // syntax error: nested mixin is not available yet
     .unlock(5); // too late
