@@ -244,6 +244,52 @@ Furthermore:
        // @arguments is bound to all arguments
     }
 
+## Return Values
+Variables defined inside mixins act as return values and are usable in caller. Returned variables never rewrite callers local variables. Only variables not present in callers local scope are going to be copied there.
+
+Variable defined in mixin acts as return value:
+
+    .mixin() {
+      @global: in-mixin;
+      @local: in-mixin; 
+      @definedOnlyInMixin: in-mixin; 
+    }
+    
+    .class {
+      @local: localy-defined-value; //local variable - protected
+      margin: @global @local @definedOnlyInMixin;
+      .mixin(); 
+    }
+    
+    @global: outer-scope; // non-local variable - rewritten
+
+Compiles into:
+
+    .class {
+      margin: in-mixin localy-defined-value in-mixin;
+    }
+
+## Unlocking Mixins
+Mixin defined in mixin acts as return value and is usable in caller too. There is no scope protection, mixins are unlocked even if the local scope contains a mixin with the same name. 
+
+    .unlock(@value) { // outer mixin
+      .doSomething() { // nested mixin
+        declaration: @value;
+      }
+    }
+
+    .selector {
+      .unlock(5); // unlock doSomething mixin - must be first
+      .doSomething(); //nested mixin was copied here and is usable 
+    }
+
+
+
+Unlocked mixins act only after they have been unlocked. They can not be used before being unlocked. Following would throw syntax error:
+
+    .doSomething(); // syntax error: nested mixin is not available yet
+    .unlock(5); // too late
+      
 ## The Keyword !important
 Use the !important keyword after mixin call to mark all properties brought by it as !important:
 
