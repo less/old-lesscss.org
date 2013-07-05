@@ -1,7 +1,7 @@
-1.4.0 Beta
-----------
+1.4.0
+-----
 
-We have released a beta of 1.4.0. This includes new features such as extends, the data-uri function and more maths functions. See the [changelog](https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md) for a full list of changes.
+We have released 1.4.0. This includes new features such as extends, the data-uri function and more maths functions. See the [changelog](https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md) for a full list of changes.
 
 There are some known <span class="warning">breaking changes</span>.
 
@@ -9,25 +9,19 @@ There are some known <span class="warning">breaking changes</span>.
 
 `(~".myclass_@{index}") { ...` selector interpolation is deprecated, do this instead `.myclass_@{index} { ...`. This works in 1.3.1 onwards.
 
-The browser version no longer bundles a version of es5-shim.js - the version we previously used was inaccurate and the new version is significantly larger. Please include your choice os es-5 shim or only use on modern browsers.
+The browser version no longer bundles a version of es5-shim.js - the version we previously used was inaccurate and the new version is significantly larger. Please include your choice of es-5 shim or only use on modern browsers.
 
-Not strictly breaking, but we have introduced a strictMath mode, where math is required to be in parenthesis, e.g.
+We have introduced a optional strictMath mode, where math is required to be in parenthesis, e.g.
 
     (1 + 1)  // 2
     1 + 1    // 1+1
 
 In 1.4.0 this option is turned off, but we intend to turn this on by default. We recommend you upgrade code and switch on the option (--strict-math=on in the command line or strictMath: true in JavaScript). Code written with brackets is backwards compatible with older versions of the less compiler.
 
-An extra additional strict option is added (strictUnits: true or strict-units=on) and this causes lessc to validate the units used are valid (e.g. 4px/2px = 2, not 2px and 4em/2px throws an error). There are no longer any plans to switch this option on permanently, but some users will find it useful for bug finding.
+We also added a strict units option (strictUnits: true or strict-units=on) and this causes lessc to validate the units used are valid (e.g. 4px/2px = 2, not 2px and 4em/2px throws an error). There are no longer any plans to switch this option on permanently, but some users will find it useful for bug finding.
 
 Unit maths is done, so `(4px * 3em) / 4px` used to equal `3px` and it now equals `3em`. However we do not cancel units down to unitless numbers unless strict units is on.
 The selector interpolation, maths and units changes can be made to your less now and will compile fine with less 1.3.3.
-
-You can install the beta with npm
-
-    npm install -g less@beta
-
-and for development, the [browser version is at github](https://github.com/cloudhead/less.js/blob/master/dist/less-1.4.0-beta.js).
 
 Variables
 ---------
