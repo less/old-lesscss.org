@@ -109,7 +109,7 @@ Output:
 Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
 
 ###e
-CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn’t recognize.
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesnï¿½t recognize.
 
 Parameters:
 
@@ -1143,7 +1143,7 @@ Output:
     #ffffff // white
 
 ##Color blending
-These operations are _similar_ as the blend modes found in image editors like Photoshop, Firework or GIMP, so you can use them to make your CSS colors match your images.
+These operations are _similar_ to the blend modes found in image editors like Photoshop, Fireworks or GIMP, so you can use them to make your CSS colors match your images.
 
 ###multiply
 Multiply two colors. For each two colors their RGB channel are multiplied then divided by 255. The result is a darker color.
