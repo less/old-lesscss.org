@@ -249,18 +249,18 @@ Variables defined inside mixins act as return values and are usable in caller. R
 
 Variable defined in mixin acts as return value:
 
-    .mixin() { 
+    .mixin() {
       @global: in-mixin;
-      @local: in-mixin; 
-      @definedOnlyInMixin: in-mixin; 
+      @local: in-mixin;
+      @definedOnlyInMixin: in-mixin;
     }
-    
+
     .class {
       @local: localy-defined-value; //local variable - protected
       margin: @global @local @definedOnlyInMixin;
-      .mixin(); 
+      .mixin();
     }
-    
+
     @global: outer-scope; // non-local variable - rewritten
 
 Compiles into:
@@ -270,7 +270,7 @@ Compiles into:
     }
 
 ## Unlocking Mixins
-Mixins defined in mixin are also usable in caller. There is no scope protection, mixins are unlocked even if the local scope contains mixin with the same name. 
+Mixins defined in mixin are also usable in caller. There is no scope protection, mixins are unlocked even if the local scope contains mixin with the same name.
 
     .unlock(@value) { // outer mixin
       .doSomething() { // nested mixin
@@ -280,7 +280,7 @@ Mixins defined in mixin are also usable in caller. There is no scope protection,
 
     .selector {
       .unlock(5); // unlock doSomething mixin - must be first
-      .doSomething(); //nested mixin was copied here and is usable 
+      .doSomething(); //nested mixin was copied here and is usable
     }
 
 Compiles into:
@@ -293,7 +293,7 @@ Unlocked mixins are available only after they have been unlocked. Following woul
 
     .doSomething(); // syntax error: nested mixin is not available yet
     .unlock(5); // too late
-      
+
 ## The Keyword !important
 Use the !important keyword after mixin call to mark all properties brought by it as !important:
 
@@ -304,10 +304,10 @@ Sample input:
       boxer: @a;
     }
     .unimportant {
-      .mixin(1); 
+      .mixin(1);
     }
     .important {
-      .mixin(2) !important; 
+      .mixin(2) !important;
     }
 
 compiled into:
@@ -726,7 +726,7 @@ Functions
 LESS provides a variety of functions which transform colors, manipulate strings and do maths.
 They are documented fully in the function reference.
 
-Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%, 
+Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%,
 increases the saturation of a base color by 5% and then sets the background color to one that is lightened by
 25% and spun by 8 degrees:
 
@@ -770,12 +770,12 @@ You can "unlock" nested mixins into namespace by calling their owner mixin. Sinc
         declaration: @value;
       }
     }
-    
+
     #namespace() {
       .unlock(5); // unlock doSomething mixin
     }
-    
-    #use-namespace { 
+
+    #use-namespace {
       #namespace > .doSomething(); // it works also with namespaces
     }
 
@@ -826,7 +826,7 @@ You can import both CSS and LESS files. Only LESS files import statements are pr
 
     @import "lib.css";
 
-Compilation makes only one change to CSS file imports: top level CSS file imports are moved on top of the sheet, right after @charset declarations. 
+Compilation makes only one change to CSS file imports: top level CSS file imports are moved on top of the sheet, right after @charset declarations.
 
 Input file with import statement:
 
@@ -954,7 +954,7 @@ Escaped values can use the interpolation exactly the same way as strings:
 Selector Interpolation
 ----------------------
 
-If you want to use LESS variables inside selectors, you can do this by referencing the variable using `@{selector}` as 
+If you want to use LESS variables inside selectors, you can do this by referencing the variable using `@{selector}` as
 in string interpolation. For example:
 
     @name: blocked;
