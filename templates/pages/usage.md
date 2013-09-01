@@ -10,13 +10,13 @@ Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
 
 Then download `less.js` from the top of the page, and include it in the `<head>` element of your page, like so:
 
-    <script src="less.js" type="text/javascript"></script>
+    <script src="less.js"></script>
 
 Make sure you include your stylesheets *before* the script.
 
 You can set options by setting things on a global LESS object before the script. E.g.
 
-    <script type="text/javascript">
+    <script>
         less = {
             env: "development", // or "production"
             async: false,       // load imports async
@@ -32,7 +32,7 @@ You can set options by setting things on a global LESS object before the script.
                                 //resource
         };
     </script>
-    <script src="less.js" type="text/javascript"></script>
+    <script src="less.js"></script>
 
 Watch mode
 ----------
