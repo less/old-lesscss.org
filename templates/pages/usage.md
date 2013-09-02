@@ -69,7 +69,7 @@ Server-side usage
 Installation
 ------------
 
-The easiest way to install LESS on the server, is via [npm](http://github.com/isaacs/npm), the node package manager, as so:
+The easiest way to install LESS on the server, is via [npm](https://github.com/isaacs/npm), the node package manager, as so:
 
     $ npm install -g less
 
