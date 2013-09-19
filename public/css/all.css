@@ -24,7 +24,7 @@ h1 {
   font-size: 28px;
   font-weight: normal;
   color: #333333;
-  margin: 10px 0px 10px 45px;
+  margin: 10px 0 10px 45px;
 }
 h2 {
   font-family: "Trebuchet MS", Arial, sans-serif;
@@ -157,7 +157,7 @@ strong { font-weight: bold; }
 #content .code_example .less_example {
   float: left;
   width: 210px;
-  margin: 0px 15px 0 12px;
+  margin: 0 15px 0 12px;
   position: relative;
   z-index: 1;
   color: #eeeeee;
