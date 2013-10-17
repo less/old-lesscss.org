@@ -57,6 +57,8 @@
     fade(@color, 50%);                      // return @color with 50% transparency
     spin(@color, 10);                       // return a color with a 10 degree larger in hue
     mix(@color1, @color2, [@weight: 50%]);  // return a mix of @color1 and @color2
+    tint(@color, 10%);                      // return a color mixed 10% with white
+    shade(@color, 10%);                     // return a color mixed 10% with black
     greyscale(@color);                      // returns a grey, 100% desaturated color
     contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]); 
                                             // return @darkcolor if @color1 is > 43% luma
