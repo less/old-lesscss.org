@@ -173,16 +173,16 @@ Which would output:
     }
 
 ### Mixins With Multiple Parameters
-Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or css list separator. 
+Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or as css list separator. Using comma as mixin separator makes it impossible to use comma separated list as an argument.
 
-Using comma as mixin separator makes it impossible to create comma separated lists as an argument. On the other hand, if the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons and all commas belong to css lists:
+Semicolon does not have such limitation. If the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons. All commas then belong to css lists. For example:
 
  - two arguments and each contains comma separated list: `.name(1, 2, 3; something, else)`,
  - three arguments and each contains one number: `.name(1, 2, 3)`,
  - use dummy semicolon to create mixin call with one argument containing comma separated css list: `.name(1, 2, 3;)`,
  - comma separated default value: `.name(@param1: red, blue;)`.
 
-It is legal to define multiple mixins with the same name and number of parameters. Less will use properties of all that can apply. If you used the mixin with one parameter e.g. `.mixin(green);`, then properties of all mixins with exactly one mandatory parameter will be used:
+It is legal to define multiple mixins with the same name and number of parameters. Less will use properties of all that can apply. For example, if you used the mixin with one parameter e.g. `.mixin(green);`, then properties of all mixins with exactly one mandatory parameter will be used:
 
     .mixin(@color) {
       color-1: @color;
@@ -244,6 +244,56 @@ Furthermore:
        // @arguments is bound to all arguments
     }
 
+## Return Values
+Variables defined inside mixins act as return values and are usable in caller. Returned variables never rewrite callers local variables. Only variables not present in callers local scope are copied.
+
+Variable defined in mixin acts as return value:
+
+    .mixin() { 
+      @global: in-mixin;
+      @local: in-mixin; 
+      @definedOnlyInMixin: in-mixin; 
+    }
+    
+    .class {
+      @local: localy-defined-value; //local variable - protected
+      margin: @global @local @definedOnlyInMixin;
+      .mixin(); 
+    }
+    
+    @global: outer-scope; // non-local variable - rewritten
+
+Compiles into:
+
+    .class {
+      margin: in-mixin localy-defined-value in-mixin;
+    }
+
+## Unlocking Mixins
+Mixins defined in mixin are also usable in caller. There is no scope protection, mixins are unlocked even if the local scope contains mixin with the same name. 
+
+    .unlock(@value) { // outer mixin
+      .doSomething() { // nested mixin
+        declaration: @value;
+      }
+    }
+
+    .selector {
+      .unlock(5); // unlock doSomething mixin - must be first
+      .doSomething(); //nested mixin was copied here and is usable 
+    }
+
+Compiles into:
+
+    .selector {
+      declaration: 5;
+    }
+
+Unlocked mixins are available only after they have been unlocked. Following would throw syntax error:
+
+    .doSomething(); // syntax error: nested mixin is not available yet
+    .unlock(5); // too late
+      
 ## The Keyword !important
 Use the !important keyword after mixin call to mark all properties brought by it as !important:
 
@@ -617,6 +667,29 @@ Now if we want to mixin the `.button` class in our `#header a`, we can do:
       color: orange;
       #bundle > .button;
     }
+
+You can "unlock" nested mixins into namespace by calling their owner mixin. Since nested mixins act as return values, all nested mixins are copied into namespace and available from there:
+
+    .unlock(@value) { // outer mixin
+      .doSomething() { // nested mixin
+        declaration: @value;
+      }
+    }
+    
+    #namespace() {
+      .unlock(5); // unlock doSomething mixin
+    }
+    
+    #use-namespace { 
+      #namespace > .doSomething(); // it works also with namespaces
+    }
+
+Compiles into:
+
+    #use-namespace {
+      declaration: 5;
+    }
+
 
 Scope
 -----
