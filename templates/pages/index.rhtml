@@ -34,6 +34,7 @@
       <a href="#usage">usage</a>
       <a href="#docs" id="guide-link">language</a>
       <a href="#reference" id="guide-link">function reference</a>
+      <a href="#changes" id="changes-link">changes</a>
       <a href="https://github.com/less/less.js">source</a>
       <a href="#about">about</a>
       <a href="http://less2css.org/" target="_blank">try it now!</a>
@@ -79,6 +80,13 @@
   <h1>Function Reference</h1>
   <div class="content">
     <%= markdown File.read(Toto::Paths[:pages] + '/reference.md') %>
+  </div>
+</section>
+
+<section id="reference" class="page page-dark">
+  <h1>Changes</h1>
+  <div class="content">
+    <%= markdown File.read(Toto::Paths[:pages] + '/changes.md') %>
   </div>
 </section>
 
