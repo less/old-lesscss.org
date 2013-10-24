@@ -4,7 +4,7 @@ Variables
 Variables allow you to specify widely used values in a single place, and then re-use them throughout the style sheet,
 making global changes as easy as changing one line of code.
 
-<table class="code-example" cellpadding="0">
+<table class="code-example">
   <tr><td>
   <pre class="less-example">
   <code>// LESS
@@ -37,7 +37,7 @@ simply including the class name as one of its properties. It's just like variabl
 but for whole classes. Mixins can also behave like functions, and take arguments,
 as seen in the example below.
 
-<table class="code-example" cellpadding="0">
+<table class="code-example">
   <tr><td>
   <pre class="less-example"><code>// LESS
 
@@ -83,7 +83,7 @@ Rather than constructing long selector names to specify inheritance,
 in Less you can simply nest selectors inside other selectors.
 This makes inheritance clear and style sheets shorter.
 
-<table class="code-example" cellpadding="0">
+<table class="code-example">
   <tr><td>
   <pre class="less-example">
 <code>// LESS
@@ -95,7 +95,7 @@ This makes inheritance clear and style sheets shorter.
   }
   p { font-size: 12px;
     a { text-decoration: none;
-      &:hover { border-width: 1px }
+      &amp;:hover { border-width: 1px }
     }
   }
 }
@@ -133,7 +133,7 @@ should only be performed within parentheses in order to ensure compatibility wit
 Functions map one-to-one with JavaScript code, allowing you to manipulate values however
 you want.
 
-<table class="code-example" cellpadding="0">
+<table class="code-example">
   <tr><td>
   <pre class="less-example">
 <code>// LESS
