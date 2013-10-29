@@ -121,9 +121,9 @@ Parametric Mixins
 LESS has a special type of ruleset which can be mixed in like classes, but accepts parameters. Here's the canonical example:
 
     .border-radius (@radius) {
-      border-radius: @radius;
       -moz-border-radius: @radius;
       -webkit-border-radius: @radius;
+      border-radius: @radius;
     }
 
 And here's how we can mix it into various rulesets:
@@ -138,9 +138,9 @@ And here's how we can mix it into various rulesets:
 Parametric mixins can also have default values for their parameters:
 
     .border-radius (@radius: 5px) {
-      border-radius: @radius;
       -moz-border-radius: @radius;
       -webkit-border-radius: @radius;
+      border-radius: @radius;
     }
 
 We can invoke it like this now:
@@ -156,8 +156,8 @@ but want to include its properties in other rulesets:
 
     .wrap () {
       text-wrap: wrap;
-      white-space: pre-wrap;
       white-space: -moz-pre-wrap;
+      white-space: pre-wrap;
       word-wrap: break-word;
     }
 
@@ -167,8 +167,8 @@ Which would output:
 
     pre {
       text-wrap: wrap;
-      white-space: pre-wrap;
       white-space: -moz-pre-wrap;
+      white-space: pre-wrap;
       word-wrap: break-word;
     }
 
@@ -215,17 +215,17 @@ compiles into:
 if you don't want to deal with individual parameters:
 
     .box-shadow (@x: 0; @y: 0; @blur: 1px; @color: #000) {
-      box-shadow: @arguments;
       -moz-box-shadow: @arguments;
       -webkit-box-shadow: @arguments;
+      box-shadow: @arguments;
     }
     .box-shadow(2px; 5px);
 
 Which results in:
 
-      box-shadow: 2px 5px 1px #000;
       -moz-box-shadow: 2px 5px 1px #000;
       -webkit-box-shadow: 2px 5px 1px #000;
+      box-shadow: 2px 5px 1px #000;
 
 ### Advanced arguments and the `@rest` variable
 
