@@ -44,7 +44,7 @@ Compiles to:
     .class1 .class {
       three: 3;
     }
-    .class {
+    .class1 {
       one: 1;
     }
 
