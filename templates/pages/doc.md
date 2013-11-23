@@ -601,6 +601,101 @@ Will output
 
 You can also use & in mixins in order to reference nesting that is outside of your mixin.
 
+Extend
+-------
+
+As of version 1.4, LESS supports extending a style. Extend is sort of like the opposite of a mixin. Instead of adding
+all the properties of a mixed-in class into a class, it adds the extending selector to the selector list for output of 
+the extended class. 
+
+The syntax for extend is designed to mimic the syntax of CSS pseudo-classes, and can be combined with pseudo-classes as 
+long as any extends selectors come last.
+
+For example:
+
+    div {
+        background-color: #e0e0e0;
+    }
+    p:extend(div) {
+        color: #101010;
+    }
+
+Will output
+
+    div,
+    p{
+        background-color: #e0e0e0;
+    }
+    p{
+        color: #101010;
+    }
+
+As you may have noticed, this can significantly remove the amount of bloat in the output CSS compared to mixins.
+
+The extend selector can be used on the same line as the class selector, or it can be nested as seen in this example:
+
+    .parent {
+        font-size:12pt;
+    }
+    .child {
+        &:extend(.parent);
+    }
+
+By default, extend does not include nested elements of the extended style. To do this, you must add `all` to the selector 
+in the extend expression.
+
+For example:
+
+    .a.b.test,
+    .test.c {
+        color: orange;
+    }
+    .test {
+      &:hover {
+        color: green;
+        }
+    }
+    .replacement :extend(.test) {
+    }
+    
+Outputs:
+
+    .a.b.test,
+    .test.c {
+        color: orange;
+    }
+    .test:hover {
+        color: green;
+    }
+    
+But this:
+
+    .a.b.test,
+    .test.c {
+        color: orange;
+    }
+    .test {
+      &:hover {
+        color: green;
+        }
+    }
+    .replacement :extend(.test) {
+    }
+    
+Outputs:
+
+    .a.b.test,
+    .test.c,
+    .a.b.replacement,
+    .replacement.c {
+      color: orange;
+    }
+    .test:hover,
+    .replacement:hover {
+      color: green;
+    }
+    
+
 Operations
 ----------
 
