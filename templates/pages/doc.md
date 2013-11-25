@@ -679,7 +679,7 @@ But this:
         color: green;
         }
     }
-    .replacement :extend(.test) {
+    .replacement :extend(.test all) {
     }
     
 Outputs:
