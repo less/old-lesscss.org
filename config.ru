@@ -16,7 +16,7 @@ toto = Toto::Server.new do
   #
   # Add your settings here
   # set [:setting], [value]
-  # 
+  #
   # set :author,    ENV['USER']                               # blog author
   # set :title,     Dir.pwd.split('/').last                   # site title
   # set :root,      "index"                                   # page to load on /
@@ -31,5 +31,3 @@ toto = Toto::Server.new do
 end
 
 run toto
-
-

@@ -39,4 +39,3 @@ def ask message
   print message
   STDIN.gets.chomp
 end
-
