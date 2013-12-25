@@ -623,10 +623,10 @@ For example:
 Will output
 
     div,
-    p{
+    p {
         background-color: #e0e0e0;
     }
-    p{
+    p {
         color: #101010;
     }
 
