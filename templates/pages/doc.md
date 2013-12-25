@@ -24,7 +24,7 @@ Which compiles to:
 
     content: "I am fnord.";
 
-When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. This is similar to css itself where the last property inside a definition is used to determine the value.
+When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. This is similar to CSS itself where the last property inside a definition is used to determine the value.
 
 For instance:
 
@@ -173,13 +173,13 @@ Which would output:
     }
 
 ### Mixins With Multiple Parameters
-Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or as css list separator. Using comma as mixin separator makes it impossible to use comma separated list as an argument.
+Parameters are either *semicolon* or *comma* separated. It is recommended to use *semicolon*. The symbol comma has double meaning: it can be interpreted either as a mixin parameters separator or as CSS list separator. Using comma as mixin separator makes it impossible to use comma separated list as an argument.
 
-Semicolon does not have such limitation. If the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons. All commas then belong to css lists. For example:
+Semicolon does not have such limitation. If the compiler sees at least one semicolon inside mixin call or declaration, it assumes that arguments are separated by semicolons. All commas then belong to CSS lists. For example:
 
  - two arguments and each contains comma separated list: `.name(1, 2, 3; something, else)`,
  - three arguments and each contains one number: `.name(1, 2, 3)`,
- - use dummy semicolon to create mixin call with one argument containing comma separated css list: `.name(1, 2, 3;)`,
+ - use dummy semicolon to create mixin call with one argument containing comma separated CSS list: `.name(1, 2, 3;)`,
  - comma separated default value: `.name(@param1: red, blue;)`.
 
 It is legal to define multiple mixins with the same name and number of parameters. Less will use properties of all that can apply. For example, if you used the mixin with one parameter e.g. `.mixin(green);`, then properties of all mixins with exactly one mandatory parameter will be used:
