@@ -1,3 +1,10 @@
+1.6.0
+-----
+
+Please see the <a href="https://github.com/less/less.js/blob/master/CHANGELOG.md">changelog</a> for a full list of changes.
+
+Also note that we are re-writing the website. You can find more comprehensive and up-to-date documentation at our work-in-progress at [http://less.github.io/less-docs](http://less.github.io/less-docs).
+
 1.5.0
 -----
 
