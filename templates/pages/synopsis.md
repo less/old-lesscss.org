@@ -1,7 +1,7 @@
 New Site
 --------
 
-Please note, this site is outdated and will soon be replaced by our in-progress new site, currently at [less.github.io/less-docs](http://less.github.io/less-docs). Please visit if you want more comprehensive up-to-date information and consider reading the changes section of this site and the changelog.
+Please note, this site is outdated and will soon be replaced by our in-progress new site, currently at [less.github.io](http://less.github.io). Please visit if you want more comprehensive up-to-date information and consider reading the changes section of this site and the changelog.
 
 Variables
 ---------
