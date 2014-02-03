@@ -12,9 +12,9 @@ Under the hood less changed quite a bit (e.g. nodes no longer have a toCSS funct
 
 In usage, we do no longer support the yui-compress option due to a bug in ycssmin which was not getting fixed. We have switched to clean-css. If you use this option it will use clean-css and output a warning. The new option is called --clean-css.
 
-We now have sourcemap support, meaning you can compile your less and then use developer tools to see where in your less file a particular piece of css comes from. You can enable this with the --source-map=filename option. There are other options, help is available if you run lessc without arguments. For instance, if you use the --source-map-less-inline --source-map-map-inline options then your sourcemap and all less files will be embedded into your generated css file.
+We now have sourcemap support, meaning you can compile your less and then use developer tools to see where in your less file a particular piece of CSS comes from. You can enable this with the --source-map=filename option. There are other options, help is available if you run lessc without arguments. For instance, if you use the --source-map-less-inline --source-map-map-inline options then your sourcemap and all less files will be embedded into your generated CSS file.
 
-You can now import your css files into the output by doing
+You can now import your CSS files into the output by doing
 
     @import (inline) "file.css";
 
@@ -38,7 +38,7 @@ then that file will not be output, but you could do
       .a;
     }
 
-and color: green; would be output inside the .b selector only. This also works with extends, so you can use extends to bring complex selector groups from a less or css file into your main file. One use-case might be to grab a set of selectors from bootstrap without including the whole library.
+and color: green; would be output inside the .b selector only. This also works with extends, so you can use extends to bring complex selector groups from a less or CSS file into your main file. One use-case might be to grab a set of selectors from bootstrap without including the whole library.
 
 We now have property merging, meaning you can do this
 
@@ -56,9 +56,9 @@ and you will get
       transform: rotateY(20deg), rotateX(30deg);
     }
 
-Note: although convention is to space seperate we believe all browsers support comma seperated for transform and other properties where this is useful are comma seperated, so the feature always comma seperates joined values.
+Note: although convention is to space separate we believe all browsers support comma separated for transform and other properties where this is useful are comma separated, so the feature always comma separates joined values.
 
-And lastly.. you can now put guards on css selectors. so instead of doing this
+And lastly... you can now put guards on CSS selectors. so instead of doing this
 
     .a() when (@ie8 = true) {
        color: black;
@@ -73,7 +73,7 @@ you can do this
         color: black;
     }
 
-which does the same thing. Note: this doesn't work with multiple selectors because of ambiguities between the guard syntax and css.
+which does the same thing. Note: this doesn't work with multiple selectors because of ambiguities between the guard syntax and CSS.
 
 You may also use & on its own to enclose multiple selectors e.g. instead of
 
@@ -81,7 +81,7 @@ You may also use & on its own to enclose multiple selectors e.g. instead of
        .b {
          color: white;
        }
-       // .. etc
+       // ... etc
     }
     .ie8();
 
@@ -91,7 +91,7 @@ you can write.
        .b {
          color: white;
        }
-       // .. etc
+       // ... etc
     }
 
 1.4.0
@@ -101,7 +101,7 @@ We have released 1.4.0. This includes new features such as extends, the data-uri
 
 There are some known <span class="warning">breaking changes</span>.
 
-`@import-once` is removed and is now default behaviour for `@import`.
+`@import-once` is removed and is now default behavior for `@import`.
 
 `(~".myclass_@{index}") { ...` selector interpolation is deprecated, do this instead `.myclass_@{index} { ...`. This works in 1.3.1 onwards.
 

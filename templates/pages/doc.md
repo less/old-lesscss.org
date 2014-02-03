@@ -323,7 +323,7 @@ compiled into:
 
 ## Pattern-matching and Guard expressions
 
-Sometimes, you may want to change the behaviour of a mixin,
+Sometimes, you may want to change the behavior of a mixin,
 based on the parameters you pass to it. Let's start with something
 basic:
 
@@ -888,7 +888,7 @@ both variable and ruleset defined in "library.less" have been copied into the `p
       color: green;
     }
 
-In v1.3.0 - v1.3.3 `@import` imports a file multiple times and you can override this behaviour with `@import-once`.
+In v1.3.0 - v1.3.3 `@import` imports a file multiple times and you can override this behavior with `@import-once`.
 
 In v1.4.0 `@import-once` has been removed and `@import` imports once by default. This means that with the following
 

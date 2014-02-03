@@ -108,7 +108,7 @@ Output:
 
     a%3D1
     
-Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
+Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behavior should not be relied on and can change in the future.
 
 ###e
 CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn�t recognize.
@@ -1001,7 +1001,7 @@ Output:
 
     #66c20a // hsl(90, 90%, 40%)
 ###fadein
-Decrease the transparency (or increase the opacity) of a color, making it more opaque. Has no effect on opaque colours. To fade in the other direction use `fadeout`.
+Decrease the transparency (or increase the opacity) of a color, making it more opaque. Has no effect on opaque colors. To fade in the other direction use `fadeout`.
 
 Parameters:
 
@@ -1052,7 +1052,7 @@ Output:
 
     rgba(128, 242, 13, 0.1) //hsla(90, 90%, 50%, 0.1)
 ###spin
-Rotate the hue angle of a color in either direction. While the angle range is 0-360, it applies a mod 360 operation, so you can pass in much larger (or negative) values and they will wrap around e.g. angles of 360 and 720 will produce the same result. Note that colours are passed through an RGB conversion, which doesn't retain hue value for greys (because hue has no meaning when there is no saturation), so make sure you apply functions in a way that preserves hue, for example don't do this:
+Rotate the hue angle of a color in either direction. While the angle range is 0-360, it applies a mod 360 operation, so you can pass in much larger (or negative) values and they will wrap around e.g. angles of 360 and 720 will produce the same result. Note that colors are passed through an RGB conversion, which doesn't retain hue value for greys (because hue has no meaning when there is no saturation), so make sure you apply functions in a way that preserves hue, for example don't do this:
 
     @c: saturate(spin(#aaaaaa, 10), 10%);
 
