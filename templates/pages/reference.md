@@ -36,11 +36,11 @@
     hsv(@hue, @saturation, @value);              // creates a color
     hsva(@hue, @saturation, @value, @alpha);     // creates a color
 
-    hue(@color);           // returns the `hue` channel of @color in the HSL space
-    saturation(@color);    // returns the `saturation` channel of @color in the HSL space
+    hue(@color);           // returns the 'hue' channel of @color in the HSL space
+    saturation(@color);    // returns the 'saturation' channel of @color in the HSL space
     lightness(@color);     // returns the 'lightness' channel of @color in the HSL space
-    hsvhue(@color);        // * returns the `hue` channel of @color in the HSV space
-    hsvsaturation(@color); // * returns the `saturation` channel of @color in the HSV space
+    hsvhue(@color);        // * returns the 'hue' channel of @color in the HSV space
+    hsvsaturation(@color); // * returns the 'saturation' channel of @color in the HSV space
     hsvvalue(@color);      // * returns the 'value' channel of @color in the HSV space
     red(@color);           // returns the 'red' channel of @color
     green(@color);         // returns the 'green' channel of @color
