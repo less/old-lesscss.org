@@ -6,27 +6,27 @@
 
     unit(@dimension, [@unit: ""]); // remove or change the unit of a dimension
     color(@string);                // parses a string to a color
-    data-uri([mimetype,] url);       // * inlines a resource and falls back to url()
+    data-uri([mimetype,] url);     // * inlines a resource and falls back to url()
 
     ceil(@number);                 // rounds up to an integer
     floor(@number);                // rounds down to an integer
     percentage(@number);           // converts to a %, e.g. 0.5 -> 50%
     round(number, [places: 0]);    // rounds a number to a number of places
-	sqrt(number);                  // * calculates square root of a number
-	abs(number);                   // * absolute value of a number
-	sin(number);                   // * sine function
-	asin(number);                  // * arcsine - inverse of sine function
-	cos(number);                   // * cosine function
-	acos(number);                  // * arccosine - inverse of cosine function
-	tan(number);                   // * tangent function
-	atan(number);                  // * arctangent - inverse of tangent function
-	pi();                          // * returns pi
-	pow(@base, @exponent);	   // * first argument raised to the power of the second argument
-	mod(number, number);	   // * first argument modulus second argument
+    sqrt(number);                  // * calculates square root of a number
+    abs(number);                   // * absolute value of a number
+    sin(number);                   // * sine function
+    asin(number);                  // * arcsine - inverse of sine function
+    cos(number);                   // * cosine function
+    acos(number);                  // * arccosine - inverse of cosine function
+    tan(number);                   // * tangent function
+    atan(number);                  // * arctangent - inverse of tangent function
+    pi();                          // * returns pi
+    pow(@base, @exponent);         // * first argument raised to the power of the second argument
+    mod(number, number);           // * first argument modulus second argument
 
-	convert(number, units);    // * converts between number types
-	unit(number, units);       // *changes number units without converting it
-	color(string);             // converts string or escaped value into color
+    convert(number, units);        // * converts between number types
+    unit(number, units);           // *changes number units without converting it
+    color(string);                 // converts string or escaped value into color
 
     rgb(@r, @g, @b);                             // converts to a color
     rgba(@r, @g, @b, @a);                        // converts to a color
@@ -60,7 +60,7 @@
     tint(@color, 10%);                      // return a color mixed 10% with white
     shade(@color, 10%);                     // return a color mixed 10% with black
     greyscale(@color);                      // returns a grey, 100% desaturated color
-    contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]); 
+    contrast(@color1, [@darkcolor: black], [@lightcolor: white], [@threshold: 43%]);
                                             // return @darkcolor if @color1 is > 43% luma
                                             // otherwise return @lightcolor, see notes
 
@@ -84,14 +84,14 @@
     isem(@emOrAnything);                    // returns true if it is a number and an em
     isunit(@numberOrAnything, "rem");       // * returns if a parameter is a number and is in a particular unit
 
-	// * These functions are only available in the 1.4.0 beta
-	
+    // * These functions are only available in the 1.4.0 beta
+
 #String functions
 ###escape
 
-Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to special characters found in the input string. 
+Applies [URL-encoding](http://en.wikipedia.org/wiki/Percent-encoding) to special characters found in the input string.
 
-* Following characters are exceptions and not encoded: `,`, `/`, `?`, `@`, `&`, `+`, `'`, `~`, `!` and `$`. 
+* Following characters are exceptions and not encoded: `,`, `/`, `?`, `@`, `&`, `+`, `'`, `~`, `!` and `$`.
 * Most common encoded characters are: `<space>`, `#`, `^`, `(`, `)`, `{`, `}`, `|`, `:`, `>`, `<`, `;`, `]`, `[` and `=`.
 
 Parameters:
@@ -107,11 +107,11 @@ Example:
 Output:
 
     a%3D1
-    
+
 Note: Function behavior if a parameter is non-string parameters is not defined. Current implementation returns `undefined` on color and unchanged input on any other kind of argument. This behaviour should not be relied on and can change in the future.
 
 ###e
-CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn�t recognize.
+CSS escaping similar to `~"value"` syntax. It expects string as a parameter and return its content as is, but without quotes. It can be used to output CSS value which is either not valid CSS syntax, or uses proprietary syntax which LESS doesn't recognize.
 
 Parameters:
 
@@ -126,14 +126,14 @@ Example:
 Output:
 
     filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
-    
+
 Note: The function accepts also `~""` escaped values and numbers as parameters. Anything else returns an error.
 
 ###% format
 The function `%("format", arguments ...)` formats a string. The first argument is string with placeholders. All placeholders start with percentage symbol `%` followed by letter `s`,`S`,`d`,`D`,`a`, or `A`. Remaining arguments contain expressions to replace placeholders. If you need to print the percentage symbol, escape it by another percentage `%%`.
 
-Use uppercase placeholders if you need to escape special characters into their utf-8 escape codes. 
-The function escapes all special characters except `()'~!`. Space is encoded as `%20`. Lowercase placeholders leave special characters as they are. 
+Use uppercase placeholders if you need to escape special characters into their utf-8 escape codes.
+The function escapes all special characters except `()'~!`. Space is encoded as `%20`. Lowercase placeholders leave special characters as they are.
 
 Placeholders:
 * d, D, a, A - can be replaced by any kind of argument (color, number, escaped value, expression, ...). If you use them in combination with string, the whole string will be used - including its quotes. However, the quotes are placed into the string as they are, they are not escaped by "/" nor anything similar.
@@ -159,7 +159,7 @@ Output:
     format-a-d-upper: "repetitions: 3 file: %22directory%2Ffile.less%22";
     format-s: "repetitions: 3 file: directory/file.less";
     format-s-upper: "repetitions: 3 file: directory%2Ffile.less";
-    
+
 #Misc functions
 ###color
 Parses a color, so a string representing a color becomes a color.
@@ -320,7 +320,7 @@ Example:
 Output:
 
     5cm
-	
+
 Example:
 
     sqrt(18.6%)
@@ -345,7 +345,7 @@ Example:
 Output:
 
     25cm
-	
+
 Example:
 
     abs(-18.6%)
@@ -388,7 +388,7 @@ Returns: `number`
 Example:
 
     asin(-0.8414709848078965)
-    asin(0) 
+    asin(0)
     asin(2)
 
 Output:
@@ -430,7 +430,7 @@ Returns: `number`
 Example:
 
     acos(0.5403023058681398)
-    acos(1) 
+    acos(1)
     acos(2)
 
 Output:
@@ -551,7 +551,7 @@ Converts numbers from one type into another. First argument contains number with
 
 Compatible unit groups:
 * lengths: `m`, `cm`, `mm`, `in`, `pt` and `pc`,
-* time: `s` and `ms`, 
+* time: `s` and `ms`,
 * angle: `rad`, `deg`, `grad` and `turn`.
 
 
@@ -574,7 +574,7 @@ Output:
     140mm
     8
 
-### Unit 
+### Unit
 Returns number with different units. Only units are changed, number itself is not converted. The function assumes that second parameter contains valid unit type.
 
 Parameters:
@@ -595,7 +595,7 @@ Output:
     -9m
 
 ### Color
-Converts a string or escaped value into a color. The input must contain color in hexadecimal or shorthand representation. 
+Converts a string or escaped value into a color. The input must contain color in hexadecimal or shorthand representation.
 
 Parameters:
 
@@ -1160,11 +1160,11 @@ Returns: `color`
 Examples:
 
     multiply(#ff6600, #000000);
-    
+
 ![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
 ![Color 2](http://placehold.it/100x40/000000/ffffff&text=000000)
 ![Color 3](http://placehold.it/100x40/000000/ffffff&text=000000)
-    
+
     multiply(#ff6600, #333333);
 
 ![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
